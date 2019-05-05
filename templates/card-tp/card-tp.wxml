@@ -1,0 +1,158 @@
+<!-- 模板1 -->
+<template name="tp1">
+  <view class='card1-head-box'>
+    <view class='card1-head'>
+      <image class='card1-head-img skeletons-rect' src='{{userInfo.person_avatar||"/images/icon/default.svg"}}'></image>
+      <view class='flex-center pd-lg'>
+        <view class="skeletons-rect">
+          <image class='avatar' src='{{userInfo.company_logo_thumb||"/images/icon/default.svg"}}'></image>
+        </view>
+
+        <view class='ml-lg  flex-1 ellipsis'>
+          <view class='flex-y-baseline '>
+            <view class='flex-y-center'>
+              <view class='f-title-lg c-title skeletons-rect'>{{userInfo.name}}</view>
+              <!-- <image class='icon-md ml-md' src='/images/info/{{userInfo.vip_level==2?"vip":"vip-no"}}.png' ></image> -->
+            </view>
+
+            <view class='skeletons-rect c-caption f-caption ml-md ellipsis' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+          </view>
+          <view class='skeletons-rect c-caption f-paragraph flex-1 ellipsis' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+<!-- 模板2 -->
+<template name="tp2">
+  <view class='card2-img-box'>
+    <image class='card2-img' src='{{userInfo.person_avatar||userInfo.person_avatar_thumb||"/images/icon/default.svg"}}'></image>
+    <view class='card2-head'>
+      <view class='flex-y-center'>
+        <view class='flex-1'>
+          <view class='flex-y-center'>
+            <view class='f-title-xl'>{{userInfo.name}}</view>
+            <!-- <image class='icon-md ml-md' src='/images/info/{{userInfo.vip_level==2?"vip":"vip-no"}}.png' ></image> -->
+          </view>
+
+          <view class='mt-md' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+        </view>
+        <image class='avatar' src='{{userInfo.company_logo_thumb||userInfo.company_logo||"/images/icon/default.svg"}}'></image>
+      </view>
+      <view class='card2-user-info'>
+        <view class='flex-y-center' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+          <image class='icon-md' src='/images/card/home.png'></image>
+          <view class='flex-1 ml-sm ellipsis'>
+            {{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}
+          </view>
+        </view>
+        <view class='flex-y-center mt-sm' bindtap='{{myself&&!userInfo.tel?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+          <image class='icon-md' src='/images/card/call.png'></image>
+          <view class='flex-1 ml-sm '>
+            {{userInfo.tel||"未填写电话"}}
+          </view>
+        </view>
+        <view class='flex-y-center mt-sm' bindtap='{{myself&&!userInfo.mini_address?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+          <image class='icon-md' src='/images/card/address.png'></image>
+          <view class='flex-1 ml-sm ellipsis'>
+            {{userInfo.mini_address||"未填写地址"}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:130rpx;background:#fff;z-index:-2;position:relative'></view>
+
+</template>
+
+<!-- 模板3 -->
+<template name="tp3">
+  <view class='card3-box'>
+    <view class='card3-item'>
+      <view class='f-title-xl'>{{userInfo.name}}</view>
+
+      <view class='f-caption c-caption mt-md mb-xxl' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+
+      <view class='f-caption c-caption ellipsis' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}
+      </view>
+      <view class='f-caption c-caption mt-md' bindtap='{{myself&&!userInfo.tel?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.tel||"未填写电话"}}
+      </view>
+      <view class='f-caption c-caption mt-md ellipsis' bindtap='{{myself&&!userInfo.mini_address?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.mini_address||"未填写地址"}}
+      </view>
+      <image class='card3-box_img' src='{{userInfo.person_avatar||userInfo.person_avatar_thumb||"/images/icon/default.svg"}}'></image>
+    </view>
+  </view>
+</template>
+
+<!-- 模板4 -->
+<template name="tp4">
+  <view class='card4-box'>
+    <view class='card4-item'>
+      <view class='f-title-xl'>{{userInfo.name}}</view>
+
+      <view class='f-caption mt-md mb-xxl' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+
+      <view class='f-caption ellipsis' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}
+      </view>
+      <view class='f-caption mt-md' bindtap='{{myself&&!userInfo.tel?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.tel||"未填写电话"}}
+      </view>
+      <view class='f-caption mt-md ellipsis' bindtap='{{myself&&!userInfo.mini_address?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.mini_address||"未填写地址"}}
+      </view>
+
+    </view>
+    <image class='card4-box_img' src='{{userInfo.person_avatar||userInfo.person_avatar_thumb||"/images/icon/default.svg"}}'></image>
+    <image class='card4-box_bg' src='/images/card/card4-bg.png'></image>
+  </view>
+</template>
+<!-- 模板5 -->
+<template name="tp5">
+  <view class='card5-box'>
+    <view class='card5-box_item '>
+      <image class='card5-box_img' src='{{userInfo.person_avatar||userInfo.person_avatar_thumb||"/images/icon/default.svg"}}'></image>
+      <view class='card5-name'>{{userInfo.name}}</view>
+      <view class='f-caption mt-md' bindtap='{{myself&&!userInfo.tel?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.tel||"未填写电话"}}
+      </view>
+      <view class='flex-y-center mt-md'>
+        <view class='f-caption' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+        <view class='shu'></view>
+        <view class='f-caption flex-1 ellipsis' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+          {{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}
+        </view>
+      </view>
+      <view class='f-caption mt-md ellipsis' bindtap='{{myself&&!userInfo.mini_address?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>
+        {{userInfo.mini_address||"未填写地址"}}
+      </view>
+    </view>
+    <image class='card5-box_bg' src='/images/card/card5-bg.png'></image>
+  </view>
+</template>
+
+<!-- 模板6 -->
+<template name="tp6">
+  <view class='card5-box'>
+    <view class='card3-item'>
+      <view class='f-title-xl'>{{userInfo.name}}</view>
+
+      <view class='f-caption  mt-md mb-xxl' bindtap='{{myself&&!userInfo.position?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.position?userInfo.position:myself?"点击填写职位":"未填写职位"}}</view>
+
+      <view class='f-caption ellipsis' bindtap='{{myself&&!userInfo.company_name?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.company_name?userInfo.company_name:myself?"点击填写公司":"未填写公司"}}
+      </view>
+      <view class='f-caption  mt-md' bindtap='{{myself&&!userInfo.tel?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.tel||"未填写电话"}}
+      </view>
+      <view class='f-caption  mt-md ellipsis' bindtap='{{myself&&!userInfo.mini_address?"goUrl":""}}' data-url='/pages/card/add/add?active=0'>{{userInfo.mini_address||"未填写地址"}}
+      </view>
+      <image class='card3-box_img' src='{{userInfo.person_avatar||userInfo.person_avatar_thumb||"/images/icon/default.svg"}}'></image>
+
+    </view>
+    <image class='card5-box_bg' src='/images/card/card6-bg.png'></image>
+  </view>
+</template>

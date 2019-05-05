@@ -1,0 +1,15 @@
+<view class="head">
+  <view class='f-caption c-caption'>你将消息发给4客户</view>
+	<view class='f-title c-title mt-sm'>张某某、徐某某、赵某某</view>
+</view>
+
+<view class="bottom-box">
+  <view class='fast-list'>
+	  <view class='fast-item'>常用话术</view>
+	</view>
+  <view class='input-box'>
+    <input class='input-text' placeholder='请输入...' cursor-spacing="20rpx" bindconfirm='{{text==""?"":"confirm"}}' value='{{text}}' bindinput='handerInputChange' focus='{{focus}}' ></input>
+    <!-- <image class='icon-md ml-md' src='/images/chat/add.svg' bindtap='changeSpread'></image> -->
+    <button type="primary" size="mini" bindtap='confirm' disabled='{{text==""}}'>发送</button>
+  </view>
+</view>

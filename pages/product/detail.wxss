@@ -1,0 +1,39 @@
+page{
+  background: #fff;
+}
+.cover-img{
+  width: 750rpx;
+  height: 750rpx;
+}
+.text-price{
+  font-size: 34rpx;
+  color: #e9323e;
+}
+.desc-img{
+  width: 100%;
+  margin-top: 10rpx;
+}
+.fixed-bottom-list{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.fixed-bottom-item{
+  flex:1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+.line-y{
+  width: 1px;
+  height: 60%;
+  background: #eeeeee;
+}

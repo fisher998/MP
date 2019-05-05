@@ -1,0 +1,25 @@
+<image src="/images/partner/head.jpg" class="parter-head_img"></image>
+<view class='partner-item' wx:for="{{list}}" wx:key="{{index}}" bindtap='handerChange' data-index='{{index}}'>
+  <view class='flex-1'>
+    <view class='flex-y-center'>
+      <view class='partner-item_title  ellipsis'>{{item.name}}</view>
+      <view class='partner-item_price'>{{item.price>0?"￥"+item.price:"限时免费"}}</view>
+      <view class='partner-tag' wx:if="{{item.is_own}}">已成为</view>
+    </view>
+    <view class='f-caption-lg c-caption flex-y-center'>
+      <view>直接比例:{{item.proportion1||0}}%</view>
+      <view class='ml-md'>间接比例:{{item.proportion2||0}}%</view>
+    </view>
+  </view>
+  <image class='icon-lg' src='/images/partner/{{index==current?"check-fill":"check"}}.png'></image>
+</view>
+
+<view class='fixed-bottom pd-lg'>
+  <form bindsubmit="formSubmit" report-submit>
+    <button type='warn'  hover-class='btn-hover' form-type="submit">开通</button>
+  </form>
+</view>
+
+<view class='nav-box' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+  <text>回到\n首页</text>
+</view>

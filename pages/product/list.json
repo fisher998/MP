@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "产品列表",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "loading": "/components/loading/loading",
+    "popup": "/components/popup/popup"
+  }
+}

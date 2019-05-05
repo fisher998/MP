@@ -1,0 +1,32 @@
+<view class="cell pd-lg b-1px-b" bindtap='goUrl' data-url='/pages/card/add/add?active=0'>
+  <image class='avatar' src='/images/add/1.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>名片资料</view>
+     <view class='c-caption f-caption'>完善名片信息</view>
+  </view>
+  <view class='right-arrow'></view>
+</view>
+<view class="cell pd-lg b-1px-b" bindtap='goUrl' data-url='/pages/card/add/add?active=1'>
+  <image class='avatar' src='/images/add/2.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>个人介绍</view>
+     <view class='c-caption f-caption'>语音、图片展现自己</view>
+  </view>
+  <view class='right-arrow'></view>
+</view>
+<view class="cell pd-lg b-1px-b" bindtap='goUrl' data-url='/pages/card/add/add?active=2'>
+  <image class='avatar' src='/images/add/3.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>公司介绍</view>
+     <view class='c-caption f-caption'>介绍公司、业务、产品</view>
+  </view>
+  <view class='right-arrow'></view>
+</view>
+<view class="cell pd-lg " bindtap='goUrl' data-url='/pages/product/list?myself=1&card_id={{userInfo.card.id}}'>
+  <image class='avatar' src='/images/add/4.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>产品管理</view>
+     <view class='c-caption f-caption'>上传、管理产品</view>
+  </view>
+  <view class='right-arrow'></view>
+</view>

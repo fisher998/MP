@@ -1,0 +1,16 @@
+<!-- <view class='panel-head b-1px-tb'>
+  <view class='flex-1'>选择标签</view>
+	<button size="mini" bindtap='handerCheckAllChange' >{{isCheckAll?"不选":"全选"}}</button>
+</view> -->
+<view class='panel-item b-1px-b' wx:for="{{list}}" wx:key="{{index}}" bindtap='goUrl' data-url='/radar/pages/message/select-tag/detail?index={{index}}' >
+  <view class='flex-1'>
+    <view class='f-title c-title'>{{item.tagName}}</view>
+		<view class='f-caption-lg c-caption'>共{{item.arr.length}}个客户</view>
+  </view>
+  <!-- <radio catchtap='handerRadioChange' data-index='{{index}}' data-checked='{{item.checked}}' checked='{{item.checked}}'></radio> -->
+</view>
+
+<!-- <view class='fixed-bottom_place'></view>
+<view class='fixed-bottom fill-base'>
+  <button type='primary' bindtap='submit'>确定</button>
+</view> -->

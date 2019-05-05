@@ -1,0 +1,11 @@
+<popup show="{{show}}" hide-on-blur="{{false}}">
+  <view class='setting-box'>
+	  <view class='setting-title'>微信授权</view>
+		<view class='setting-subtitle'>小程序申请获取以下权限</view>
+		<view class='setting-content'>{{contentList[name]}}</view>
+		<view class='btn-list'>
+		  <button class='setting-btn cancel-btn' bindtap='cancel'>取消</button>
+			<button class='setting-btn submit-btn' open-type='openSetting' bindopensetting="success">去开启</button>
+		</view>
+	</view>
+</popup>

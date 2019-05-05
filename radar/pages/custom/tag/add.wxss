@@ -1,0 +1,73 @@
+@import '../../../styles/common.wxss';
+
+.title-item {
+  padding: 36rpx 35rpx 20rpx;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  color: #646464;
+  font-size: 26rpx;
+  background: #fafafa;
+}
+
+.input-box {
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0 35rpx;
+}
+
+.input-text {
+  flex: 1;
+  height: 1.8rem;
+  border-bottom: 1px solid #09b807;
+}
+
+.input-placeholder {
+  color: #969696;
+}
+
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 0 35rpx 30rpx;
+}
+
+.member-item {
+  position: relative;
+  width: 90rpx;
+  height: 130rpx;
+  margin-right: 28rpx;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-item:nth-child(6n) {
+  margin-right: 0;
+}
+
+.member-avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 6rpx;
+  display: block;
+}
+
+.member-reduce {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+button[type=default] {
+  color: #222;
+  background-color: #fff;
+}
+
+

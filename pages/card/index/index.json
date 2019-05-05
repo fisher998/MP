@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "我的名片",
+	"navigationBarBackgroundColor": "#fff",
+	"navigationBarTextStyle": "black",
+  "usingComponents": {
+    "popup": "/components/popup/popup",
+    "badge": "/components/badge/badge",
+    "message": "/components/message/message",
+    "skeletons": "/components/skeleton/skeleton",
+    "roller": "/components/roller/roller",
+    "roller-item": "/components/roller-item/roller-item"
+  }
+}

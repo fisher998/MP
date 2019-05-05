@@ -1,0 +1,130 @@
+.person-record-more{
+	padding: 0 35rpx;
+	background: #fff;
+}
+.person-record-more_item{
+	padding: 20rpx 0;
+	display: flex;
+	align-items: center;
+}
+.person-record-more_title{
+	font-size: 26rpx;
+	color: #969696;
+	max-width: 160rpx;
+	display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+.person-record-more_chart{
+	background: linear-gradient(to right,#ffdc99,#ffa800);
+	width: 200rpx;
+	height: 16rpx;
+	border-radius: 8rpx;
+	margin: 0 10rpx;
+}
+.person-record-more_chart--even{
+	background: linear-gradient(to right,#60f672,#21bf34);
+}
+.person-record-more_number{
+	font-size: 28rpx;
+	color: #646464;
+}
+
+/* 1px方案,改变border的颜色即可 */
+.b-1px,
+.b-1px-t,
+.b-1px-b,
+.b-1px-tb,
+.b-1px-l,
+.b-1px-r {
+    position: relative;
+}
+.b-1px:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    border: 1px solid  #ececec;
+    color:  #ececec;
+    height: 200%;
+    transform-origin: left top;
+    transform: scale(0.5);
+    box-sizing: border-box
+}
+.b-1px-t:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 0 0;
+    transform: scaley(0.5);
+     box-sizing: border-box
+}
+.b-1px-b:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 0 100%;
+    transform: scaley(0.5);
+     box-sizing: border-box
+}
+.b-1px-tb:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 0 0;
+    transform: scaley(0.5);
+     box-sizing: border-box
+}
+.b-1px-tb:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 0 100%;
+    transform: scaley(0.5);
+     box-sizing: border-box
+}
+.b-1px-l:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 0 0;
+    transform: scalex(0.5);
+    box-sizing: border-box
+}
+.b-1px-r::after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid  #ececec;
+    color:  #ececec;
+    transform-origin: 100% 0;
+    transform: scalex(0.5);
+    box-sizing: border-box
+}

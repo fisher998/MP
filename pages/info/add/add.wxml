@@ -1,0 +1,49 @@
+<textarea placeholder='输入发布内容' bindinput='handerInputChange' data-key='content' value='{{form.content}}' maxlength='1000' placeholder-class='c-placeholder'></textarea>
+<view class='pr-lg fill-base text-right c-caption f-caption'>{{form.content?form.content.length:0}}/1000</view>
+<view class='fill-base pd-lg' style='padding-top:0'>
+  <scroll-view scroll-x class='scroll-x'>
+    <view class='scroll-x-item' wx:for="{{form.imgs}}" wx:key="{{index}}">
+      <image class='scroll-x-item__img' src='{{item.path_thumb||item.path}}'></image>
+      <view class='del-image' bindtap='delImage' data-index='{{index}}' data-key='imgs'>x</view>
+    </view>
+
+    <view class='scroll-x-item' wx:if="{{form.imgs.length<9}}" bindtap='chooseImage' data-key='imgs' data-size='{{9}}'>
+      <view class='upload-add'></view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="cell-list flex-1">
+  <view class='cell b-1px-t' bindtap='goUrl' data-url='/pages/common/category/category?key=category&id={{form.category.id}}&pid={{form.category.pid}}&level=2'>
+    <view class='cell-label'>选择行业</view>
+    <view class='flex-1 text-right {{form.category.title?"":"c-placeholder"}}'>{{form.category.title||"选择行业"}}</view>
+    <view class='right-arrow'></view>
+  </view>
+  <view class='cell b-1px-t' bindtap='chooseLocation'>
+    <view class='cell-label'>当前位置</view>
+    <view class='flex-1 text-right {{form.mini_address?"":"c-placeholder"}}'>{{form.mini_address||"选择位置"}}</view>
+    <view class='right-arrow'></view>
+  </view>
+  <block wx:if="{{ruleList.length>0&&pay_switch}}">
+    <view class='cell b-1px-t' bindtap='goUrl' data-url='/pages/common/category/category?key=company_category&id={{form.company_category.id}}&pid={{form.company_category.pid}}&level=2'>
+      <view class='cell-label'>付费置顶</view>
+      <view class='flex-1'></view>
+    </view>
+    <view class='meal-list'>
+      <radio wx:for="{{ruleList}}" wx:key="{{index}}" bindtap='handerRuleChange' data-id='{{item.id}}' data-money='{{item.money}}' checked='{{form.term_id==item.id}}'>{{item.money}}元/{{item.name}}</radio>
+    </view>
+  </block>
+
+
+
+</view>
+
+<view class='pd-lg'>
+  <button type='primary' bindtap='submit'><text wx:if="{{money>0}}">{{money}}元</text><text>发布</text></button>
+</view>
+<view class='flex-center f-caption' bindtap='goUrl' data-url='/pages/info/agreement/agreement' style='height:60rpx;'>
+  <view>点击发布，代表您完全认可并遵守</view>
+  <view class='c-primary text-underline'>《分类信息发布准则》</view>
+</view>
+
+<setting show="{{settingShow}}"></setting>

@@ -1,0 +1,37 @@
+
+
+.good-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30rpx;
+  background: #fff;
+}
+.good-item {
+  width: 328rpx;
+  height: 450rpx;
+  margin-top: 32rpx;
+  margin-right: 30rpx;
+}
+
+.good-item:nth-child(2n) {
+  margin-right: 0;
+}
+.good-image{
+  width: 328rpx;
+  height: 328rpx;
+  background: #e2e2e2;
+}
+.good-name{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.good-price{
+   font-size: 28rpx;
+   color: #ed1b1a;
+}
+.action-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90rpx;
+}

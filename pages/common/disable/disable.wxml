@@ -1,0 +1,6 @@
+<view class='disable-box'>
+  <icon type="warn" size="80"/>
+  <view class='disable-box_text'>你已被禁用，请联系客服!</view>
+	<button type='primary' open-type='contact'>联系客服</button>
+</view>
+

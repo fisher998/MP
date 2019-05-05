@@ -1,0 +1,5 @@
+<view class="tag tag-{{type}} {{plain?'tag-'+type+'-plain':''}}">
+  <slot>
+	</slot>
+</view>
+

@@ -1,0 +1,124 @@
+@import '../index/index.wxss';
+page{
+  background: #454151;
+}
+.card-voice{
+  background: transparent;
+  position: absolute;
+  top:150rpx;
+	width: 100%;
+}
+.card-voice-item{
+	flex:1;
+  display: flex;
+  align-items: center;
+  /* width: 350rpx; */
+  height: 80rpx;
+  background: #9eea6a;
+  border-radius: 6rpx;
+  /* border:1px solid #94d64f; */
+  position: relative;
+}
+
+.card-voice-item::after{ 
+  content: '';   
+  position: absolute;   
+  left: 0;   
+  top: calc(40rpx - 6px);
+  margin-left:-11px;         
+  border: 6px solid transparent;   
+  border-right-color: #9eea6a;  
+}
+
+.card-voice-time{
+  color: #888;
+  font-size: 30rpx;
+}
+
+.card-voice-status{
+  font-size: 28rpx;
+  color: #60c33c;
+  margin-left: 20rpx;
+}
+.wave {
+  position: absolute;
+  top: 250rpx;
+	margin-top: 20rpx;
+  width: 750rpx;
+  height: 750rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: white;
+}
+
+.wave .circle {
+    position: absolute;
+		left: 0;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0.3);
+}
+/* 波纹效果 */
+.wave.ripple .circle {
+    width: calc(100% - 12rpx); /* 减去边框的大小 */
+    height: calc(100% - 12rpx);/* 减去边框的大小 */
+    border: 20rpx solid #fff;
+}
+
+/* .wave.ripple .circle:first-child {
+  animation: circle-opacity 3s infinite;
+}
+
+.wave.ripple .circle:nth-child(2) {
+  animation: circle-opacity 3s infinite;
+  animation-delay: .4s;
+}
+
+.wave.ripple .circle:nth-child(3) {
+  animation: circle-opacity 3s infinite;
+  animation-delay: .8s;
+} */
+.circle1 {
+  animation: circle-opacity 2s infinite;
+}
+
+.circle2 {
+  animation: circle-opacity 2s infinite;
+  animation-delay: .2s;
+}
+
+.circle3 {
+  animation: circle-opacity 2s infinite;
+  animation-delay: .4s;
+}
+
+.wave.ripple.danger .circle {
+  border-color: #9e9e9e;
+}
+
+@keyframes circle-opacity{
+    from {
+        opacity: 1;
+        transform: scale(0.2);
+        border: 20rpx solid #fff;
+    }
+    to {
+        opacity: 0;
+        transform: scale(1);
+        border: 2rpx solid #fff;
+    }
+}
+.record-img{
+  width: 40rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}

@@ -1,0 +1,62 @@
+@import "../../../templates/card/card.wxss";
+
+.partner-head{
+	height: 360rpx;
+	background: #ea3341;
+	overflow: hidden;
+}
+.partner-info{
+	display: flex;
+	align-items: center;
+	width: 686rpx;
+	height: 88rpx;
+	background: #fff;
+	border-radius: 8rpx;
+	margin: 32rpx;
+	padding-right: 24rpx;
+	font-size: 24rpx;
+}
+.partner-count{
+	display: flex;
+	color: #fff;
+	padding: 16rpx 32rpx 0
+}
+.partner-info_title{
+	color: #000;
+	width: 160rpx;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: 1px solid #f4f6f8;
+}
+.partner-info_introduce{
+	color: #e53240;
+	flex:1;
+	margin-left: 32rpx;
+}
+.partner-ad-box{
+	padding: 16rpx 32rpx;
+	background: #fff;
+}
+.partner-ad_img{
+	height: 200rpx;
+	width:100%;
+	display: block;
+	border-radius: 4rpx;
+}
+.cell{
+	height: 96rpx;
+}
+.popup-top{
+	display: flex;
+	align-items: center;
+	background: #f4f6f8;
+	height: 80rpx;
+	padding: 0 32rpx;
+}
+.poster-img{
+	width: 480rpx;
+	height: 853rpx;
+	margin:30rpx 135rpx 0
+}

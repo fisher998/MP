@@ -1,0 +1,68 @@
+<search placeholder="输入客户名称" bindconfirm="handerConfirm"></search>
+<view class='b-1px-b'></view>
+<view class='fast-list'>
+  <view class='fast-item' bindtap='goUrl' data-url='/radar/pages/custom/report/index'>
+    <image class='r-avatar' src='../../../images/icon/c1.png'></image>
+    <view class='f-caption c-caption mt-sm'>AI报表</view>
+  </view>
+  <!-- <view class='fast-item' bindtap='goUrl' data-url='/radar/pages/message/group-send/index'>
+    <image class='r-avatar' src='../../../images/icon/c2.png'></image>
+    <view class='f-caption c-caption mt-sm'>群发助手</view>
+  </view> -->
+  <view class='fast-item' bindtap='goUrl' data-url='/radar/pages/custom/tag/index?op=list'>
+    <image class='r-avatar' src='../../../images/icon/c3.png'></image>
+    <view class='f-caption c-caption mt-sm'>标签客户</view>
+  </view>
+  <view class='fast-item' bindtap='goUrl' data-url='/radar/pages/custom/star/index'>
+    <image class='r-avatar' src='../../../images/icon/c4.png'></image>
+    <view class='f-caption c-caption mt-sm'>星标客户</view>
+  </view>
+</view>
+
+<view class='space-lg'></view>
+
+<sticky  scroll-top="{{ scrollTop }}" top="0">
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:140rpx;border-color:{{color}};"  active-tab-style="color:{{color}};">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:250rpx;'>
+        {{item.title}}
+      </view>
+    </tab>
+  </tabs>
+
+  <view class='b-1px-b'></view>
+  <view slot="sticky">
+    <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:120rpx;border-color:{{color}};"  active-tab-style="color:{{color}};">
+      <tab wx:for="{{tabList}}" wx:key="{{index}}">
+        <view style='width:250rpx;'>
+          {{item.title}}
+        </view>
+      </tab>
+    </tabs>
+    <view class='b-1px-b'></view>
+  </view>
+</sticky>
+<view class='total-item b-1px-b'>
+   <view class='total-item_name'>{{['全部客户','跟进中客户','已成交客户'][tabActiveIndex]}}</view>
+   <view class='total-item_count'>共{{list.total}}名</view>
+</view>
+<view class='panel-item  b-1px-b' wx:for="{{list.data}}" wx:key="{{index}}" catchtap='goUrl' data-url='/radar/pages/custom/detail/detail?uid={{item.c_uid}}'>
+  <image class='r-avatar' src='{{item.person_avatar}}'></image>
+  <view class='flex-1 ml-md'>
+    <view class='panel-item-right_top'>
+      <image wx:if="{{item.tel}}" class='icon-sm' src='../../../images/icon/phone.png'></image>
+      <view class='c-title f-title name ellipsis'>{{item.nick_name}}</view>
+      <tag type="primary" class="ml-sm" wx:if="{{item.status==3}}">已成交</tag>
+      <tag type="genjin" class="ml-sm" wx:if="{{item.status==2}}">跟进中</tag>
+      <image wx:if="{{item.is_stra}}" class='icon-sm ml-sm' src='../../../images/icon/star-fill.png'></image>
+      <view class='c-caption f-caption-lg flex-1 text-right'>{{tabActiveIndex==0?item.create_time:item.last_time}}</view>
+    </view>
+    <view wx:if="{{tabActiveIndex==0}}" class='c-caption f-caption-lg'>来自{{item.come_from}}</view>
+    <view wx:else class='c-caption f-caption-lg flex-y-center'>成为你的客户
+      <text style='color:{{color}}'>{{item.days}}</text>天，互动了
+      <text style='color:{{color}}'>{{item.count}}</text>次</view>
+  </view>
+</view>
+
+<loading loading="{{loading}}" list="{{list}}"></loading>
+<tabbar tabbar="{{tabBar}}"></tabbar>

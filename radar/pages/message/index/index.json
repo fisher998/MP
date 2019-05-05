@@ -1,0 +1,12 @@
+{
+	"navigationBarBackgroundColor": "#f9f9f9",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "消息",
+  "enablePullDownRefresh": false,
+	"usingComponents": {
+		"tabbar": "../../../components/tabbar/tabbar",
+		"loading": "../../../components/loading/loading",
+		"badge": "../../../components/badge/badge",
+    "swiper-out": "../../../components/swiper-out/swiper-out"
+	}
+}

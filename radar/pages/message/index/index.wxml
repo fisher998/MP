@@ -1,0 +1,55 @@
+<!-- <view class='panel-item b-1px-b'>
+  <image class='r-avatar' src='../../../images/icon/m1.png'></image>
+	<view class='flex-1 ml-md'>
+	   <view class='f-title c-title'>销售管家</view>
+		 <view class='f-caption-lg c-caption'>暂无消息</view>
+	</view>
+</view>
+<view class='panel-item b-1px-b' data-url='/radar/pages/message/group-send/index' bindtap='goUrl'>
+  <image class='r-avatar' src='../../../images/icon/m2.png'></image>
+	<view class='flex-1 ml-md'>
+	   <view class='f-title c-title'>群发助手</view>
+		 <view class='f-caption-lg c-caption'>一键群发方便快捷</view>
+	</view>
+</view>
+<view class='space-lg'></view> -->
+
+<view class='message-list'>
+  <block wx:for="{{list.data}}" wx:key="{{index}}">
+    <swiper-out height="140" operate-width="200" value="{{item.switch||'off'}}" bindchange="handerSwiperChange" data-index="{{index}}">
+      <view slot="content">
+        <view class='panel-item  {{index==0?"b-1px-tb":"b-1px-b"}}' bindtap='goUrl' data-url='/radar/pages/message/detail/detail?uid={{item.uid}}&nickName={{item.nick_name}}'>
+          <view class='message-avatar-box'>
+            <image class='r-avatar' src='{{item.person_avatar}}'></image>
+            <badge wx:if="{{item.un_read>0}}" custom-style="position: absolute;top:-8rpx;right:-8rpx;" text="{{item.un_read}}"></badge>
+          </view>
+
+          <view class='flex-1 ml-md ellipsis'>
+            <view class='message-right_top '>
+              <view class='flex-y-center'>
+                <!-- <image class='icon-sm' src='../../../images/icon/phone.png'></image> -->
+                <view class='flex-1 c-title f-title  ellipsis'>{{item.nick_name}}</view>
+                <view class='c-caption f-caption-lg'>{{item.timestring}}</view>
+              </view>
+              <view class='c-caption f-caption-lg ellipsis'>{{item.content}}</view>
+            </view>
+            <view class='message-right_bottom'></view>
+          </view>
+        </view>
+
+      </view>
+      <view slot="operate">
+        <view class='flex-center ' style='height:140rpx'>
+          <view style='background:#ff3a31;color:#fff;flex:1;height:140rpx;' class='flex-center' catchtap='delOut' data-uid='{{item.uid}}'  data-index="{{index}}">删除</view>
+        </view>
+
+      </view>
+    </swiper-out>
+
+  </block>
+
+
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>
+<tabbar tabbar="{{tabBar}}" nowPageIndex="{{1}}"></tabbar>
+

@@ -1,0 +1,51 @@
+@import '../../../styles/common.wxss';
+
+/* 时间 */
+
+.time-record-item {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 32rpx;
+  height: 150rpx;
+  margin: 24rpx 35rpx 0;
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.03);
+}
+/* 
+.time-record-item:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  border: 1px solid #e6e6e6;
+  color: #e6e6e6;
+  height: 200%;
+  transform-origin: left top;
+  transform: scale(0.5);
+  box-sizing: border-box;
+  border-radius: 20rpx;
+} */
+
+.time-record-text {
+  line-height: 1;
+  margin: 30rpx 35rpx 0;
+  color: #222;
+  font-size: 28rpx;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.time-record_top {
+  display: flex;
+  align-items: center;
+}
+
+.time-record_bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+}

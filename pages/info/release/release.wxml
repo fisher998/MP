@@ -1,0 +1,7 @@
+<import src="../../../templates/info/info.wxml" />
+
+ <view  class="cell-list" wx:for="{{list.data}}" wx:key="{{index}}">
+    <template is="info-my" data="{{...item,index}}"></template>
+  </view>
+
+  <loading loading="{{loading}}" list="{{list}}"></loading>

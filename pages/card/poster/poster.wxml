@@ -1,0 +1,9 @@
+<painter wx:if="{{template}}" customStyle='position:absolute;left:-999rpx;top:-999rpx;' palette="{{template}}" bind:imgOK="onImgOK"   />
+<image src='{{imagePath}}' class='poster-img' bindtap="previewImage"></image>
+
+<view class='fixed-bottom flex-center pd-lg'>
+  <button type='default' class='flex-1' open-type='share'>发微信</button>
+  <button type='primary' class='flex-1 ml-lg' bindtap='save'>保存到手机</button>
+</view>
+
+<setting show="{{settingShow}}" name="writePhotosAlbum"></setting>

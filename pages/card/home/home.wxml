@@ -1,0 +1,125 @@
+<import src="../../../templates/card-tp/card-tp.wxml" />
+<form bindsubmit="formSubmit" report-submit>
+  <view wx:if="{{otherUserInfo}}" id='container'>
+    <template is="tp{{otherUserInfo.now_temp_id}}" data="{{userInfo:otherUserInfo}}"></template>
+    <view class='count-list'>
+      <button class='share-btn count-item' form-type='submit'>
+        <image src="/images/card/look.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>浏览:{{otherUserInfo.view}}</view>
+      </button>
+      <button class='share-btn count-item' form-type='submit' bindtap='collect' data-type='{{3}}' data-mode='{{otherUserInfo.is_collect?-1:1}}' data-card_id='{{otherUserInfo.id}}'>
+        <image src="/images/card/{{otherUserInfo.is_collect?'collect-fill':'collect'}}.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>收藏:{{otherUserInfo.collect}}</view>
+      </button>
+      <button class='share-btn count-item' form-type='submit' bindtap='thumb' data-type='{{2}}' data-mode='{{otherUserInfo.is_like?-1:1}}' data-card_id='{{otherUserInfo.id}}'>
+        <image src="/images/card/{{otherUserInfo.is_like?'thumb1-fill':'thumb1'}}.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>点赞:{{otherUserInfo.like}}</view>
+      </button>
+    </view>
+    <view class='primary-btn_list'>
+      <button type='default' class='flex-1' form-type='submit' open-type='share'>分享名片</button>
+      <button type='primary' class='flex-1 ml-lg' form-type='submit' bindtap='collect' data-type='{{3}}' data-mode='{{otherUserInfo.is_collect?-1:1}}' data-card_id='{{otherUserInfo.id}}'>{{otherUserInfo.is_collect?"取消收藏":"收藏名片"}}</button>
+    </view>
+    <scroll-view scroll-x class='crad-info'>
+      <view class='crad-info-item' bindtap='addPhoneContact' wx:if="{{otherUserInfo.tel&&otherUserInfo.is_private_tel}}">
+        <view class='flex-y-center'>
+          <image class='icon-md' src='/images/card/down.png'></image>
+          <view class='f-caption c-caption ml-sm'>保存到</view>
+        </view>
+        <view class='f-paragraph ml-sm'>手机通讯录</view>
+      </view>
+      <view class='crad-info-item' wx:if="{{otherUserInfo.tel&&otherUserInfo.is_private_tel}}" bindtap='goUrl' data-url='tel:{{otherUserInfo.tel}}'>
+        <view class='flex-y-center'>
+          <image class='icon-md' src='/images/card/call-fill.png'></image>
+          <view class='f-caption c-caption ml-sm'>拨打电话</view>
+        </view>
+        <view class='f-paragraph ml-sm'>{{otherUserInfo.tel}}</view>
+      </view>
+      <view class='crad-info-item' wx:if="{{otherUserInfo.mini_address}}" bindtap='openLocation'>
+        <view class='flex-y-center'>
+          <image class='icon-md' src='/images/card/address-fill.png'></image>
+          <view class='f-caption c-caption ml-sm'>导航</view>
+        </view>
+        <view class='f-paragraph ml-sm'>{{otherUserInfo.mini_address}}</view>
+      </view>
+      <view class='crad-info-item' wx:if="{{otherUserInfo.wechat_number}}" bindtap='copy' data-str='{{otherUserInfo.wechat_number}}' data-key='copy_weixin'>
+        <view class='flex-y-center'>
+          <image class='icon-md' src='/images/card/wx-fill.png'></image>
+          <view class='f-caption c-caption ml-sm'>复制微信号</view>
+        </view>
+        <view class='f-paragraph ml-sm'>{{otherUserInfo.wechat_number}}</view>
+      </view>
+      <view class='crad-info-item' wx:if="{{otherUserInfo.email}}" bindtap='copy' data-str='{{otherUserInfo.email}}' data-key='copy_emill'>
+        <view class='flex-y-center'>
+          <image class='icon-md' src='/images/card/mail-fill.png'></image>
+          <view class='f-caption c-caption ml-sm'>复制邮箱</view>
+        </view>
+        <view class='f-paragraph ml-sm'>{{otherUserInfo.email}}</view>
+      </view>
+
+    </scroll-view>
+    <official-account></official-account>
+    <block wx:if="{{otherUserInfo.introduce||otherUserInfo.voice_long>0||otherUserInfo.person_imgs.length>0||pageConfig.link_switch==1&&otherUserInfo.link_img.length>0}}">
+      <view class='cell-list-title b-1px-tb'>
+        个人介绍
+      </view>
+
+      <view class='cell-list-content'>
+        <view class='mt-lg' wx:if="{{otherUserInfo.introduce}}">
+          <text>{{otherUserInfo.introduce}}</text>
+        </view>
+        <view class='card-voice mt-lg' wx:if="{{otherUserInfo.voice_long>0}}">
+          <image src='{{otherUserInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar-sm mr-lg'></image>
+          <view class='card-voice-item' bindtap='play'>
+            <image class='icon-sm ml-lg' src='/images/card/voice.png'></image>
+            <view class='card-voice-status'>{{play?"播放中,点击结束":otherUserInfo.voice_long+"秒,点击试听"}}</view>
+          </view>
+        </view>
+        <image src='{{item.path}}' mode='widthFix' class='{{index==0?"mt-lg":"mt-sm"}}' wx:for="{{otherUserInfo.person_imgs}}" wx:key="{{index}}" bindtap='previewImage' data-src='{{item.path}}' data-key='person_imgs'></image>
+
+        <view class='card-ad mt-lg' wx:if="{{pageConfig.link_switch==1&&otherUserInfo.link_img.length>0}}" bindtap="goUrl" data-url="{{otherUserInfo.link_url}}">
+          <image class='card-ad_img' src='{{otherUserInfo.link_img[0].path}}' mode='widthFix'></image>
+          <view class='card-ad_tag'>链接</view>
+        </view>
+      </view>
+
+    </block>
+
+    <view class='cell-list-title b-1px-tb flex-y-center' bindtap='goUrl' data-url='/pages/product/list?card_id={{otherUserInfo.id}}' wx:if="{{otherUserInfo.goods.data.length>0}}">
+      <view class='flex-1'> 主推商品</view>
+      <view class='c-primary'>查看全部</view>
+      <view class='right-arrow '></view>
+    </view>
+    <view class='good-list' wx:if="{{otherUserInfo.goods.data.length>0}}">
+      <view class='good-item' wx:for="{{otherUserInfo.goods.data}}" wx:key="{{index}}" bindtap='goUrl' data-id='{{item.id}}' data-index='{{index}}' data-url='/pages/product/detail?id={{item.id}}'>
+        <image class='good-image' src='{{item.cover[0].path}}' mode='aspectFill'></image>
+        <view class='good-name mt-md ellipsis'>{{item.title}}</view>
+        <view class='good-price text-price'>{{item.price}}</view>
+      </view>
+    </view>
+
+    <block wx:if="{{otherUserInfo.is_show_company&&(otherUserInfo.company_desc||otherUserInfo.company_imgs.length>0)}}">
+      <view class='cell-list-title b-1px-tb'>
+        公司介绍
+      </view>
+      <view class='cell-list-content'>
+        <view class='mt-lg' wx:if="{{otherUserInfo.company_desc}}">
+          <text>{{otherUserInfo.company_desc||"无文字介绍"}}</text>
+        </view>
+        <image src='{{item.path}}' mode='widthFix' class='{{index==0?"mt-lg":"mt-sm"}}' wx:for="{{otherUserInfo.company_imgs}}" wx:key="{{index}}" bindtap='previewImage' data-src='{{item.path}}' data-key='company_imgs'></image>
+      </view>
+    </block>
+
+
+    <button wx:if="{{pageConfig.radar.switch==1&&pageConfig.radar.chat_switch==1&&uid!=otherUserInfo.uid}}" form-type='submit' class='share-btn' bindtap='goUrl' data-url='/radar/pages/message/detail/detail?uid={{otherUserInfo.uid}}&nickName={{otherUserInfo.name}}'>
+      <message show="{{false}}" count="{{UnreadOnePerson}}" bottom="{{160}}"></message>
+    </button>
+    <view class='fixed-bottom pd-lg'>
+      <button type='primary' form-type='submit' wx:if="{{share}}" bindtap='goCradIndex'>回到我的名片</button>
+    </view>
+  </view>
+</form>
+
+<view style='height:80px;'></view>
+<!-- <tabbar tabbar="{{tabBar}}"></tabbar> -->
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

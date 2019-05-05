@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "名片主页",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "mask": "/components/mask/mask",
+    "tabbar": "/components/tabbar/tabbar",
+    "notify": "/components/notify/notify",
+    "login": "/components/login/login",
+    "badge": "/components/badge/badge",
+    "message": "/components/message/message"
+  }
+}

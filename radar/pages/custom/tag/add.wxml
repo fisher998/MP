@@ -1,0 +1,29 @@
+
+<view class="title-item b-1px-b">标签名称</view>
+<view class='input-box'>
+  <input placeholder='请输入标签名称' class='input-text' placeholder-class='input-placeholder' bindinput='handerInputChange' value='{{param.name}}' maxlength='6'></input>
+</view>
+<view class="title-item b-1px-b">标签成员</view>
+<view class='member-list' bindtap='handerHideDel'>
+  <view class='member-item' wx:for="{{selectList}}" wx:key="{{index}}" catchtap='{{showDel?"delClient":"goUrl"}}' data-index='{{index}}' data-id='{{item.id}}' data-url='/radar/pages/custom/detail/detail?uid={{item.c_uid}}'>
+    <image class='member-avatar' src='{{item.person_avatar}}'></image>
+    <view class='f-caption c-caption ellipsis text-center' style="width:90rpx;">{{item.nick_name}}</view>
+		<image class='member-reduce' src='../../../images/icon/reduce1.png' wx:if="{{showDel}}" ></image>
+  </view>
+  <view class='member-item' catchtap='goUrl' data-url='/radar/pages/custom/select/select'>
+    <image class='member-avatar' src='../../../images/icon/add1.png'></image>
+  </view>
+  <view class='member-item' wx:if="{{selectList.length>0&&!showDel}}" catchtap="handerShowDel">
+    <image class='member-avatar' src='../../../images/icon/reduce.png' style='background:#fff'></image>
+  </view>
+</view>
+
+
+<view style='height:120rpx;'></view>
+<view class='fixed-bottom fill-base b-1px-t'>
+  <view class='flex-y-center'>
+    <button type='primary' bindtap='submit' class='flex-1'>保存</button>
+    <button type='default' bindtap='delTag' class='flex-1 ml-lg' wx:if="{{param.id>0}}">删除</button>
+  </view>
+
+</view>

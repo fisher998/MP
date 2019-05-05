@@ -1,0 +1,11 @@
+{
+	"navigationBarTitleText": "群详情",
+	"usingComponents": {
+		"popup": "/components/popup/popup",
+		"cascader": "/components/cascader/cascader",
+		"loading": "/components/loading/loading",
+		"swiper-out": "/components/swiper-out/swiper-out",
+		"search": "/components/search/search",
+    "login":"/components/login/login"
+	}
+}

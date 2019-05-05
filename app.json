@@ -1,0 +1,145 @@
+{
+  "pages": [
+    "pages/card/index/index",
+    "pages/card/add/add",
+    "pages/card/add/list",
+    "pages/card/addMore/addMore",
+    "pages/card/addVoice/addVoice",
+    "pages/card/square/square",
+    "pages/card/book/book",
+    "pages/card/home/home",
+    "pages/card/poster/poster",
+    "pages/card/search/search",
+    "pages/card/radar/radar",
+    "pages/card/code/code",
+    "pages/card/filter/filter",
+    "pages/card/template/template",
+    "pages/card/count/count",
+    "pages/card/camera/camera",
+    "pages/card/camera/add",
+    "pages/card/camera/detail",
+    "pages/product/add",
+    "pages/product/list",
+    "pages/product/detail",
+    "pages/group/list/list",
+    "pages/group/add/add",
+    "pages/group/detail/detail",
+    "pages/group/desc/desc",
+    "pages/group/detail/more",
+    "pages/group/poster/poster",
+    "pages/info/index/index",
+    "pages/info/add/add",
+    "pages/info/filter/filter",
+    "pages/info/detail/detail",
+    "pages/info/agreement/agreement",
+    "pages/info/search/search",
+    "pages/info/release/release",
+    "pages/ucenter/index/index",
+    "pages/ucenter/setup/setup",
+    "pages/ucenter/member/member",
+    "pages/ucenter/withdraw/withdraw",
+    "pages/ucenter/income/income",
+    "pages/ucenter/partner/partner",
+    "pages/ucenter/partner/home",
+    "pages/ucenter/partner/downline",
+    "pages/ucenter/qiye/qiye",
+    "pages/common/selectCity/selectCity",
+    "pages/common/cropper/cropper",
+    "pages/common/webview/webview",
+    "pages/common/category/category",
+    "pages/common/disable/disable"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "subpackages": [
+    {
+      "root": "radar",
+      "pages": [
+        "pages/info/index/index",
+        "pages/info/detail/detail",
+        "pages/message/index/index",
+        "pages/message/detail/detail",
+        "pages/message/group-send/index",
+        "pages/message/group-send/add",
+        "pages/message/group-send/send",
+        "pages/message/select-tag/index",
+        "pages/message/select-tag/detail",
+        "pages/message/select-star/index",
+        "pages/custom/index/index",
+        "pages/custom/select/select",
+        "pages/custom/tag/index",
+        "pages/custom/tag/add",
+        "pages/custom/star/index",
+        "pages/custom/report/index",
+        "pages/custom/detail/detail",
+        "pages/custom/edit/edit",
+        "pages/custom/follow/add"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/card/index/index": {
+      "network": "all",
+      "packages": [
+        "radar"
+      ]
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#2e2d2f",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智能名片",
+    "backgroundColor": "#efeff5",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#838591",
+    "selectedColor": "#19a918",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/card/index/index",
+        "text": "我的名片",
+        "iconPath": "/images/tabbar/t1.png",
+        "selectedIconPath": "/images/tabbar/t1-fill.png"
+      },
+      {
+        "pagePath": "pages/card/book/book",
+        "text": "名片夹",
+        "iconPath": "/images/tabbar/t2.png",
+        "selectedIconPath": "/images/tabbar/t2-fill.png"
+      },
+      {
+        "pagePath": "pages/card/square/square",
+        "text": "附近",
+        "iconPath": "/images/tabbar/t3.png",
+        "selectedIconPath": "/images/tabbar/t3-fill.png"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "text": "个人中心",
+        "iconPath": "/images/tabbar/t4.png",
+        "selectedIconPath": "/images/tabbar/t4-fill.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000,
+    "uploadFile": 20000,
+    "connectSocket": 20000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx4f05480244648b26"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序距离展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

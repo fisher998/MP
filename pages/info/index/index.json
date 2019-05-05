@@ -1,0 +1,18 @@
+{
+	"navigationBarTitleText": "信息",
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTextStyle": "black",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"search": "/components/search/search",
+		"tag": "/components/tag/tag",
+		"swiper-ad": "/components/swiper-ad/swiper-ad",
+		"tabs": "/components/tabs/tabs",
+		"tab": "/components/tab/tab",
+		"sticky": "/components/sticky/sticky",
+		"swiper-cate": "/components/swiper-cate/swiper-cate",
+		"loading": "/components/loading/loading",
+		"setting": "/components/setting/setting",
+    "login": "/components/login/login"
+	}
+}

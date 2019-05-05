@@ -1,0 +1,15 @@
+<!-- 轮播图分类 -->
+<swiper class="swiper-category" style='height:{{height*rowNum}}rpx;' bindchange="categoryChange">
+  <block wx:for="{{newList}}" wx:for-index="pindex" wx:for-item="pitem" wx:key="{{pindex}}">
+    <swiper-item class="swiper-category-item">
+      <view wx:for="{{pitem}}" wx:key="{{index}}"  class="swiper-category-item__child " style='width:{{100/colNum}}%;height:{{height}}rpx;' bindtap='goUrl' data-url="/pages/card/filter/filter?id={{item.id}}&title={{item.title}}">
+        <image class="swiper-category__img" src='{{item.path[0].path}}'></image>
+        <view class='ellipsis' style='width:100%;text-align:center'>{{item.title}}</view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='dots' wx:if="{{newList.length>1}}">
+  <view class='dot' wx:for="{{newList.length}}" wx:key="{{index}}" style='background:{{index==current?indicatorActiveColor:indicatorColor}};width:{{index==current?"32rpx":"12rpx"}}'></view>
+</view>

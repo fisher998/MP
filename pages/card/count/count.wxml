@@ -1,0 +1,21 @@
+<import src="../../../templates/card/card.wxml" />
+<fixed top="0" left="0" right="0">
+  <view id="sticky-tab">
+    <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:90rpx">
+      <tab wx:for="{{tabList}}" wx:key="{{index}}">
+        <view style='width:25vw;'>
+          {{item.title}}
+        </view>
+      </tab>
+    </tabs>
+    <view class='b-1px-b'></view>
+  </view>
+
+</fixed>
+<view style='height:{{stickyTop}}px;'></view>
+
+
+<view class='cell-list'>
+  <template wx:for="{{list.data}}" wx:key="{{index}}" is="count" data="{{...item,index}}"></template>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>

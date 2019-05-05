@@ -1,0 +1,21 @@
+.camera-top {
+  height: calc(100vh - 180rpx);
+  width: 100%;
+}
+.camera-bottom {
+  height: 180rpx;
+  background: #000;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.camera-img{
+	width: 130rpx;
+	height: 130rpx;
+	display: block;
+	margin: 0 50rpx;
+}

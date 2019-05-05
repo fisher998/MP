@@ -1,0 +1,13 @@
+<view class="message-box" style="width:{{show?'710rpx':'55px'}};bottom:{{bottom}}rpx" >
+  <image class='avatar' src='{{info.person_avatar}}'></image>
+  <view class='message-center ellipsis'>
+    <view class='name'>{{info.name}}</view>
+    <view class='describe ellipsis'>您有新的消息，点击查看</view>
+    <!-- <view class='describe ellipsis'>你好，我是{{info.nickName}}，欢迎访问我的智能名片</view> -->
+  </view>
+  <view class='message-right'>
+    <image class='avatar' src='./message.png'></image>
+    <badge wx:if="{{count>0}}" custom-style="position: absolute;top:10rpx;right:10rpx;" text="{{count}}"></badge>
+  </view>
+
+</view>

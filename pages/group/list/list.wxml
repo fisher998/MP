@@ -1,0 +1,36 @@
+<view class='space-lg'></view>
+<view class="cell-list b-1px-tb">
+  <view class='cell ' bindtap='goUrl' data-url='/pages/group/add/add'>
+    <image class='icon-lg' src='/images/icon/add.png'></image>
+    <view class='ml-lg f-title-lg'>创建群名片</view>
+  </view>
+</view>
+<view class='cell-list-title' wx:if="{{list.data.length>0}}">已加入的</view>
+<view class='group-list b-1px-tb' wx:if="{{list.data.length>0}}">
+  <view wx:for="{{list.data}}" wx:key="{{index}}" catchtap="goUrl" data-url='/pages/group/detail/detail?id={{item.id}}'>
+    <swiper-out height="184" operate-width="200" value="{{item.switch||'off'}}" bindchange="handerSwiperChange"  data-index="{{index}}">
+      <view slot="content">
+        <view class='group-item {{index>0?"b-1px-t":""}}'>
+          <image class='avatar' src='{{item.logo[0].path_thumb||"/images/test/icon.png"}}'></image>
+          <view class='ml-lg flex-1 ellipsis'>
+            <view class='f-title-lg'>{{item.name}}</view>
+            <view class='flex-y-center mt-md'>
+              <view class='group-tag'>{{item.peoples}}位成员</view>
+              <view class='group-tag group-tag-cate ml-md'>{{item.category}}</view>
+            </view>
+            <view class='c-caption f-paragraph ellipsis mt-md'>{{item.desc||"暂无群介绍"}}</view>
+          </view>
+        </view>
+      </view>
+      <view slot="operate">
+        <view class='flex-center ' style='height:184rpx'>
+          <view wx:if="{{item.is_owner}}" style='background:#ff3a31;color:#fff;flex:1;height:184rpx;' class='flex-center' catchtap='dismiss' data-id='{{item.id}}'   data-index="{{index}}">解散</view>
+					 <view wx:else style='background:#ff3a31;color:#fff;flex:1;height:184rpx;' class='flex-center' catchtap='exit' data-id='{{item.id}}'  data-index="{{index}}">退出</view>
+        </view>
+
+      </view>
+    </swiper-out>
+
+  </view>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>

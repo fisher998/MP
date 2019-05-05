@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "群名片",
+	"usingComponents": {
+		"swiper-out": "/components/swiper-out/swiper-out",
+		"loading": "/components/loading/loading"
+	}
+}

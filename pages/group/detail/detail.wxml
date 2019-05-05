@@ -1,0 +1,74 @@
+<import src="../../../templates/card/card.wxml" />
+<view style='min-height:100vh' class='{{popupKey?"tripList_root":""}}'>
+  <view class='sticky-in-relative-container' catchtouchmove='preventD'>
+    <!-- 头部-->
+    <view class='group-head' bindtap='goUrl' data-url='{{detail.is_owner?"/pages/group/add/add?edit=1":"/pages/group/detail/more"}}'>
+      <image class='avatar' src='{{detail.logo[0].path_thumb||"/images/icon/default.svg"}}'></image>
+      <view class='ml-lg flex-1 ellipsis'>
+        <view class='f-title-lg'>{{detail.name}}</view>
+        <view class='flex-y-center mt-md'>
+          <view class='group-tag'>{{detail.peoples}}位成员</view>
+          <view class='group-tag group-tag-cate ml-md'>{{detail.category}}</view>
+        </view>
+      </view>
+      <view class='right-arrow'></view>
+    </view>
+    <!-- 搜索 -->
+    <search bindconfirm="handerConfirm" placeholder="搜索"></search>
+    <view class='filter-box'>
+      <view class='filter-box-item b-1px-r' bindtap='handerPopupChange' data-key='area'>
+        <view class='filter-box-item-title ellipsis'>{{param.address.title}}</view>
+        <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="area"?"rotate":""}}'></image>
+      </view>
+      <view class='filter-box-item b-1px-r' bindtap='handerPopupChange' data-key='industry'>
+        <view class='filter-box-item-title ellipsis'>{{param.company_category.title}}</view>
+        <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="industry"?"rotate":""}}'></image>
+      </view>
+      <view class='filter-box-item' bindtap='handerPopupChange' data-key='order'>
+        <view class='filter-box-item-title ellipsis'>{{param.order_type.title}}</view>
+        <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="order"?"rotate":""}}'></image>
+      </view>
+    </view>
+    <view class='b-1px-b'></view>
+  </view>
+
+  <view class='cell-list' style='padding-right:0'>
+    <template wx:for="{{list.data}}" wx:key="{{index}}" is="group" data="{{...item,index,is_owner:detail.is_owner,card_id:detail.card_id}}"></template>
+  </view>
+
+
+  <loading loading="{{loading}}" list="{{list}}"></loading>
+</view>
+<!-- 动态计算高度后才显示 -->
+<block wx:if="{{top}}">
+  <popup show="{{popupKey=='area'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='area'>
+    <cascader data="{{popup['area']}}" show-title="{{false}}" bindselected="selectArea"></cascader>
+  </popup>
+  <popup show="{{popupKey=='industry'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='industry'>
+    <cascader data="{{popup['industry']}}" show-title="{{false}}" bindselected="selectIndustry"></cascader>
+  </popup>
+  <popup show="{{popupKey=='order'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='order'>
+    <view class='cascader-block-item {{item.id==param.order.id?"c-primary":""}}' wx:for="{{popup['order']}}" wx:key="{{index}}" bindtap="selectOrder" data-index='{{index}}'>{{item.title}}</view>
+  </popup>
+</block>
+<view style='height:200rpx;'></view>
+
+<form bindsubmit="formSubmit" report-submit>
+  <view class='fixed-bottom fixed-bottom-list b-1px-t'>
+    <view class='flex-1 flex-column flex-center' bindtap='goUrl' data-url='/pages/group/poster/poster'>
+      <image class='icon-lg' src='/images/icon/code.png'></image>
+      <view class='f-caption-lg'>群海报</view>
+    </view>
+    <button type='default' class="fixed-btn" open-type='share'>邀请微信好友</button>
+    <button type='primary' class='fixed-btn' bindtap='join' wx:if="{{!detail.is_join}}">点击加入</button>
+     <button type='primary' class='fixed-btn' bindtap='goUrl' wx:if="{{detail.is_join}}" data-url='/pages/group/add/add?back=2'>创建我的群名片</button>
+
+
+  </view>
+</form>
+
+<view class='nav-box' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index' wx:if='{{group_id}}'>
+  <text>回到\n首页</text>
+</view>
+
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

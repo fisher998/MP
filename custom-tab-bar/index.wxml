@@ -1,0 +1,7 @@
+<view class='tabbar-box' style='background:{{tabBar.backgroundColor||"#ffffff"}};'>
+  <view wx:for="{{tabBar.list}}" wx:key="{{index}}" wx:if="{{!item.hide}}" class='tabbar-box-item' style="color: {{index == nowPageIndex ? tabBar.selectedColor : tabBar.color}}" bindtap='switchTab'  data-url='{{item.pagePath}}'>
+    <image class='tabbar-box-item__img' src='{{index == nowPageIndex ? item.selectedIconPath:item.iconPath}}'></image>
+    <text class='tabbar-box-item__text' style="color: {{index == nowPageIndex ? tabBar.selectedColor : tabbar.color}}">{{item.text}}</text>
+  </view>
+
+</view>

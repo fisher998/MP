@@ -1,0 +1,52 @@
+@import '../../../styles/common.wxss';
+.head{
+	padding: 16rpx 24rpx;
+	background: #fff;
+}
+.bottom-box {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom:0;
+  height: 190rpx;
+  background: #fbfbfb;
+  overflow: hidden;
+  transition: height 300ms;
+	padding: 20rpx;
+}
+
+.input-box {
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  /* border-top: 1px solid #e6e6e8;
+  border-bottom: 1px solid #e6e6e8; */
+}
+
+.input-text {
+  height: 72rpx;
+  background: #f5f4f9;
+  border-radius: 6rpx;
+  flex: 1;
+  padding: 0 16rpx;
+	border:1px solid #e7e7e7;
+}
+button[size=mini]{
+		line-height: 72rpx;
+			margin-left: 20rpx;
+}
+.fast-list{
+	display: flex;
+	align-items: center;
+	height: 50rpx;
+}
+.fast-item{
+	font-size: 26rpx;
+	color: #646464;
+	background: #fff;
+	margin-right: 20rpx;
+	border:1px solid #e6e6e6;
+	padding: 0 25rpx;
+	line-height: 50rpx;
+	border-radius: 25rpx;
+}

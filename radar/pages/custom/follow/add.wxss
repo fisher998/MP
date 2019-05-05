@@ -1,0 +1,19 @@
+@import '../../../styles/common.wxss';
+.cell-title{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 35rpx;
+}
+textarea{
+  width: 680rpx;
+  background: #fff;
+  padding: 20rpx 35rpx;
+}
+.word-count{
+  padding: 20rpx 35rpx;
+  text-align: right;
+  background: #fff;
+  color: #c1c1c1;
+  font-size: 26rpx;
+}

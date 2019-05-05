@@ -1,0 +1,8 @@
+{
+	"navigationBarTitleText": "群海报",
+	"enablePullDownRefresh": false,
+	"usingComponents": {
+		"painter": "/components/painter/painter",
+		"setting": "/components/setting/setting"
+	}
+}

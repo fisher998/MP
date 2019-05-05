@@ -1,0 +1,122 @@
+/* 字体大小规范 */
+.f-icontext{font-size: 22rpx;}/* 很小的文字,一般和图标一起使用 */
+.f-caption{font-size: 24rpx;}/* 辅助描述性文字 */
+.f-caption-lg{font-size: 26rpx;}/* 大一点的辅助描述性文字 */
+.f-paragraph{font-size: 28rpx;}/* 段落字体 */
+.f-title{font-size: 30rpx;}/* 标题 */
+.f-title-lg{font-size: 32rpx;}
+.f-title-xl{font-size: 48rpx;}/* 大点的标题 */
+
+/* 字体颜色 */
+.c-base{color:#ffffff;}/* 白色 */
+.c-primary{color:#19a918;}/* 主色 */
+.c-success{color:#19a918;}/* 成功 */
+.c-warning{color:#feb22d;}/* 警告 */
+.c-error{color:#fa3a39;}/* 失败 */
+.c-hot{color:#ea3341;}/* 热门 */
+.c-important{color:#ff3b30;}/* 重要 */
+.c-disabled{color:#dddddd;}/* 失效 */
+.c-placeholder{color:#aaa;}/* placeholder */
+.c-black{color: #000}
+.c-title{color: #576b95}/* 标题字体 */
+.c-paragraph{color:#222;}/* 段落字体 */
+.c-caption{color:#888888;}/* 辅助描述性文字 */
+.c-link{color:#108ee9;}/* 链接文字 */
+.c-shadow{text-shadow:2rpx 2rpx 2rpx #808080;}/* 字体阴影 */
+
+/* 字体样式 */
+text{vertical-align: middle;}/* 上下居中 */
+.text-left{text-align: left;}/* 左对齐 */
+.text-center { text-align: center}/* 中对齐 */
+.text-right {text-align: right}/* 右对齐 */
+.text-justify{text-align: justify;}/* 两端对齐，谨慎使用 */
+.text-justify::after{content: '';width: 100%;display: inline-block;}
+.text-delete {text-decoration: line-through}/* 删除线 */
+.text-underline{text-decoration: underline}/* 下划线 */
+.text-bold{ font-weight:bold;}/* 加粗 */
+.text-price::before {content: "¥";font-size: 80%; margin-right: 4rpx;}
+
+/* 文本溢出省略 */
+.ellipsis{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.ellipsis-1{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;}
+.ellipsis-2{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;}
+.ellipsis-3{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:3;overflow: hidden;}
+.ellipsis-4{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:4;overflow: hidden;}
+
+
+/* 填充色 */
+.fill-base{background:#ffffff;}/* 默认 */
+.fill-body{background:#efeff5;}/* 页面 */
+.fill-primary{background:#067aff;}/* 主色 */
+.fill-success{background:#6abf47;}/* 成功 */
+.fill-warning{background:#f86e21;}/* 警告 */
+.fill-error{background:#f4333c;}/* 失败 */
+.fill-hot{background:#f96268;}/* 热门 */
+.fill-important{background:#ff3b30;}/* 重要 */
+.fill-disabled{background:#dddddd;}/* 失效 */
+
+
+/* 外间距 */
+.mg-sm{margin:8rpx;}
+.mg-md{margin:16rpx;}
+.mg-lg{margin:32rpx;}
+
+.mt-sm{margin-top:8rpx;}
+.mt-md{margin-top:16rpx;}
+.mt-lg{margin-top:32rpx;}
+
+.mr-sm{margin-right:8rpx;}
+.mr-md{margin-right:16rpx;}
+.mr-lg{margin-right:32rpx;}
+
+.mb-sm{margin-bottom:8rpx;}
+.mb-md{margin-bottom:16rpx;}
+.mb-lg{margin-bottom:32rpx;}
+
+.ml-sm{margin-left:8rpx;}
+.ml-md{margin-left:16rpx;}
+.ml-lg{margin-left:32rpx;}
+
+/* 内间距 */
+.pd-sm{padding:8rpx;}
+.pd-md{padding:16rpx;}
+.pd-lg{padding:32rpx;}
+
+.pt-sm{padding-top:8rpx;}
+.pt-md{padding-top:16rpx;}
+.pt-lg{padding-top:32rpx;}
+
+.pr-sm{padding-right:8rpx;}
+.pr-md{padding-right:16rpx;}
+.pr-lg{padding-right:32rpx;}
+
+.pb-sm{padding-bottom:8rpx;}
+.pb-md{padding-bottom:16rpx;}
+.pb-lg{padding-bottom:32rpx;}
+
+.pl-sm{padding-left:8rpx;}
+.pl-md{padding-left:16rpx;}
+.pl-lg{padding-left:32rpx;}
+
+
+/* 图标尺寸 */
+
+.icon-xs{width:22rpx; height:22rpx;display: block} 
+.icon-sm{width:30rpx; height:30rpx;display: block}
+.icon-md{width:40rpx; height:40rpx;display: block} 
+.icon-lg{width:50rpx; height:50rpx;display: block} 
+.icon-xl{width:60rpx; height:60rpx;display: block}
+
+/* 组件间距 */
+.space-sm{
+  height: 8rpx;
+}
+.space-md{
+  height: 16rpx;
+}
+.space-lg{
+  height: 32rpx;
+}
+.space{ 
+  border-bottom: 1px solid rgba(216, 216, 216, 0.5);
+}

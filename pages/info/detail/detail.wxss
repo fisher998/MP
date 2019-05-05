@@ -1,0 +1,38 @@
+@import "../../../templates/info/info.wxss";
+
+.info-detail {
+  padding: 32rpx;
+  background: #fff;
+}
+
+.info-address {
+  display: flex;
+  align-items: center;
+  background: #f3f3f3;
+  color: #888;
+  border-radius: 4rpx;
+  line-height: 40rpx;
+  padding-right: 20rpx;
+  max-width: 400rpx;
+}
+
+.info-address-icon {
+  height: 30rpx;
+  width: 44rpx;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.op-list {
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  background: #fff;
+  padding: 0 32rpx;
+}
+
+.op-btn {
+  width: 314rpx;
+  margin-left: 32rpx;
+}

@@ -1,0 +1,3 @@
+<view class='select-time b-1px-b'>
+  <view wx:for="{{list}}" wx:key="{{index}}" class='select-time-item {{index==activeIndex?"select-time-item--selected":""}}' bindtap='handerIndexChange' data-index='{{index}}'>{{item.title}}</view>
+</view>

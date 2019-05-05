@@ -1,0 +1,8 @@
+{
+	"navigationBarTitleText": "AI报表",
+	"backgroundColor": "#f7f9fa",
+	"usingComponents": {
+		"ec-canvas": "../../../components/ec-canvas/ec-canvas",
+		"segment": "../../../components/segment/segment"
+	}
+}

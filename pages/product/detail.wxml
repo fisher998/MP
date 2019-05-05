@@ -1,0 +1,24 @@
+<image class="cover-img" src="{{detail.cover[0].path}}" mode='aspectFill'></image>
+<view class='pd-lg' wx:if="{{detail}}">
+  <view class='f-title-lg'>{{detail.title}}</view>
+  <view class='text-price'>{{detail.price}}</view>
+  <view class=''>{{detail.desc}}</view>
+  <image class='desc-img' mode='widthFix' src='{{item.path}}' wx:for="{{detail.imgs}}" wx:key="{{index}}"></image>
+</view>
+<view style='height:120rpx;'></view>
+<view class='fixed-bottom-list b-1px-t'>
+  <button class='share-btn fixed-bottom-item c-caption' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+    <image class='icon-md' src='/images/good/index.png'></image>
+    <view>首页</view>
+  </button>
+  <view class='line-y'></view>
+  <button class='share-btn fixed-bottom-item c-primary' open-type='share'>
+    <image class='icon-md' src='/images/good/share.png'></image>
+    <view>分享</view>
+  </button>
+  <view class='line-y' wx:if="{{detail.tel}}"></view>
+  <button wx:if="{{detail.tel}}"  class='share-btn fixed-bottom-item c-important' bindtap='goUrl' data-url='tel:{{detail.tel}}'>
+    <image class='icon-md' src='/images/good/call.png'></image>
+    <view>电话</view>
+  </button>
+</view>

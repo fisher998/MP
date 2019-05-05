@@ -1,0 +1,34 @@
+<view class='form-item b-1px-tb'>
+  <view class='form-label'>产品标题</view>
+  <input class='flex-1 ' placeholder='填写产品标题' bindinput='handerInputChange' data-key='form.title' value='{{form.title}}' maxlength='30' placeholder-class='c-placeholder'></input>
+</view>
+<view class='form-item b-1px-b'>
+  <view class='form-label'>产品价格</view>
+  <input class='flex-1 ' placeholder='多少元' bindinput='handerInputChange' data-key='form.price' value='{{form.price}}' maxlength='20' placeholder-class='c-placeholder'></input>
+</view>
+<textarea placeholder='填写产品介绍' placeholder-class='c-placeholder' bindinput='handerInputChange' data-key='form.desc' value='{{form.desc}}' maxlength='1000'></textarea>
+<view class='fill-base pd-lg'>
+  <view class='flex-y-center mb-lg'>
+     <view class='form-label'>图片展示</view>
+     <view class='c-caption f-caption'>最多9张,第一张为封面图</view>
+  </view>
+  <scroll-view scroll-x class='scroll-x'>
+    <view class='scroll-x-item' wx:if="{{form.imgs.length<9}}" bindtap='chooseImage' data-key='imgs' data-size='{{9}}'>
+      <view class='upload-add'></view>
+    </view>
+    <view class='scroll-x-item' wx:for="{{form.imgs}}" wx:key="{{index}}">
+      <image class='scroll-x-item__img' src='{{item.path_thumb||item.path}}'></image>
+      <view class='del-image-box' bindtap='delImage' data-index='{{index}}' data-key='imgs'>
+        <image class='del-image' src='/images/icon/delete.png'></image>
+      </view>
+      <view class='form-img_tag' wx:if="{{index==0}}">封面</view>
+    </view>
+  </scroll-view>
+</view>
+<!-- <view class='form-item b-1px-t'>
+  <view class='flex-1'>优先展示</view>
+  <switch checked='{{form.is_private==1?false:true}}' bindchange="handerSwitchChange" data-key='is_private'></switch>
+</view> -->
+<view class='pd-lg'>
+  <button type='primary' bindtap='submit'>发布</button>
+</view>

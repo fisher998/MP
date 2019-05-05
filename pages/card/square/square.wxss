@@ -1,0 +1,19 @@
+@import "../../../templates/card/card.wxss";
+@import "../../../templates/info/info.wxss";
+page{
+	min-height: 200vh;
+}
+.add-icon{
+	position: fixed;
+	bottom:70rpx;
+	right: 28rpx;
+	width: 110rpx;
+	height: 110rpx;
+}
+.tab2-box{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0 32rpx;
+}

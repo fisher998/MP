@@ -1,0 +1,9 @@
+{
+	"navigationBarTitleText": "开通推客",
+	"navigationBarBackgroundColor": "#e72020",
+	"navigationBarTextStyle": "white",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		
+	}
+}

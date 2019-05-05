@@ -1,0 +1,18 @@
+<picker range='{{follow_words}}' range-key='title' bindchange='handerChange'>
+  <view class='cell-list'>
+    <view class='cell'>
+      <view class='flex-1'>选择跟进常用语</view>
+      <view class='right-arrow'></view>
+    </view>
+  </view>
+</picker>
+
+<view class='cell-title b-1px-tb'>
+  跟进描述
+</view>
+<textarea placeholder='在这里输入跟进语' bindinput="handerInputChange" data-key='content' value='{{content}}' maxlength="200"></textarea>
+<view class='word-count'>{{content.length||0}}/200</view>
+
+<view class='fixed-bottom'>
+  <button type="primary" bindtap='submit'>提交</button>
+</view>

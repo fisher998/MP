@@ -1,0 +1,24 @@
+.card-item{
+	padding: 16rpx 0;
+	background: #fff;
+}
+.card-bottom{
+  display: flex;
+  align-items: center;
+  margin:8rpx 0 0 128rpx;
+}
+.group-item{
+	height: 160rpx;
+	padding-top: 32rpx;
+	background: #fff;
+}
+.group-bottom{
+	margin:8rpx 0 0 128rpx;
+}
+.ml-60{
+  margin-left: 60rpx;
+}
+
+.avatar-box{
+	position: relative;
+}

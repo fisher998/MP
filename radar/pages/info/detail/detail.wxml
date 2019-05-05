@@ -1,0 +1,20 @@
+<segment activeIndex="{{tabList[tabActiveIndex].segmentIndex}}" list="{{segmentList}}" bindchange="segmentChange"></segment>
+<!-- 时间 -->
+<view class='time-record-list' wx:if="{{tabActiveIndex==0}}">
+
+  <block wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}">
+    <view class='time-record-text' wx:if="{{index==0||item.date!=tabList[tabActiveIndex].list.data[index-1].date}}">{{item.date}}</view>
+    <view class='time-record-item'>
+      <view class='time-record_top'>
+        <image class='r-avatar-sm' src='{{item.person_avatar}}'></image>
+        <view class='f-title c-title ml-md'>{{item.nick_name}}</view>
+        <view class='f-caption-lg c-caption ml-md flex-1'>{{item.time}}</view>
+         <image class='icon-lg' src='../../../images/icon/message.png' bindtap='goUrl' data-url='/radar/pages/message/detail/detail?uid={{item.uid}}&nickName={{item.nick_name}}'></image>
+      </view>
+      <view class='time-record_bottom f-paragraph c-paragraph'>
+        <view class='{{cindex==item.word_tech.length-1?"ellipsis flex-1":""}}' wx:for="{{item.word_tech}}" wx:key="{{cindex}}" wx:for-index="cindex" wx:for-item="citem" style='color:{{cindex==1||cindex==3?color:""}}'>{{citem}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+<loading loading="{{loading}}" list="{{tabList[tabActiveIndex].list}}"></loading>

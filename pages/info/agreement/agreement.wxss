@@ -1,0 +1,4 @@
+@import "../../../plugin/wxParse/wxParse.wxss";
+page{
+	background: #fff;
+}

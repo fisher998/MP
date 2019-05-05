@@ -1,0 +1,21 @@
+{
+	"usingComponents": {
+		"search": "/components/search/search",
+		"fixed": "/components/fixed/fixed",
+		"tag": "/components/tag/tag",
+		"accordion": "/components/accordion/accordion",
+		"badge": "/components/badge/badge",
+		"calendar": "/components/calendar/calendar",
+		"swiper-ad": "/components/swiper-ad/swiper-ad",
+		"tabs": "/components/tabs/tabs",
+		"tab": "/components/tab/tab",
+		"sticky": "/components/sticky/sticky",
+		"swiper-cate": "/components/swiper-cate/swiper-cate",
+		"loading": "/components/loading/loading",
+		"popup": "/components/popup/popup",
+		"cascader": "/components/cascader/cascader",
+		"mask": "/components/mask/mask",
+		"swiper-out": "/components/swiper-out/swiper-out",
+			"setting": "/components/setting/setting"
+	}
+}

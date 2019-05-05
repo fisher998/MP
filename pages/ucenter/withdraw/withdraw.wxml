@@ -1,0 +1,32 @@
+<view class='withdraw b-1px'>
+  <!-- <view class='withdraw_label'>到账账户</view> -->
+  
+  <view class='withdraw_account' wx:if="{{withdrawal_type==0}}">
+	  <view class='c-black mr-md'>到账账户</view>
+    <input class='flex-1 withdraw_input' placeholder='输入微信号' placeholder-class='c-placeholder' focus='{{true}}' bindinput='handerAccountChange' value='{{account}}' maxlength='30'></input>
+  </view>
+	<view class="flex-y-center fill-base" wx:else>
+    <image src='{{person_avatar_thumb||"/images/icon/default.svg"}}' class='avatar mr-lg'></image>
+    <view class='u-head-right'>
+      <view class='f-title-lg'>{{name||"暂无"}}</view>
+      <view class='f-caption-lg c-important'>24小时内到账</view>
+    </view>
+  </view>
+  <view class='withdraw_price'>
+    <view class='c-black'>￥</view>
+    <input class='flex-1 withdraw_input' placeholder='输入提现金额' placeholder-class='c-placeholder' focus='{{true}}' type='digit' bindinput='handerMoneyChange' value='{{money}}' maxlength='10'></input>
+  </view>
+  <view class='withdraw_label flex-y-center b-1px-t'>
+    <view>可用余额￥{{balance}},</view>
+    <view bindtap='withdrawAll' class='c-important' wx:if="{{balance>=withdrawal_limit}}">全部提现</view>
+    <view wx:else class='c-important ml-md'>最低提现金额￥{{withdrawal_limit}}</view>
+  </view>
+</view>
+
+
+
+<view class='pd-lg'>
+  <form bindsubmit="formSubmit" report-submit>
+    <button type="primary" form-type="submit">提现</button>
+  </form>
+</view>

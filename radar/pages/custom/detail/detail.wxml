@@ -1,0 +1,176 @@
+<view class='head-box'>
+  <view class='head-info'>
+    <view class='head-info-top'>
+      <image class='r-avatar' src='{{detail.person_avatar}}'></image>
+      <view class='ml-md flex-1'>
+        <view class='head-name'>
+          <view class='f-title c-title name ellipsis'>{{detail.nick_name}}</view>
+          <tag type="primary" class="ml-sm" wx:if="{{detail.status==3}}">已成交</tag>
+          <tag type="genjin" class="ml-sm" wx:if="{{detail.status==2}}">跟进中</tag>
+          <view class='flex-1 f-caption-lg c-caption text-right' bindtap='goUrl' data-url='/radar/pages/custom/edit/edit'>编辑</view>
+          <view class='right-arrow' bindtap='goUrl' data-url='/radar/pages/custom/edit/edit'></view>
+          <!-- <image class='icon-sm' src='../../../images/icon/right.png' bindtap='goUrl' data-url='/radar/pages/custom/edit/edit'></image> -->
+        </view>
+
+        <view class='f-caption c-caption'>来自{{detail.come_from}}</view>
+      </view>
+    </view>
+    <view class='head-info-bottom b-1px-t'>
+      <scroll-view scroll-x class='tag-info'>
+        <view class='custom-tag' wx:for="{{detail.labels}}" wx:key="{{index}}" bindtap='goUrl' data-url='/radar/pages/custom/tag/index?op=add&client_id={{detail.id}}'>{{item.name}}</view>
+        <view class='add-tag' bindtap='goUrl' data-url='/radar/pages/custom/tag/index?op=add&client_id={{detail.id}}'>添加标签</view>
+      </scroll-view>
+      <view class='flex-y-center' bindtap='changeStar'>
+        <image class='icon-sm' src='../../../images/icon/{{detail.is_stra==1?"star-fill":"star"}}.png'></image>
+        <view class='f-caption c-caption ml-sm'>{{detail.is_stra==1?"取消星标":"设为星标"}}</view>
+      </view>
+    </view>
+  </view>
+  <image class='head-box-img' src='../../../images/custom/c-bg.jpg'></image>
+  <view class='head-dealinfo'>
+
+    <picker class='flex-1 flex-center flex-column' mode="date" bindchange="handerDateChange">
+      <view class='f-caption text-center'>预计成交时间</view>
+      <view class='f-title-xxl text-center'>{{detail.deal_time||"点击设置"}}</view>
+    </picker>
+    <view class='head-dealinfo-line'></view>
+    <picker class='flex-1 flex-center flex-column' range="{{rateList}}" bindchange="handerRateChange">
+      <view class='f-caption text-center'>预计成交率</view>
+      <view class='f-title-xxl text-center'>{{detail.deal_rate||0}}%</view>
+    </picker>
+  </view>
+</view>
+<scroll-view scroll-x class='crad-info'>
+
+  <view class='crad-info-item share-btn' wx:if="{{detail.tel}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c1.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>电话号码</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>{{detail.tel}}</view>
+  </view>
+  <view class='crad-info-item' wx:if="{{detail.gender}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c2.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>客户性别</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>男</view>
+  </view>
+  <view class='crad-info-item' wx:if="{{detail.company_name}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c3.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>所属公司</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>{{detail.company_name}}</view>
+  </view>
+  <view class='crad-info-item' wx:if="{{detail.position}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c4.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>客户职位</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>{{detail.position}}</view>
+  </view>
+  <view class='crad-info-item' wx:if="{{detail.birthday}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c5.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>客户生日</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>{{detail.birthday}}</view>
+  </view>
+  <view class='crad-info-item' wx:if="{{detail.email}}">
+    <view class='flex-y-center'>
+      <image class='icon-md' src='../../../images/custom/c6.jpg'></image>
+      <view class='f-caption c-caption ml-sm'>客户邮箱</view>
+    </view>
+    <view class='f-paragraph c-paragraph ml-sm'>{{detail.email}}</view>
+  </view>
+
+</scroll-view>
+<view class='record-box' style='position:absolute;left:-9999rpx;top:-9999rpx;'>
+  <view class="chart-box">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ pie }}"></ec-canvas>
+  </view>
+
+  <view class="chart-box">
+    <ec-canvas  id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ bar }}"></ec-canvas>
+  </view>
+
+  <view class="chart-box">
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ line }}"></ec-canvas>
+  </view>
+</view>
+<view class='space-lg' style='background:#f7f9fa'></view>
+<view class='b-1px-tb'>
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:140rpx;border-color:{{color}};" tab-style="color:#646464;" active-tab-style="color:#222;">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:250rpx;font-size:{{tabActiveIndex==index?"34rpx":"30rpx"}}'>
+        {{item.title}}
+      </view>
+    </tab>
+  </tabs>
+</view>
+<!-- 浏览记录 -->
+<view class='record-box' wx:if="{{tabActiveIndex==0&&tabList[tabActiveIndex].list.data.length>0}}">
+  <timeline>
+    <timeline-item wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}" point-color="#21bf34" line-color="#dbecdd" show-line shadow="{{true}}">
+      <view class='record-item'>
+        <view class='f-caption c-caption'>{{item.create_time}}</view>
+        <view class='time-record_bottom f-paragraph c-paragraph'>
+          <view class='{{cindex==item.word_tech.length-1?"ellipsis flex-1":""}}' wx:for="{{item.word_tech}}" wx:key="{{cindex}}" wx:for-index="cindex" wx:for-item="citem" style='color:{{cindex==1||cindex==3?color:""}}'>{{citem}}</view>
+        </view>
+      </view>
+    </timeline-item>
+  </timeline>
+</view>
+
+
+<!-- 跟进记录 -->
+<view class='record-box ' wx:if="{{tabActiveIndex==1&&tabList[tabActiveIndex].list.data.length>0}}">
+  <timeline>
+    <timeline-item wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}" point-color="#21bf34" line-color="#dbecdd" show-line shadow="{{true}}">
+      <view class='record-item'>
+        <view class='f-caption c-caption'>{{item.create_time}}</view>
+        <view class='time-record_bottom f-paragraph c-paragraph'>
+          <view class='' style='word-break:break-all'>{{item.content}}</view>
+           <view class='' style='color:{{color}}'>{{item.content2}}</view>
+        </view>
+      </view>
+    </timeline-item>
+  </timeline>
+
+</view>
+
+<!-- AI分析 -->
+<view class='record-box ' wx:if="{{tabActiveIndex==2}}">
+  <view class="chart-box">
+    <image wx:if="{{pie.src}}" class='chart-img' src='{{pie.src}}'></image>
+    <view class='chart-box_center'></view>
+  </view>
+
+  <view class="chart-box">
+    <image wx:if="{{bar.src}}" class='chart-img' src='{{bar.src}}'></image>
+  </view>
+
+  <view class="chart-box">
+    <image wx:if="{{line.src}}" class='chart-img' src='{{line.src}}'></image>
+  </view>
+</view>
+
+
+<loading wx:if="{{tabActiveIndex==0||tabActiveIndex==1}}" loading="{{loading}}" list="{{tabList[tabActiveIndex].list}}"></loading>
+<view style='height:120rpx;'></view>
+<fixed bottom="0" left="0" right="0">
+  <view class='custom-bottom b-1px-t'>
+    <view class='flex-1 flex-center flex-column' bindtap='{{detail.status==3?"":"changeStatus"}}'>
+      <image src='../../../images/custom/swcj.png' class='icon-xl'></image>
+      <view>{{detail.status==3?"已设为成交":"设为成交"}}</view>
+    </view>
+    <view class='flex-1 flex-center flex-column' bindtap='goUrl' data-url='/radar/pages/custom/follow/add?id=0'>
+      <image src='../../../images/custom/tjgj.png' class='icon-xl'></image>
+      <view>添加跟进</view>
+    </view>
+  </view>
+</fixed>
+
+<image wx:if="{{pageConfig.radar.chat_switch==1}}" src='../../../images/custom/send-message.png' class='icon-1' bindtap='goUrl' data-url='/radar/pages/message/detail/detail?uid={{detail.c_uid}}&nickName={{detail.nick_name}}'></image>
+<image src='../../../images/custom/call.png' class='icon-2' wx:if="{{detail.tel}}" bindtap='call'></image>

@@ -1,0 +1,41 @@
+.select-time {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+	justify-content: space-between;
+  background: #fff;
+  padding: 0 35rpx;
+}
+.select-time-item{
+	position: relative;
+	width: 120rpx;
+	height: 50rpx;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5rpx;
+	font-size: 24rpx;
+	color: #969696;
+}
+.select-time-item:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  border: 1px solid #e6e6e6;
+  color: #e6e6e6;
+  height: 200%;
+  transform-origin: left top;
+  transform: scale(0.5);
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.select-time-item--selected{
+	background: #21bf34;
+	color: #fff;
+}
+.select-time-item--selected::before{
+	border:none;
+}

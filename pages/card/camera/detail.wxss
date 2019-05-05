@@ -1,0 +1,35 @@
+.camera-head{
+	height: 400rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+.camera-head-img{
+	height: 100%;
+	transform: rotate(90deg)
+}
+.cell-label{
+	width: 130rpx;
+	font-size: 32rpx;
+}
+.fixed-bottom-list{
+	display: flex;
+	align-items: center;
+	padding: 16rpx 32rpx 16rpx 0;
+	background: #fff;
+}
+.fixed-bottom-icon{
+	width: 140rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.fixed-btn{
+	width: 270rpx;
+	margin: 0;
+}
+.fixed-btn:last-child{
+	margin-left: 16rpx;
+}

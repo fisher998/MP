@@ -1,0 +1,9 @@
+<view class='tabbar-box-place'></view>
+<view class='tabbar-box {{isIpx?"ipx":""}}' style='background:{{tabbar.backgroundColor||"#ffffff"}};'>
+  <view wx:for="{{tabbar.list}}" wx:key="{{index}}" class='tabbar-box-item' style="color: {{index == nowPageIndex ? tabbar.selectedColor : tabbar.color}}" bindtap='goUrl' data-method="{{item.method||'navigateTo'}}" data-url='{{item.pagePath}}'>
+    <image class='tabbar-box-item__img' src='{{index == nowPageIndex ? item.selectedIconPath:item.iconPath}}'></image>
+    <text class='tabbar-box-item__text' style="color: {{index == nowPageIndex ? tabbar.selectedColor : tabbar.color}}">{{item.text}}</text>
+    <badge wx:if="{{item.num>0}}" custom-style="position: absolute;top:4rpx;left:100rpx;" text="{{item.num}}"></badge>
+  </view>
+
+</view>

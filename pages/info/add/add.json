@@ -1,0 +1,9 @@
+{
+	"navigationBarTitleText": "发布信息",
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTextStyle": "black",
+	"enablePullDownRefresh": false,
+	"usingComponents": {
+		"setting": "/components/setting/setting"
+	}
+}

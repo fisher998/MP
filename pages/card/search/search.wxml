@@ -1,0 +1,20 @@
+<import src="../../../templates/card/card.wxml" />
+
+<search focus='{{focus}}' bindconfirm="handerConfirm" bindfocus='handerFocus' placeholder='{{searchTitle}}' keyword="{{param.keyword}}"></search>
+
+
+<block wx:if="{{!focus}}">
+  <view class='b-1px-b'></view>
+  <view class="cell-list" wx:for="{{list.data}}" wx:key="{{index}}">
+    <template is="card" data="{{...item,index}}"></template>
+  </view>
+
+  <loading loading="{{loading}}" list="{{list}}"></loading>
+</block>
+<view wx:if="{{focus}}" class='search-history'>
+  <view class='search-history-title' wx:if="{{searchHistoryList.length>0}}">
+    <view class='flex-1'>历史搜索</view>
+    <view class='c-error f-caption-lg' bindtap='clearHistory'>清除</view>
+  </view>
+  <view class='search-history-item ellipsis' wx:for="{{searchHistoryList}}" wx:key="{{index}}" bindtap='selectHistorySearch' data-keyword='{{item}}'>{{item}}</view>
+</view>

@@ -1,0 +1,51 @@
+.swiper-category {
+  width: 100%;
+  background: white;
+  font-size: 26rpx;
+  color: #666;
+  padding: 20rpx 0;
+}
+
+.swiper-category-item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.swiper-category-item__child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-category__img {
+  width: 96rpx;
+  height: 96rpx;
+  margin-bottom: 10rpx;
+}
+
+.dots {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 20rpx;
+}
+
+.dot {
+  height: 12rpx;
+  width: 12rpx;
+  background: #ddd;
+  border-radius: 6rpx;
+  margin: 0 4rpx;
+}
+
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

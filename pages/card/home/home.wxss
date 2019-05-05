@@ -1,0 +1,29 @@
+@import '../index/index.wxss';
+@import '../../product/list.wxss';
+.crad-info{
+	white-space: nowrap;
+	background: #fff;
+	padding: 48rpx 0;
+}
+.crad-info-item{
+	position: relative;
+	display: inline-block;
+	border-radius: 8rpx;
+	border:1px solid #efeff5;
+	padding: 16rpx;
+	margin-right: 16rpx;
+}
+.crad-info-item:nth-child(1){
+	margin-left: 32rpx;
+}
+.crad-info-item:last-child{
+	margin-right: 32rpx;
+}
+
+.card-introduce-img{
+  width: 100%;
+  margin-top: 10rpx;
+  display: block;
+}
+
+

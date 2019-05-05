@@ -1,0 +1,8 @@
+.ui-roller {
+  position: relative;
+  width: 100%;
+  height: 60rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #fff;
+}

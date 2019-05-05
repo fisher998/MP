@@ -1,0 +1,83 @@
+<fixed top="0" left="0" right="0">
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:120rpx;border-color:{{color}};"  active-tab-style="color:{{color}};">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:250rpx;'>{{item.title}}</view>
+    </tab>
+  </tabs>
+  <view class='b-1px-b'></view>
+  <segment wx:if="{{tabActiveIndex!=0}}" activeIndex="{{tabList[tabActiveIndex].segmentIndex}}" list="{{segmentList}}" bindchange="segmentChange"></segment>
+  <view wx:if="{{tabActiveIndex!=0}}" class='b-1px-b'></view>
+</fixed>
+<view style='height:{{tabActiveIndex==0?92:192}}rpx;'></view>
+<!-- 时间 -->
+<view class='time-record-list' wx:if="{{tabActiveIndex==0}}">
+  <view wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}" bindtap='goUrl' data-url='/radar/pages/custom/detail/detail?uid={{item.uid}}'>
+    <view class='time-record-text' wx:if="{{index==0||item.date!=tabList[tabActiveIndex].list.data[index-1].date}}">{{item.date}}</view>
+    <view class='time-record-item'>
+      <view class='time-record_top'>
+        <image class='r-avatar-sm' src='{{item.person_avatar}}'></image>
+        <view class='f-title c-title ml-md ellipsis name'>{{item.nick_name}}</view>
+        <view class='f-caption-lg c-caption ml-md flex-1'>{{item.time}}</view>
+        <image wx:if="{{pageConfig.radar.chat_switch==1}}" class='icon-lg' src='../../../images/icon/message.png' catchtap='goUrl' data-url='/radar/pages/message/detail/detail?uid={{item.uid}}&nickName={{item.nick_name}}'></image>
+      </view>
+      <view class='time-record_bottom f-paragraph c-paragraph'>
+        <text wx:for="{{item.word_tech}}" wx:key="{{cindex}}" wx:for-index="cindex" wx:for-item="citem" style='color:{{cindex==1||cindex==3?color:""}}'>{{citem}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 行为 -->
+<view class='action-record-list ' wx:if="{{tabActiveIndex==1}}">
+  <view class='space-lg'></view>
+  <view class='action-box'>
+    <view class=' b-1px-b ' wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}" wx:if="{{index<6}}" style='padding: 30rpx 0;' bindtap="goUrl" data-url="/radar/pages/info/detail/detail?eventname={{item.name}}&segmentIndex={{tabList[tabActiveIndex].segmentIndex}}">
+      <view class='{{index%3==2?"":"b-1px-r"}} action-box-item '>
+        <view class='f-title-xl text-bold c-title'>{{item.count}}</view>
+        <view class='f-caption-lg c-caption'>{{item.title}}</view>
+      </view>
+
+    </view>
+  </view>
+  <view class='space-lg'></view>
+  <view class='action-list b-1px-tb' wx:if="{{tabList[tabActiveIndex].list.data.length>6}}">
+    <view class='action-list-item {{index!=6?"b-1px-t":""}}' wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}" wx:if="{{index>=6}}" bindtap="goUrl" data-url="/radar/pages/info/detail/detail?eventname={{item.name}}&segmentIndex={{tabList[tabActiveIndex].segmentIndex}}">
+      <image class='icon-lg' src='{{item.icon}}'></image>
+      <view class='f-title c-title flex-1 ml-md'>{{item.title}}</view>
+      <view class='f-title c-title text-bold'>{{item.count}}</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 人 -->
+<view class='person-record-list ' wx:if="{{tabActiveIndex==2}}">
+  <view class='space-lg'></view>
+  <accordion wx:for="{{tabList[tabActiveIndex].list.data}}" wx:key="{{index}}">
+    <view slot="header">
+      <view class='person-record-item b-1px-b pl-lg pr-lg'>
+        <image class="r-avatar" src='{{item.person_avatar}}'></image>
+        <view class='person-record_right'>
+          <view class='person-record_count f-title c-title'>
+            <view class='ellipsis name'>{{item.nick_name}}</view>
+            <view class='ml-md'>和你互动了</view>
+            <view style='color:{{color}}'>{{item.count}}</view>
+            <view>次</view>
+          </view>
+          <view class='c-caption f-caption-lg text-left'>{{item.date}} 最后一次查看了你的名片</view>
+        </view>
+      </view>
+    </view>
+    <view slot="content">
+      <count list="{{item.item}}" max-count="{{item.max_count}}"></count>
+    </view>
+  </accordion>
+</view>
+<loading loading="{{loading}}" list="{{tabList[tabActiveIndex].list}}"></loading>
+
+<tabbar tabbar="{{tabBar}}"></tabbar>
+
+<view class='nav-box' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+  <text>回到\n首页</text>
+</view>

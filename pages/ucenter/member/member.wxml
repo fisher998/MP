@@ -1,0 +1,73 @@
+<view class="pd-lg flex-y-center fill-base b-1px-b" style='background:#2d2e2f'>
+  <image src='{{userInfo.person_avatar_thumb||userInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar mr-lg'></image>
+  <view class='u-head-right'>
+    <view class='f-title c-base'>{{userInfo.name||"暂无名称"}}</view>
+    <view class='f-caption-lg c-placeholder'>
+      <block wx:if="{{userInfo.vip_level>1}}">{{["","","白银会员","黄金会员","钻石会员"][userInfo.vip_level]}},{{userInfo.vip_end_time}}到期
+      </block>
+      <block wx:else>{{userInfo.is_vip_success==1?"会员已过期,请续费!":"会员未开通"}}
+      </block>
+    </view>
+  </view>
+</view>
+<view class="tab-list b-1px-b">
+  <block wx:for="{{tabList}}" wx:key="{{index}}" wx:if="{{item.name_id!=1}}">
+    <view class='tab-item {{tabActiveIndex==index?"tab-item-selected":""}}' bindtap='handerTabChange' data-index='{{index}}'>
+      <view>{{item.name}}</view>
+      <view wx:if="{{tabActiveIndex==index}}" class='hline'></view>
+    </view>
+    <view class='vline' wx:if="{{index<tabList.length-1}}"></view>
+  </block>
+</view>
+<view class='meal-list'>
+  <view class='meal-item {{mealActiveIndex==index?"meal-item--select":""}}' wx:for="{{tabList[tabActiveIndex].term_data}}" wx:key="{{index}}" bindtap='handerMealChange' data-index='{{index}}'>
+    <view class='flex-y-baseline mt-lg'>
+      <view class='f-title'>￥</view>
+      <view class='f-48'>{{item.price}}</view>
+    </view>
+    <view class='f-caption c-caption mt-sm'>折合￥{{item.zhehe}}/月</view>
+    <view class='meal-tip ellipsis' wx:if="{{item.lisheng>0}}">立省{{item.lisheng}}元</view>
+    <view class='meal-tip ellipsis' wx:else="{{item.lisheng>0}}">无折扣</view>
+    <view class='meal_time'>{{item.month}}个月</view>
+  </view>
+</view>
+<view class='pd-lg fill-base'>
+  <button type='warn' hover-class="btn-hover" bindtap='submit'>{{userInfo.is_vip_success==1?"续费":"开通"}}</button>
+</view>
+
+<view class='cell-list-title'>会员特权</view>
+<view class='fill-base'>
+  <view class='privilege b-1px'>
+    <view class='f-caption'>
+      <view class='privilege-item b-1px-b'>
+        <image src='/images/member/level.jpg' style='width:120rpx;height:120rpx;'></image>
+      </view>
+
+      <view class='privilege-item b-1px-b'>每天发名片数量</view>
+      <view class='privilege-item b-1px-b'>名片板式</view>
+      <view class='privilege-item b-1px-b'>名片夹数量</view>
+      <view class='privilege-item b-1px-b'>动态置顶</view>
+      <view class='privilege-item b-1px-b'>建群数量</view>
+      <view class='privilege-item b-1px-b'>纸质名片扫描次数</view>
+      <view class='privilege-item b-1px-b'>展示公司介绍</view>
+      <view class='privilege-item b-1px-b'>产品发布数量</view>
+    </view>
+    <view class='f-caption' wx:for="{{tabList}}" wx:key="{{index}}" style='color:#888;background:{{item.name_id==userInfo.vip_level?"#f4f6f8":"#fff"}}'>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>
+        <image wx:if="{{item.icon.length>0}}" src='{{item.icon[0].path}}' class="icon-lg"></image>
+        <view wx:else>{{item.name}}</view>
+      </view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.mingpian_send}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.mingpian_style}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.mingpian_collects}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.info_top}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.group_num}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.outsidecard_num}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.is_show_company}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.goods_num}}</view>
+    </view>
+
+  </view>
+</view>
+<image src='{{item.path}}' wx:for="{{vip_desc_imgs}}" wx:key="{{index}}" mode='widthFix' style='width:100%;'></image>
+<image class='logo' src='{{tech_support[0].path}}'></image>

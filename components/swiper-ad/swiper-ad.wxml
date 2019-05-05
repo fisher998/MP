@@ -1,0 +1,18 @@
+<!-- 轮播图广告 -->
+<view class='swiper-box'>
+  <swiper  class="swiper-ad"  indicator-dots="{{false}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" circular="{{circular}}" previous-margin="{{list.length>1?previousMargin:0}}" next-margin="{{list.length>1?nextMargin:0}}"  bindchange="handerChange" style="height:{{height}}rpx;">
+      <block wx:for="{{list}}" wx:key="{{index}}"> 
+        <swiper-item >
+          <view class='img-box' style='padding: 0 {{space}}rpx;' >
+              <image src='{{item.path[0].path||"/images/test/ad.png"}}' class="swiper-ad__img" data-url='{{item.link}}' bindtap='goUrl' style='border-radius:{{borderRadius}}rpx;'/>
+          </view>
+          
+        </swiper-item>
+      </block>
+      
+  </swiper>
+  <view class='dots' wx:if="{{list.length>1}}">
+      <view class='dot' wx:for="{{list.length}}" wx:key="{{index}}" style='background:{{index==activeIndex?indicatorActiveColor:indicatorColor}};width:{{index==activeIndex?"12rpx":"12rpx"}}'></view>
+  </view>
+</view>
+

@@ -1,0 +1,41 @@
+@import "../../../templates/info/info.wxss";
+.filter-box{
+  display: flex;
+  background: white;
+}
+.filter-box-item{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+}
+.filter-box-item-title{
+  max-width: 120rpx;
+}
+.sticky-in-relative-container{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+.icon-xs{
+  transition: all 300ms;
+}
+.rotate{
+  transform:rotate(180deg);
+  transition: all 300ms;
+}
+.cascader-block-item {
+  height:80rpx;
+  padding-left:16rpx;
+  padding-right:16rpx;
+  line-height:80rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  border-bottom:1px solid #F5F5F5;
+}
+.search-box{
+	background: #efeff5;
+}

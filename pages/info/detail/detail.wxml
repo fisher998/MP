@@ -1,0 +1,67 @@
+<import src="../../../templates/info/info.wxml" />
+<view class='info-detail' wx:if="{{detail}}">
+  <view class='flex-center' catchtap='goUrl' data-url='/pages/card/home/home?uid={{detail.uid}}'>
+    <image class='avatar' src='{{detail.person_avatar_thumb}}'></image>
+    <view class='ml-lg  flex-1 ellipsis'>
+      <view class='flex-y-baseline '>
+        <view class='flex-y-center'>
+          <view class='f-title-lg c-title ellipsis'>{{detail.name}}</view>
+          <image class='icon-md ml-md' src='/images/info/vip.png' wx:if="{{detail.vip_level==2}}"></image>
+        </view>
+
+        <!-- <view class='c-caption f-caption ml-md ellipsis flex-1'>{{detail.position}}</view>
+        <view class='c-caption f-caption'>{{detail.create_time2}}</view> -->
+      </view>
+      <view class='c-caption f-caption flex-1 ellipsis'>{{detail.create_time2}}</view>
+    </view>
+  </view>
+  <view class='info-content'>
+    <text class='c-warning' wx:if="{{is_top==1}}">[置顶]</text>
+    <text class='c-hot'>[{{detail.category.title}}]</text>
+    <text>{{detail.content}}</text>
+  </view>
+  <view class='info-img-list' wx:if="{{detail.imgs.length>0}}">
+    <image wx:for="{{detail.imgs}}" wx:key="{{cindex}}" wx:for-index="cindex" class='info-img' src='{{item.path_thumb}}' catchtap='dPreviewImage' data-src='{{item.path}}'></image>
+  </view>
+  <view class='info-bottom f-caption c-caption'>
+
+    <view class='info-address' bindtap='openLocation'>
+      <view class='info-address-icon'>
+        <image class='icon-sm' src='/images/info/address.png'></image>
+      </view>
+      <view class='ellipsis'>{{detail.mini_address}}</view>
+    </view>
+
+    <!-- <view class='ml-md'>{{detail.distance>1?detail.distance+'km':detail.distance<=0? "很近":detail.distance*1000+ 'm'}}</view> -->
+    <view class='ml-md'>{{detail.view}}浏览</view>
+    <view class='ml-md mr-md'>·</view>
+    <view>{{detail.like}}点赞</view>
+  </view>
+</view>
+<block wx:if="{{detail.recommend.data.length>0}}">
+  <view class='cell-list-title'>推荐</view>
+  <view class='cell-list'>
+    <template wx:for="{{detail.recommend.data}}" wx:key="{{index}}" is="info" data="{{...item,index,method:'redirectTo'}}"></template>
+  </view>
+</block>
+
+
+
+<view style='height:160rpx;'></view>
+<view class='op-list b-1px-t fixed-bottom'>
+  <view class='flex-column flex-center flex-1' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+    <image class='icon-md' src='/images/icon/index.png'></image>
+    <view class='c-caption f-caption'>首页</view>
+  </view>
+  <button class='share-btn flex-column flex-center flex-1' open-type='share'>
+    <image class='icon-md' src='/images/icon/share.png'></image>
+    <view class='c-caption f-caption'>分享</view>
+  </button>
+  <view class='flex-column flex-center flex-1' bindtap='dLike'>
+    <image class='icon-md' src='/images/card/{{detail.is_like?"thumb-fill":"thumb"}}.png'></image>
+    <view class='c-caption f-caption'>点赞</view>
+  </view>
+  <button type='primary' class='op-btn' bindtap='call'>电话联系</button>
+</view>
+
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

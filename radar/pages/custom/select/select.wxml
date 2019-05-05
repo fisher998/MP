@@ -1,0 +1,64 @@
+
+<fixed top="0" left="0" right="0">
+  <!-- tab切换 -->
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:130rpx;border-color:{{color}};" tab-style="color:#646464;" active-tab-style="color:#222;">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:250rpx;font-size:{{tabActiveIndex==index?"34rpx":"30rpx"}}'>
+        {{item.title}}
+      </view>
+    </tab>
+  </tabs>
+  <view class='b-1px-b'></view>
+  <!-- 选择标签 -->
+  <view class='flex-y-center fill-base b-1px-b' wx:if="{{tabActiveIndex==2}}">
+    <scroll-view class='tagx-list' scroll-x>
+      <view class='tagx-item {{index==tagActiveIndex?"tagx-item--selected":""}}' wx:for="{{tagList}}" wx:key="{{index}}" bindtap='handerTagIndexChange' data-index='{{index}}'>{{item.name}}</view>
+    </scroll-view>
+    <view class='tag-more b-1px-l' bindtap='showMask'>
+      <image class='icon-sm' src='../../../images/icon/down.svg'></image>
+    </view>
+  </view>
+  <!-- 已选中和搜索 -->
+  <view class='flex-y-center b-1px-b'>
+    <scroll-view scroll-x class='select-list b-1px-b'>
+      <view class='select-item' wx:for="{{selectList}}" wx:key="{{index}}" bindtap='handerAvatarChange' data-id='{{item.id}}' data-index='{{index}}'>
+        <image src='{{item.person_avatar}}' class='select-item_img'></image>
+      </view>
+    </scroll-view>
+    <view class='search-box'>
+      <image class='icon-md' src='../../../images/icon/search.png'></image>
+      <input placeholder='搜索' class='flex-1' confirm-type="search" bindconfirm="handerConfirm"></input>
+    </view>
+  </view>
+</fixed>
+
+<view style='height:{{tabActiveIndex==2?302:202}}rpx'></view>
+
+<view class='space-lg'></view>
+<view class='panel-item b-1px-b' wx:for="{{list.data}}" wx:key="{{index}}" catchtap='{{preSelectObj[item.id]?"":"handerRadioChange"}}' data-id='{{item.id}}' data-index='{{index}}'>
+  <image class='r-avatar' src='{{item.person_avatar}}' catchtap='goUrl' data-url='/radar/pages/custom/detail/detail?uid={{item.c_uid}}&cid={{item.c_card_id}}'></image>
+  <view class='flex-1 ml-md'>
+    <view class='f-title c-title'>{{item.nick_name}}</view>
+  </view>
+  <radio checked="{{selectObj[item.id]||preSelectObj[item.id]}}" disabled='{{preSelectObj[item.id]}}'></radio>
+</view>
+
+<loading  loading="{{loading}}" list="{{list}}"></loading>
+
+
+<view class='fixed-bottom_place'></view>
+<view class='fixed-bottom fill-base b-1px-t'>
+  <button type='primary' catchtap='submit'>确定添加</button>
+</view>
+
+<popup wx:if="{{statusBarHeight}}" show="{{show}}" top="{{statusBarHeight+44}}" position="top">
+  <view class='flex-y-center fill-base' style='height:100rpx;padding-left:35rpx;'>
+    <view class='flex-1 c-paragraph f-paragraph'>选择标签</view>
+    <view class='tag-more b-1px-l' bindtap='hideMask'>
+      <image class='icon-sm' src='../../../images/icon/down.svg' style='transform:rotate(180deg)'></image>
+    </view>
+  </view>
+  <view class='tagy-list'>
+    <view class='tagy-item {{index==tagActiveIndex?"tagy-item--selected":""}}' wx:for="{{tagList}}" wx:key="{{index}}" bindtap='handerTagIndexChange' data-index='{{index}}'>{{item.name}}</view>
+  </view>
+</popup>

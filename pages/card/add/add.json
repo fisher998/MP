@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "名片资料",
+	"enablePullDownRefresh": false,
+  "usingComponents": {
+		"mask": "/components/mask/mask",
+		"setting": "/components/setting/setting"
+  }
+}

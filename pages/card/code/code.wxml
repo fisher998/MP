@@ -1,0 +1,23 @@
+<block wx:if="{{userInfo}}">
+  <view class="code-box">
+    <view class='flex-center fill-base ml-lg mr-lg'>
+      <image class='avatar' src='{{userInfo.person_avatar_thumb||userInfo.person_avatar}}'></image>
+      <view class='ml-lg flex-1'>
+        <view class='flex-y-baseline flex-1 '>
+          <view class='f-title-lg c-title'>{{userInfo.name}}</view>
+          <view class='c-caption f-caption ml-md ellipsis'>{{userInfo.position}}</view>
+        </view>
+        <view class='c-caption f-caption-lg'>{{userInfo.company_name}}</view>
+      </view>
+    </view>
+    <image src="{{userInfo.qrcode}}" class='code-img'></image>
+    <view class='code-bottom'>
+      <button type='primary' bindtap='save'>保存到手机</button>
+    </view>
+
+  </view>
+
+  <view class='code-tip'>使用智能二维码追踪技术，访客扫描进入您的名片，AI雷达实时对访客进行分析，帮助您精准获客；纸质名片、海报、网站、公众号均可使用。</view>
+</block>
+
+<setting show="{{settingShow}}" name="writePhotosAlbum"></setting>

@@ -1,0 +1,47 @@
+<import src="../../../templates/card/card.wxml" />
+
+<view class='sticky-top' catchtouchmove='preventD'>
+  <!-- 搜索 -->
+	<search  bindconfirm="handerConfirm"  placeholder="搜索"></search>
+  <view class='filter-box'>
+    <view class='filter-box-item b-1px-r' catchtap='handerPopupChange' data-key='area'>
+      <view class='filter-box-item-title ellipsis'>{{param.address.title}}</view>
+      <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="area"?"rotate":""}}'></image>
+    </view>
+    <view class='filter-box-item b-1px-r' catchtap='handerPopupChange' data-key='industry'>
+      <view class='filter-box-item-title ellipsis'>{{param.company_category.title}}</view>
+      <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="industry"?"rotate":""}}'></image>
+    </view>
+    <view class='filter-box-item' catchtap='handerPopupChange' data-key='order'>
+      <view class='filter-box-item-title ellipsis'>{{param.order_type.title}}</view>
+      <image src='/images/icon/down1.svg' class='icon-xs ml-sm c-base {{popupKey=="order"?"rotate":""}}'></image>
+    </view>
+  </view>
+  <view class='b-1px-b'></view>
+</view>
+
+<view style='height:{{top}}px'></view>
+<!-- <view class='space-md'></view> -->
+<view class='cell-list' >
+  <template wx:for="{{list.data}}" wx:key="{{index}}" is="card" data="{{...item,index,orderType:param.order_type.id}}"></template>
+</view>
+
+
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+<!-- 动态计算高度后才显示 -->
+<block wx:if="{{top}}">
+  <popup show="{{popupKey=='area'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='area'>
+    <cascader data="{{popup['area']}}" show-title="{{false}}" bindselected="selectArea"></cascader>
+  </popup>
+  <popup show="{{popupKey=='industry'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='industry'>
+    <scroll-view scroll-y style='max-height:520rpx'>
+      <view class='cascader-block-item {{item.id==param.industry.id?"c-primary":""}}' wx:for="{{popup['industry']}}" wx:key="{{index}}" bindtap="selectIndustry" data-index='{{index}}'>{{item.title}}</view>
+    </scroll-view>
+  </popup>
+  <popup show="{{popupKey=='order'}}" position="top" top="{{top}}" hide-on-blur="{{true}}" bindhide="handerPopupHide" data-key='order'>
+    <view class='cascader-block-item {{item.id==param.order.id?"c-primary":""}}' wx:for="{{popup['order']}}" wx:key="{{index}}" bindtap="selectOrder" data-index='{{index}}' >{{item.title}}</view>
+  </popup>
+</block>
+
+<setting show="{{settingShow}}" bindsuccess="onPullDownRefresh"></setting>

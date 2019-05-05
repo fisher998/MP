@@ -1,0 +1,36 @@
+@import '../../../styles/common.wxss';
+.fast-list{
+	display: flex;
+	padding: 36rpx 0;
+	background: #fff;
+	line-height: 1;
+}
+.fast-item{
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.panel-item-right_top{
+	line-height:1;
+	height: 44rpx;
+	display: flex;
+	align-items: center;
+}
+.total-item{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  padding: 0 35rpx;
+}
+.total-item_name{
+  flex:1;
+  color: #646464;
+  font-size: 26rpx;
+}
+.total-item_count{
+  color: #969696;
+  font-size: 24rpx;
+}

@@ -1,0 +1,12 @@
+{
+	"navigationBarTitleText": "信息详情",
+	"enablePullDownRefresh": false,
+	"usingComponents": {
+		"tabs": "/components/tabs/tabs",
+		"tab": "/components/tab/tab",
+		"sticky": "/components/sticky/sticky",
+		"loading": "/components/loading/loading",
+		"fixed": "/components/fixed/fixed",
+    "login": "/components/login/login"
+	}
+}

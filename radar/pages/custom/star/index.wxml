@@ -1,0 +1,26 @@
+<fixed top="0" left="0" right="0" >
+  <view id="sticky-input">
+    <search placeholder="输入客户名称" bindconfirm="handerConfirm"></search>
+    <view class='b-1px-b'></view>
+  </view>
+</fixed>
+<view style='height:{{stickyTop}}px;'></view>
+
+<view class='panel-item  b-1px-b' wx:for="{{list.data}}" wx:key="{{index}}" catchtap='goUrl' data-url='/radar/pages/custom/detail/detail?uid={{item.c_uid}}&cid={{item.c_card_id}}'>
+  <image class='r-avatar' src='{{item.person_avatar}}'></image>
+  <view class='flex-1 ml-md'>
+    <view class='panel-item-right_top'>
+      <image wx:if="{{item.tel}}" class='icon-sm' src='../../../images/icon/phone.png'></image>
+      <view class='c-title f-title name ellipsis'>{{item.nick_name}}</view>
+      <tag type="primary" class="ml-sm" wx:if="{{item.status==3}}">已成交</tag>
+      <tag type="genjin" class="ml-sm" wx:if="{{item.status==2}}">跟进中</tag>
+      <image wx:if="{{item.is_stra}}" class='icon-sm ml-sm' src='../../../images/icon/star-fill.png'></image>
+      <view class='c-caption f-caption-lg flex-1 text-right'>{{item.last_time}}</view>
+    </view>
+    <view class='c-caption f-caption-lg flex-y-center'>成为你的客户
+      <text style='color:{{color}}'>{{item.days}}</text>天，互动了
+      <text style='color:{{color}}'>{{item.count}}</text>次</view>
+  </view>
+</view>
+
+<loading loading="{{loading}}" list="{{list}}"></loading>

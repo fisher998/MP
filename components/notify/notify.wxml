@@ -1,0 +1,4 @@
+<view class='notify-box {{show?"notify-box-show":""}}'>
+  <slot>
+  </slot>
+</view>

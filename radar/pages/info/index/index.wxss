@@ -1,0 +1,112 @@
+@import '../../../styles/common.wxss';
+
+/* 时间 */
+
+.time-record-item {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32rpx;
+  margin: 24rpx 35rpx 0;
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.03);
+}
+
+/* .time-record-item:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  border: 1px solid #e6e6e6;
+  color: #e6e6e6;
+  height: 200%;
+  transform-origin: left top;
+  transform: scale(0.5);
+  box-sizing: border-box;
+  border-radius: 20rpx;
+} */
+
+.time-record-text {
+  line-height: 1;
+  margin: 30rpx 35rpx 0;
+  color: #222;
+  font-size: 28rpx;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.time-record_top {
+  display: flex;
+  align-items: center;
+}
+
+.time-record_bottom {
+  /* display: flex;
+  align-items: center; */
+  margin-top: 6rpx;
+}
+
+/* 行为 */
+
+
+.action-box {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.action-box-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250rpx;
+}
+
+.action-box-item_num {
+  font-size: 42rpx;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+.action-list {
+  background: #fff;
+  padding: 0 35rpx;
+}
+
+.action-list-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+}
+
+/* 人 */
+
+
+.person-record-item {
+  display: flex;
+  align-items: center;
+  height: 140rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.person-record_avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 5rpx;
+}
+
+.person-record_right {
+  flex: 1;
+  margin: 0 20rpx;
+  line-height: 1.5;
+}
+
+.person-record_count {
+  display: flex;
+  align-items: center;
+}

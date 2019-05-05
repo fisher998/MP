@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加产品",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false,
+  "usingComponents": {}
+}

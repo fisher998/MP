@@ -1,0 +1,17 @@
+{
+	"navigationBarBackgroundColor":"#f9f9f9",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "雷达",
+	"backgroundColor":"#f7f9fa",
+	"usingComponents": {
+		"tabbar": "/components/tabbar/tabbar",
+		"tab": "../../../components/tab/tab",
+		"tabs": "../../../components/tabs/tabs",
+		"accordion": "../../../components/accordion/accordion",
+		"loading": "../../../components/loading/loading",
+		"count": "../../../components/count/count",
+		"fixed": "../../../components/fixed/fixed",
+		"mask": "../../../components/mask/mask",
+		"segment": "../../../components/segment/segment"
+	}
+}

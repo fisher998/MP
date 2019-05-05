@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "名片夹",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "search": "/components/search/search",
+    "tag": "/components/tag/tag",
+    "swiper-out": "/components/swiper-out/swiper-out",
+    "login": "/components/login/login"
+  }
+}

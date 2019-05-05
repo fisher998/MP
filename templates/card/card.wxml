@@ -1,0 +1,84 @@
+<template name="card">
+  <button form-type='submit' class='card-item {{index>0?"b-1px-t":""}} share-btn' bindtap='goUrl' data-url='/pages/card/home/home?uid={{uid}}'>
+    <view class='flex-center'>
+      <image class='avatar' src='{{person_avatar_thumb||person_avatar}}'></image>
+      <view class='ml-lg  flex-1 ellipsis'>
+        <view class='flex-y-baseline '>
+          <view class='flex-y-center'>
+            <view class='f-title-lg {{vip_level>1?"c-hot":"c-title"}} ellipsis'>{{name}}</view>
+            <image class='ml-md icon-md' src='{{icon[0].path}}'  wx:if="{{vip_level>1}}"></image>
+          </view>
+          <view class='c-caption f-caption ml-md ellipsis'>{{position}}</view>
+        </view>
+        <view class='flex-y-center'>
+          <view class='c-caption f-paragraph flex-1 ellipsis'>{{company_name||introduce||"未填写个性签名"}}</view>
+          <view class='f-caption c-caption' wx:if="{{orderType==2}}">{{distance>1?distance+'km':distance
+            <=0? "100m以内":distance*1000+ 'm'}}</view>
+          </view>
+        </view>
+
+      </view>
+
+      <view class='card-bottom'>
+        <image src='/images/icon/look.png' class='icon-sm'></image>
+        <view class='f-caption c-caption ml-sm'>{{view}}</view>
+        <image src='/images/icon/like.png' class='icon-sm ml-60'></image>
+        <view class='f-caption c-caption ml-sm'>{{collect}}</view>
+      </view>
+  </button>
+
+</template>
+
+<template name="count">
+  <view class='card-item {{index>0?"b-1px-t":""}}' bindtap='goUrl' data-url='/pages/card/home/home?uid={{uid}}&operate_id={{id}}'>
+    <view class='flex-center'>
+      <view class='avatar-box avatar'>
+        <image class='avatar' src='{{person_avatar_thumb||person_avatar}}' lazy-load></image>
+        <badge wx:if="{{!is_read}}" custom-style="position: absolute;top:-8rpx;right:-8rpx;padding:8rpx"></badge>
+      </view>
+
+      <view class='ml-lg flex-1 ellipsis'>
+        <view class='flex-y-baseline flex-1'>
+          <view class='f-title-lg c-title'>{{name}}</view>
+          <view class='c-caption f-caption ml-md ellipsis'>{{position}}</view>
+
+        </view>
+        <view class='flex-y-center'>
+          <view class='c-caption f-paragraph flex-1 ellipsis'>{{company_name||introduce||"未填写个性签名"}}</view>
+          <view class='f-caption c-caption'>{{update_time}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+</template>
+<template name="group">
+  <swiper-out height="160" operate-width="200" value="{{switch||'off'}}" bindchange="handerSwiperChange" data-index="{{index}}" can-swipe="{{is_owner&&id!=card_id}}">
+    <view slot="content">
+      <view class='group-item {{index>0?"b-1px-t":""}}' bindtap='goUrl' data-url='/pages/card/home/home?uid={{uid}}'>
+        <view class='flex-center'>
+          <image class='avatar' src='{{person_avatar_thumb||person_avatar||"/images/icon/default.svg"}}'></image>
+          <view class='ml-lg  flex-1 ellipsis'>
+            <view class='flex-y-baseline '>
+              <view class='f-title-lg c-title'>{{name}}</view>
+              <view class='c-caption f-caption ml-md ellipsis'>{{position}}</view>
+            </view>
+            <view class='c-caption f-paragraph flex-1 ellipsis'>{{company_name||introduce||"未填写个性签名"}}</view>
+          </view>
+
+        </view>
+        <!-- <view class='group-bottom f-paragraph ellipsis'>{{introduce||"他还没有个人介绍!"}}</view> -->
+      </view>
+
+    </view>
+    <view slot="operate">
+      <view class='flex-center ' style='height:160rpx'>
+        <view style='background:#ff3a31;color:#fff;flex:1;height:160rpx;' class='flex-center' catchtap='kickout' data-id='{{id}}' data-index="{{index}}">踢出</view>
+      </view>
+
+    </view>
+  </swiper-out>
+
+
+</template>

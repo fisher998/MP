@@ -1,0 +1,87 @@
+<form bindsubmit="formSubmit" report-submit>
+  <view class='chat-box'>
+    <scroll-view scroll-y class='top-box' scroll-top="{{scrollTop}}" bindscrolltoupper="handerUpper" scroll-with-animation="{{true}}">
+      <view id='container' style='overflow:hidden'>
+        <view class='clearfix message-box' wx:for="{{list.data}}" wx:key="{{index}}">
+          <view class='time-box' wx:if="{{index==0||item.create_time-list.data[index-1].create_time>60}}">
+            <view class='time'>{{item.timestring}}</view>
+          </view>
+          <!-- 不是自己 -->
+          <block wx:if="{{!item.is_self}}">
+            <image class='avatar fl' mode="widthFix" src="{{item.person_avatar}}"></image>
+            <view class='text-item fl text-item_left' wx:if="{{item.msg_type==1}}">
+              {{item.content}}
+            </view>
+            <image class='image-item fl ' mode='widthFix' src='{{item.content}}' wx:if="{{item.msg_type==2}}" bindtap='previewImage' data-src='{{item.content}}'></image>
+
+            <view class='text-item fl text-item_left' wx:if="{{item.msg_type==3}}" style='width:430rpx;padding:32rpx;'>
+              <view>你好，这是我的名片，请惠存!</view>
+              <image class='item3-img' mode='widthFix' src='{{item.content.share_img_url}}'></image>
+              <button type='primary'  class='mt-lg' disabled='{{item.content.is_collect}}' bindtap='collect' data-index='{{index}}' data-id='{{item.content.card_id}}' data-uid='{{item.uid}}'>{{item.content.is_collect?"已收下":"收下"}}</button>
+            </view>
+          </block>
+          <!-- 自己 -->
+          <block wx:else>
+            <image class='avatar fr' src="{{item.person_avatar}}"></image>
+            <view class='text-item fr text-item_right' wx:if="{{item.msg_type==1}}">
+              {{item.content}}
+            </view>
+            <image class='image-item fr ' mode="widthFix" src='{{item.content}}' wx:if="{{item.msg_type==2}}" bindtap='previewImage' data-src='{{item.content}}'></image>
+            <view class='text-item fr text-item_right' wx:if="{{item.msg_type==3}}" style='width:430rpx;padding:32rpx;'>
+              <view>你好，这是我的名片，请惠存!</view>
+              <image class='item3-img' mode='widthFix' src='{{item.content.share_img_url}}'></image>
+              
+            </view>
+            <template is="status" data="{{status:changeObj[item.id]||item.status}}"></template>
+
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='input-box'>
+      <textarea class='input-text' style='padding:12rpx 20rpx' placeholder='' auto-height="{{true}}" fixed='{{true}}' show-confirm-bar="{{false}}" value='{{text}}' cursor-spacing="0" bindinput='handerInputChange' adjust-position="{{false}}" bindfocus="focus"
+        bindblur="blur" placeholder-class=''></textarea>
+      <image class='icon-md ml-md' src='/images/chat/emoji.svg' bindtap='changeShowEmoji'></image>
+      <image wx:if="{{!text}}" class='icon-md ml-md' src='/images/chat/more.svg' bindtap='changeShowMore'></image>
+
+      <button type="primary" size="mini" bindtap='comfirmText' wx:if="{{text}}" form-type='submit'>发送</button>
+
+    </view>
+    <view style='height:{{height}}px'></view>
+    <view wx:if="{{showEmoji||showMore}}" class='b-1px-b'></view>
+    <view wx:if="{{showMore}}" class='more-box'>
+      <view class='more-box-item' bindtap='chooseImage' data-type='{{0}}'>
+        <image class='more-box-img' src='/images/chat/extra/choose_picture.png'></image>
+        <view>相册</view>
+      </view>
+      <view class='more-box-item' bindtap='chooseImage' data-type='{{1}}'>
+        <image class='more-box-img' src='/images/chat/extra/take_photos.png'></image>
+        <view>拍摄</view>
+      </view>
+    </view>
+    <swiper wx:if="{{showEmoji}}" class='emoji-content'>
+      <swiper-item wx:for="{{emojis}}" wx:key="{{index}}" wx:for-item="pemojis" class="emoji-box">
+        <view class='emoji-item' wx:for="{{pemojis}}" wx:for-item="e" wx:key="i">
+          <image class="emoji-img" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+        </view>
+        <!-- <view class='emoji-item__del' catchtap='delEmoji'>
+          <image class='emoji-img' src='/images/chat/del.svg'></image>
+        </view> -->
+      </swiper-item>
+    </swiper>
+  </view>
+
+</form>
+
+
+<template name="status">
+  <view class='fr text-item_status text-item_status--fail' wx:if="{{status==-1}}">
+    <icon type='warn' size="40rpx" bindtap='reSend' data-index='{{index}}'></icon>
+  </view>
+  <view class='fr text-item_status text-item_status--success' wx:if="{{status==1}}">未读</view>
+  <view class='fr text-item_status ' wx:if="{{status==2}}">已读</view>
+</template>
+
+<view wx:if="{{is_share=='true'}}" class='nav-box' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+  <text>回到\n首页</text>
+</view>

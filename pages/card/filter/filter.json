@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "筛选",
+  "enablePullDownRefresh": false,
+	"usingComponents": {
+		"search": "/components/search/search",
+		"fixed": "/components/fixed/fixed",
+		"tabs": "/components/tabs/tabs",
+		"tab": "/components/tab/tab",
+		"sticky": "/components/sticky/sticky",
+		"loading": "/components/loading/loading",
+		"popup": "/components/popup/popup",
+		"cascader": "/components/cascader/cascader",
+		"mask": "/components/mask/mask",
+		"swiper-out": "/components/swiper-out/swiper-out",
+		"setting": "/components/setting/setting"
+	}
+}

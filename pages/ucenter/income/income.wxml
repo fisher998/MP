@@ -1,0 +1,25 @@
+<view class='cell-list'>
+  <template wx:for="{{list.data}}" wx:key="{{index}}" is="income" data="{{...item,oplist,index}}"></template>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+<template name="income">
+  <view class='income-item {{index!=0?"b-1px-t":""}} '>
+    <block wx:if="{{mode==1}}">
+      <view class='income_tag' wx:if="{{child_level==2}}">间</view>
+      <view class='income_tag income_tag--jj' wx:else>直</view>
+    </block>
+    <block wx:else>
+      <view class='income_tag income_tag--kk'></view>
+    </block>
+    <view class=' flex-1 ellipsis'>
+      <view class='flex-y-center'>
+        <view class='f-title-lg c-title ml-lg ellipsis'>{{child_name||"我"}}</view>
+        <view class='f-title-lg ml-md'>{{title}}</view>
+      </view>
+
+      <view class='c-caption f-caption ellipsis ml-lg'>时间:{{create_time}} 用途:{{oplist[order_type]}}</view>
+    </view>
+    <view class='income_price ml-lg'>{{mode==1?"+":"-"}}{{money}}</view>
+  </view>
+</template>

@@ -1,0 +1,42 @@
+.info-item{
+	padding: 32rpx 0;
+	background: #fff;
+}
+.info-content{
+	vertical-align: middle;
+	margin-top: 30rpx;
+}
+.info-img-list{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20rpx;
+}
+.info-img{
+	width: 222rpx;
+	height: 222rpx;
+	margin: 10rpx 10rpx 0 0;
+}
+.info-img:nth-child(3n){
+	margin-right: 0;
+}
+.info-bottom{
+	display: flex;
+	align-items: center;
+	margin-top: 32rpx;
+	line-height: 40rpx;
+}
+.info-address{
+	display: flex;
+	align-items: center;
+	background: #f3f3f3;
+	color: #888;
+	border-radius: 4rpx;
+	line-height: 40rpx;
+	padding-right: 20rpx;
+}
+.info-del{
+	color: #ea3341;
+	font-size: 24rpx;
+	width: 100rpx;
+	text-align: right;
+}

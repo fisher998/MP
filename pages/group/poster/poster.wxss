@@ -1,0 +1,9 @@
+page{
+	background: #fff;
+}
+.poster-img {
+  width: 686rpx;
+  height: 802rpx;
+	margin: 32rpx;
+	box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.1);
+}

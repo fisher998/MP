@@ -1,0 +1,24 @@
+<import src="../../../templates/info/info.wxml" />
+
+<search focus='{{focus}}' bindconfirm="handerConfirm" bindfocus='handerFocus' placeholder='{{searchTitle}}' keyword="{{param.keyword}}"></search>
+
+
+<block wx:if="{{!focus}}">
+  <view class='b-1px-b'></view>
+  <view  class="cell-list" wx:for="{{list.data}}" wx:key="{{index}}">
+    <template is="info" data="{{...item,index}}"></template>
+  </view>
+
+  <loading loading="{{loading}}" list="{{list}}"></loading>
+</block>
+<view wx:if="{{focus}}" style='height:calc(100vh - 96rpx);background:#fff;'>
+  <view class='space'></view>
+  <view class='pd-lg'>
+    <view class='search-history-title' wx:if="{{searchHistoryList.length>0}}">
+      <view class='flex-1'>历史搜索</view>
+      <view class='c-error f-caption-lg' bindtap='clearHistory'>清除</view>
+    </view>
+    <view class='search-history-item ellipsis' wx:for="{{searchHistoryList}}" wx:key="{{index}}" bindtap='selectHistorySearch' data-keyword='{{item}}'>{{item}}</view>
+  </view>
+
+</view>

@@ -1,0 +1,17 @@
+<form bindsubmit="formSubmit" report-submit>
+  <view class='tp-box' wx:if="{{tabList[tabActiveIndex].data.length>0}}">
+    <view class='tp-box_item' wx:for="{{tabList[tabActiveIndex].data}}" wx:key="{{index}}" bindtap='handerChange' data-index='{{index}}'>
+      <image class='tp-box_img' src='{{item.path[0].path}}' mode='widthFix'></image>
+      <image class='tp-box_icon' src='/images/icon/checked.png' wx:if="{{index==tpIndex}}"></image>
+    </view>
+
+  </view>
+
+  <view class='fixed-bottom pd-lg'>
+    <button type='primary' form-type="submit" disabled='{{currentTp.use_status==2}}'>
+      <text wx:if="{{currentTp.use_status==0}}">{{currentTp.price}}元</text>
+      <text>{{tpStatus[currentTp.use_status]}}</text>
+      <text wx:if="{{currentTp.user_vip_discount==1&&currentTp.use_status==0}}" class='member-color'>(会员价￥{{currentTp.vip_price}})</text>
+    </button>
+  </view>
+</form>

@@ -1,0 +1,60 @@
+.message-box {
+  position: fixed;
+  bottom: 25rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 27.5px;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+  height: 55px;
+  width: 55px;
+  padding: 0 5px;
+  background: #fff;
+  white-space: nowrap;
+  transition: all 1s;
+  overflow: hidden;
+  z-index: 666;
+}
+
+.message-center {
+  flex: 1;
+}
+
+.message-right {
+  position: relative;
+}
+
+.name {
+  font-size: 32rpx;
+  color: #222;
+  padding: 0 20rpx;
+}
+
+.describe {
+  font-size: 26rpx;
+  color: #646464;
+  padding: 0 20rpx;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dot {
+  position: absolute;
+  width: 22rpx;
+  height: 22rpx;
+  background: #f00;
+  border-radius: 50%;
+  right: 10rpx;
+  top:10rpx;
+}

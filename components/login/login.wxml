@@ -1,0 +1,11 @@
+<mask show="{{show}}" hide-on-tap="{{true}}">
+  <view class='mask-body'>
+    <form bindsubmit="formSubmit" report-submit>
+      <view class='auth-box'>
+        <image class='auth-img' src='/images/icon/auth.png'></image>
+        <view class='auth-text'>小程序需要获取你的头像、昵称</view>
+        <button type='primary' style='width:260rpx' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang="zh_CN" form-type='submit'>授权登录</button>
+      </view>
+    </form>
+  </view>
+</mask>

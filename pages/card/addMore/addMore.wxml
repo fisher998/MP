@@ -1,0 +1,93 @@
+<view class='cell-list' wx:if="{{key=='name'}}">
+  <view class='cell b-1px-b'>
+    <input class='flex-1' placeholder='填写姓名' bindinput='handerInputChange' data-key='name' value='{{form.name}}' maxlength='8' placeholder-class='c-placeholder'></input>
+  </view>
+</view>
+<view class='cell-list' wx:if="{{key=='tel'}}">
+  <view class='cell b-1px-b'>
+    <input class='flex-1 mr-lg' placeholder='填写手机号' bindinput='handerInputChange' data-key='tel' value='{{form.tel}}' maxlength='11' placeholder-class='c-placeholder' type='number'></input>
+    <button class='share-btn  c-primary  f-paragraph' bindgetphonenumber='getPhone' open-type="getPhoneNumber">
+      快速获取
+    </button>
+  </view>
+</view>
+<view class='cell-list' wx:if="{{key=='mini_address'}}">
+  <view class='cell'>
+    <input class='flex-1' placeholder='选择地址' bindinput='handerInputChange' data-key='mini_address' value='{{form.mini_address}}' maxlength='30' placeholder-class='c-placeholder'></input>
+    <view class='c-primary f-paragraph ml-lg' bindtap='chooseLocation' data-key='location'>{{form.mini_address?"重新选择":"选择地址"}}</view>
+  </view>
+</view>
+<block wx:if="{{key=='introduce'}}">
+  <textarea placeholder='填写个性签名' bindinput='handerInputChange' data-key='introduce' value='{{form.introduce}}' maxlength='50' placeholder-class='c-placeholder'></textarea>
+  <view class='pd-md fill-base text-right c-caption'>{{form.introduce?form.introduce.length:0}}/50</view>
+</block>
+<view class='cell-list' wx:if="{{key=='wechat_number'}}">
+  <view class='cell b-1px-b'>
+    <input class='flex-1 ' placeholder='填写微信号' bindinput='handerInputChange' data-key='wechat_number' value='{{form.wechat_number}}' maxlength='20' placeholder-class='c-placeholder'></input>
+  </view>
+</view>
+<view class='cell-list' wx:if="{{key=='email'}}">
+  <view class='cell'>
+    <input class='flex-1 ' placeholder='填写常用邮箱' bindinput='handerInputChange' data-key='email' value='{{form.email}}' maxlength='50' placeholder-class='c-placeholder'></input>
+  </view>
+</view>
+<block wx:if="{{key=='company_desc'}}">
+  <view class='cell-list'>
+    <view class='cell-item b-1px-b' bindtap='cropperImage' data-key='company_logo'>
+      <view class='flex-1'>公司Logo</view>
+      <image class='avatar' src='{{form.company_logo_thumb||"/images/icon/default.svg"}}'></image>
+      <view class='right-arrow'></view>
+    </view>
+    <view class='cell b-1px-b'>
+      <view class='flex-1'>公司名称</view>
+      <input class='text-right ' placeholder='填写公司名称' bindinput='handerInputChange' data-key='company_name' value='{{form.company_name}}' maxlength='30' placeholder-class='c-placeholder'></input>
+    </view>
+    <view class='cell b-1px-b'>
+      <view class='flex-1'>职位</view>
+      <input class='text-right ' placeholder='填写你的职位' bindinput='handerInputChange' data-key='position' value='{{form.position}}' maxlength='10' placeholder-class='c-placeholder'></input>
+    </view>
+  </view>
+
+  <textarea placeholder='详细介绍一下所在的企业~~' placeholder-class='c-placeholder' bindinput='handerInputChange' data-key='company_desc' value='{{form.company_desc}}' maxlength='1000'></textarea>
+  <view class='pd-md fill-base text-right c-caption'>{{form.company_desc?form.company_desc.length:0}}/1000</view>
+  <view class='fill-base pd-lg'>
+    <scroll-view scroll-x class='scroll-x'>
+      <view class='scroll-x-item' wx:for="{{form.company_imgs}}" wx:key="{{index}}">
+        <image class='scroll-x-item__img' src='{{item.path_thumb||item.path}}'></image>
+        <view class='del-image' bindtap='delImage' data-index='{{index}}' data-key='company_imgs'>x</view>
+      </view>
+
+      <view class='scroll-x-item' wx:if="{{form.company_imgs.length<9}}" bindtap='chooseImage' data-key='company_imgs' data-size='{{9}}'>
+        <view class='upload-add'></view>
+      </view>
+    </scroll-view>
+  </view>
+</block>
+<block wx:if="{{key=='shop'}}">
+  <view class='cell-list'>
+    <view class='cell b-1px-b'>
+      <input class='flex-1 ' placeholder='添加跳转链接' bindinput='handerInputChange' data-key='link_url' value='{{form.link_url}}' maxlength='50' placeholder-class='c-placeholder'></input>
+    </view>
+  </view>
+  <view class='fill-base pd-lg'>
+    <view class='c-placeholder pt-md pb-md'>添加封面图</view>
+    <scroll-view scroll-x class='scroll-x'>
+      <view class='scroll-x-item' wx:for="{{form.link_img}}" wx:key="{{index}}">
+        <image class='scroll-x-item__img' src='{{item.path_thumb||item.path}}'></image>
+        <view class='del-image-box' bindtap='delImage' data-index='{{index}}' data-key='link_img'>
+          <image class='del-image' src='/images/icon/delete.png'></image>
+        </view>
+      </view>
+
+      <view class='scroll-x-item' wx:if="{{form.link_img.length<1}}" bindtap='chooseImage' data-key='link_img' data-size='{{1}}'>
+        <view class='upload-add'></view>
+      </view>
+      
+    </scroll-view>
+  </view>
+</block>
+
+
+<view class='pd-lg fixed-bottom'>
+  <button type='primary' bindtap='submit'>确定</button>
+</view>

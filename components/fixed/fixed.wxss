@@ -1,0 +1,4 @@
+.ui-fixed-view {
+  position: fixed;
+	z-index: 200;
+}

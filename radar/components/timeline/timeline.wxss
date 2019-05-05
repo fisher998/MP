@@ -1,0 +1,19 @@
+.ui-timeline {
+  position: relative;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.ui-timeline .slot-wrap {
+  margin-top: 10px;
+  padding: 0;
+  bottom: 0;
+}
+.ui-timeline-row {
+  position: relative;
+  overflow: hidden;
+}
+.ui-timeline-row .slot-wrap {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+}

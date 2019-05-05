@@ -1,0 +1,25 @@
+<view class='qy-container'>
+  <view class="qy-item">
+    <input placeholder='企业全称' class='flex-1' bindinput='handerInputChange' data-key='company_name' value='{{form.company_name}}' maxlength='20' placeholder-class='qy-placeholder'></input>
+  </view>
+  <view class="qy-item">
+    <input placeholder='联系电话' class='flex-1' bindinput='handerInputChange' data-key='tel' value='{{form.tel}}' maxlength='20' placeholder-class='qy-placeholder' type='number'></input>
+  </view>
+  <view class="qy-item ellipsis">
+    <input placeholder='输入地址' class='flex-1 ellipsis' bindinput='handerInputChange' data-key='address' value='{{form.address}}' maxlength='30' placeholder-class='qy-placeholder'></input>
+    <view bindtap='chooseLocation' data-key='location' class='qy-placeholder'>选择地址</view>
+  </view>
+  <view class="qy-item">
+    <input placeholder='企业人数' class='flex-1' bindinput='handerInputChange' data-key='company_peoples' value='{{form.company_peoples}}' maxlength='10' placeholder-class='qy-placeholder' type='number'></input>
+  </view>
+  <view class="qy-item qiye-btn_submit" bindtap='submit'>
+    申请开通
+  </view>
+  <view class='qiye-space'>或</view>
+  <view class="qy-item qiye-btn_call" bindtap='goUrl' data-url='tel:{{qiye_apply_tel}}'>
+    <image src='/images/icon/call.png' style='width:28rpx;height:28rpx;margin-right:18rpx;'></image>
+    <view>直接联系购买</view>
+  </view>
+</view>
+
+<setting show="{{settingShow}}"></setting>

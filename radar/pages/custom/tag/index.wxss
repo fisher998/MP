@@ -1,0 +1,8 @@
+@import '../../../styles/common.wxss';
+.create-item{
+	background: #fff;
+	height: 110rpx;
+	display: flex;
+	align-items: center;
+	padding: 0 35rpx;
+}

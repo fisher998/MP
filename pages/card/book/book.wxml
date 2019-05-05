@@ -1,0 +1,95 @@
+<!-- <swiper-ad list="{{[1,2]}}"></swiper-ad> -->
+<view class='space'></view>
+
+<!-- 收藏列表 -->
+<scroll-view class='scroll-y' scroll-y style='height:100vh' scroll-into-view="{{currentIndex}}" scroll-with-animation="{{true}}">
+  <!-- 搜索 -->
+  <search url="/pages/card/search/search?is_collect=1"></search>
+
+  <!-- 其他功能 -->
+  <form bindsubmit="formSubmit" report-submit>
+    <view class='cell-list b-1px-tb'>
+      <button form-type='submit' wx:if="{{shibie_type==1}}" class='cell-item  share-btn'  bindtap='goUrl' data-url='/pages/card/camera/camera' data-must='{{true}}' >
+        <image class='avatar' src='/images/book/camera.png'></image>
+        <view class='ml-lg flex-1 ellipsis'>
+          <view class='f-title-lg'>存纸质名片</view>
+          <view class='c-caption f-paragraph ellipsis'>拍照识别纸质名片</view>
+        </view>
+      </button>
+      <button form-type='submit' class='cell-item b-1px-t share-btn' bindtap='goUrl' data-url='/pages/group/list/list' data-must='{{true}}'>
+        <image class='avatar' src='/images/book/group.png'></image>
+        <view class='ml-lg flex-1 ellipsis'>
+          <view class='f-title-lg'>群名片</view>
+          <view class='c-caption f-paragraph ellipsis'>邀请微信好友加入</view>
+        </view>
+      </button>
+      <button form-type='submit' wx:if="{{radar.switch==1}}" class='cell-item share-btn b-1px-t' bindtap='goUrl' data-url='/radar/pages/info/index/index' data-must='{{true}}'>
+        <image class='avatar' src='/images/book/radar.png'></image>
+        <view class='ml-lg flex-1 ellipsis'>
+          <view class='f-title-lg'>AI雷达</view>
+          <view class='c-caption f-paragraph ellipsis'>客户数据追踪、统计、AI分析</view>
+        </view>
+      </button>
+    </view>
+  </form>
+  <!-- 推荐名片 -->
+  <view wx:if="{{recommend.length>0}}">
+    <view class='cell-list-title '>推荐名片</view>
+    <view class='cell-list b-1px-tb'>
+      <view class='collect-item {{index>0?"b-1px-t":""}}' wx:for="{{recommend}}" wx:key="{{index}}" bindtap="goUrl" data-url='/pages/card/home/home?uid={{item.uid}}'>
+        <image class='avatar' src='{{item.person_avatar_thumb||item.person_avatar}}'></image>
+        <view class='ml-lg flex-1 ellipsis'>
+          <view class='f-title-lg c-title'>{{item.name}}</view>
+          <view class='c-caption f-paragraph ellipsis'>{{item.company_name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 收藏名片 -->
+  <form bindsubmit="formSubmit" report-submit>
+    <view wx:for="{{my_collect_list}}" wx:for-index="pindex" wx:for-item="pitem" wx:key="{{pindex}}">
+      <view class='cell-list-title__zimu ' id="{{pitem.zimu}}">{{pitem.zimu}}</view>
+      <view class='collect-list b-1px-tb'>
+        <view wx:for="{{pitem.data}}" wx:key="{{index}}" catchtap="goUrl" data-url='{{item.own_uid?"/pages/card/camera/add?id="+item.id:"/pages/card/home/home?uid="+item.card_uid}}'>
+          <swiper-out height="128" operate-width="200" value="{{item.switch||'off'}}" bindchange="handerSwiperChange" data-pindex="{{pindex}}" data-index="{{index}}">
+            <view slot="content">
+              <button form-type='submit' class='collect-item {{index>0?"b-1px-t":""}} share-btn'>
+                <image class='avatar' src='{{item.person_avatar_thumb||item.person_avatar}}'></image>
+                <view class='ml-lg flex-1 ellipsis'>
+                  <view class='flex-y-baseline flex-1 '>
+                    <view class='f-title-lg c-title'>{{item.name}}</view>
+                    <view class='c-caption f-caption ml-md ellipsis'>{{item.position}}</view>
+                    <tag wx:if="{{item.own_uid}}" class='ml-md'>未认领</tag>
+                  </view>
+                  <view class='c-caption f-paragraph ellipsis'>{{item.company_name||item.introduce||"还没有个人介绍"}}</view>
+                </view>
+                <!-- <image class='icon-md collect-item__img' src='/images/card/call1.png' catchtap='goUrl' data-url='tel:{{item.tel}}'></image> -->
+              </button>
+
+
+            </view>
+            <view slot="operate">
+              <view class='flex-center ' style='height:128rpx'>
+                <view wx:if="{{item.own_uid}}" style='background:#ff3a31;color:#fff;flex:1;height:128rpx;' class='flex-center' catchtap='delOut' data-id='{{item.id}}' data-pindex="{{pindex}}" data-index="{{index}}">取消收藏</view>
+                <view wx:else style='background:#ff3a31;color:#fff;flex:1;height:128rpx;' class='flex-center' catchtap='collect' data-type='{{3}}' data-mode='{{-1}}' data-card_id='{{item.card_id}}' data-pindex="{{pindex}}" data-index="{{index}}">取消收藏</view>
+              </view>
+
+            </view>
+          </swiper-out>
+        </view>
+      </view>
+    </view>
+  </form>
+
+  <view class='space-lg'></view>
+
+</scroll-view>
+<view class='index-float-block' style='opacity:{{currentIndex?1:0}}' wx:if="{{currentIndex}}">{{currentIndex}}</view>
+
+<view class="index-selector-wrap" catchtouchstart="selectTouchStartHandler" catchtouchmove="selectTouchMoveHandler" catchtouchend="selectTouchEndHandler">
+  <view class="index-selector-item" style="top: {{index * 16}}px" wx:for="{{my_collect_list}}" wx:key="index">{{item.zimu}}
+  </view>
+</view>
+<view class='space fixed-bottom'></view>
+
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

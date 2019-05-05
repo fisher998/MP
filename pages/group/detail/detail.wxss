@@ -1,0 +1,81 @@
+@import "../../../templates/card/card.wxss";
+.filter-box{
+  display: flex;
+  background: white;
+}
+.filter-box-item{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+}
+.filter-box-item-title{
+  max-width: 120rpx;
+}
+.sticky-in-relative-container{
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 888;
+}
+.icon-xs{
+  transition: all 300ms;
+}
+.rotate{
+  transform:rotate(180deg);
+  transition: all 300ms;
+}
+.cascader-block-item {
+  height:80rpx;
+  padding-left:16rpx;
+  padding-right:16rpx;
+  line-height:80rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  border-bottom:1px solid #F5F5F5;
+}
+.search-box{
+	background: #efeff5;
+}
+.fixed-bottom-list{
+	display: flex;
+	align-items: center;
+	padding: 16rpx 32rpx 16rpx 0;
+	background: #fff;
+}
+.fixed-btn{
+	width: 280rpx;
+	margin: 0;
+}
+.fixed-btn:last-child{
+	margin-left: 16rpx;
+}
+.group-head {
+  padding: 32rpx 32rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.group-tag {
+  line-height: 36rpx;
+  padding: 0 16rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background: #95b4ea;
+  border-radius: 4rpx;
+}
+
+.group-tag-cate {
+  background: #87c9e2;
+}
+.tripList_root { 
+  top: 0; 
+  left: 0; 
+  bottom:0; 
+  right:0; 
+  overflow: hidden ; 
+  position: absolute ; 
+}

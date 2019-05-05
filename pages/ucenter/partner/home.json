@@ -1,0 +1,11 @@
+{
+	"navigationBarTitleText": "推客首页",
+	"navigationBarBackgroundColor": "#ea3341",
+	"navigationBarTextStyle": "white",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"painter": "/components/painter/painter",
+		"popup":"/components/popup/popup",
+		"setting": "/components/setting/setting"
+	}
+}

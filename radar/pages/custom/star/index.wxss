@@ -1,0 +1,7 @@
+@import '../../../styles/common.wxss';
+.panel-item-right_top{
+	line-height: 1;
+	height: 44rpx;
+	display: flex;
+	align-items: center;
+}

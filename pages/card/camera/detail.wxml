@@ -1,0 +1,52 @@
+
+<view class='space-lg'></view>
+<view class="cell-list b-1px-tb">
+  <view class='flex-y-center b-1px-b' data-key='logo' style='height:128rpx;' bindtap='{{form.person_avatar?"previewImage":""}}' data-src='{{form.person_avatar}}' wx:if="{{form.person_avatar}}">
+    <view class='cell-label'>头像</view>
+    <view class='c-placeholder' wx:if="{{form.logo.length<1}}">点击上传</view>
+    <image wx:else src='{{form.person_avatar||"/images/icon/default.svg"}}' class='avatar'></image>
+  </view>
+  <view class='cell b-1px-b' wx:if="{{form.name}}">
+    <view class='cell-label'>姓名</view>
+    <view class='flex-1'>{{form.name}}</view>
+  </view>
+  <view class='cell b-1px-b' wx:if="{{form.tel}}">
+    <view class='cell-label'>手机</view>
+    <view class='flex-1'>{{form.tel}}</view>
+  </view>
+  <view class='cell b-1px-b' wx:if="{{form.company_name}}">
+    <view class='cell-label'>公司</view>
+    <view class='flex-1'>{{form.company_name}}</view>
+  </view>
+  <view class='cell b-1px-b' wx:if="{{form.position}}">
+    <view class='cell-label'>职务</view>
+    <view class='flex-1'>{{form.position}}</view>
+  </view>
+	<view class='cell b-1px-b' wx:if="{{form.address}}">
+    <view class='cell-label'>地址</view>
+    <view class='flex-1'>{{form.address}}</view>
+  </view>
+
+
+  <view class='cell' wx:if="{{form.wechat_number}}">
+    <view class='cell-label'>微信号</view>
+    <view class='flex-1'>{{form.wechat_number}}</view>
+  </view>
+
+</view>
+
+
+<view style='height:140rpx;'></view>
+
+<form bindsubmit="formSubmit" report-submit>
+  <view class='fixed-bottom fixed-bottom-list b-1px-t'>
+    <view class='fixed-bottom-icon' bindtap='goUrl' data-url='/pages/card/index/index' data-method='switchTab'>
+      <image class='icon-lg' src='/images/book/index.png'></image>
+      <view class='f-caption-lg'>首页</view>
+    </view>
+		<button type='default' class="fixed-btn" open-type='share'>邀请好友认领</button>
+    <button type='primary' class='fixed-btn flex-1' form-type='submit' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">认领此名片</button>
+    
+
+  </view>
+</form>

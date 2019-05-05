@@ -1,0 +1,8 @@
+{
+	"navigationBarTitleText": "群发助手",
+	"backgroundColor": "#f7f9fa",
+	"usingComponents": {
+		"loading": "../../../components/loading/loading",
+		"fixed": "../../../components/fixed/fixed"
+	}
+}

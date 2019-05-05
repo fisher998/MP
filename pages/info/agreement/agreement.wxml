@@ -1,0 +1,9 @@
+<import src="../../../plugin/wxParse/wxParse.wxml" />
+<view class="wxParse">
+	<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+
+<view style='height:160rpx;'></view>
+<view class='pd-lg fixed-bottom fill-base'>
+  <button type='primary' bindtap='submit'>同意并遵守该准则</button>
+</view>

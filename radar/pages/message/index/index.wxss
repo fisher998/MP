@@ -1,0 +1,8 @@
+@import '../../../styles/common.wxss';
+@import '../../../components/loading/loading.wxss';
+.message-avatar-box{
+	position: relative;
+  width: 90rpx;
+	height: 90rpx;
+	border-radius: 6rpx;
+}

@@ -1,0 +1,14 @@
+{
+	"navigationBarBackgroundColor": "#f9f9f9",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "客户",
+	"usingComponents": {
+		"tabbar": "/components/tabbar/tabbar",
+		"loading": "../../../components/loading/loading",
+		"tab": "../../../components/tab/tab",
+		"tabs": "../../../components/tabs/tabs",
+		"sticky": "../../../components/sticky/sticky",
+		"tag": "../../../components/tag/tag",
+    "search": "../../../components/search/search"
+	}
+}

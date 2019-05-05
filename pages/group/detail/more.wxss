@@ -1,0 +1,7 @@
+.desc{
+	padding: 64rpx 32rpx;
+	background: #fff;
+}
+page{
+	background: #fff;
+}

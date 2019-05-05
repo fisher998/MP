@@ -1,0 +1,16 @@
+<view class='panel-head b-1px-tb'>
+  <view class='flex-1'>选择标签客户</view>
+<button size="mini" bindtap='handerCheckAllChange' >{{isCheckAll?"不选":"全选"}}</button>
+</view>
+<view class='panel-item b-1px-b' wx:for="{{list}}" wx:key="{{index}}" bindtap='handerRadioChange' data-index='{{index}}' data-checked='{{item.checked}}'>
+  <image class='r-avatar' src='https://longbingtest.xiaochengxucms.com/attachment/upload/3/picture/62341545617466.png'></image>
+  <view class='flex-1 ml-md'>
+    <view class='f-title c-title'>{{item.name}}</view>
+  </view>
+  <radio checked="{{item.checked}}"></radio>
+</view>
+
+<view class='fixed-bottom_place'></view>
+<view class='fixed-bottom fill-base'>
+  <button type='primary' bindtap='submit'>确定</button>
+</view>

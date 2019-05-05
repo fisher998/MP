@@ -1,0 +1,26 @@
+.group-list {
+  padding: 2rpx 0;
+  background: #fff;
+}
+
+.group-item {
+  height: 184rpx;
+  padding: 32rpx 32rpx;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  line-height: 1;
+}
+.group-tag {
+  line-height: 36rpx;
+  padding: 0 16rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background: #95b4ea;
+  border-radius: 4rpx;
+}
+
+.group-tag-cate {
+  background: #87c9e2;
+}

@@ -1,0 +1,9 @@
+<!-- <image src="/images/icon/dianliu.png" class="tip-image"></image> -->
+<view class='flex-y-center' >
+  <text wx:for="{{item.textArr}}" wx:key="{{index}}" wx:for-item="citem" class='{{index==1||index==3?"c-primary":""}}'>{{citem}} </text>
+</view>
+<!-- <view class='tip-text'>
+   <view>工程师正在加紧测试该功能</view>
+   <view>将择期上线</view>
+</view> -->
+

@@ -1,0 +1,9 @@
+<camera device-position="back" flash="off" binderror="error" class='camera-top'></camera>
+<view class='camera-bottom'>
+  <view class='flex-1 flex-center' bindtap='chooseImage'>相册</view>
+  <image class='camera-img' src='/images/icon/camera.svg' bindtap='takePhoto'></image>
+  <view class='flex-1 flex-center' bindtap='exit'>取消</view>
+</view>
+
+<setting show="{{settingShow}}" name="camera"></setting>
+

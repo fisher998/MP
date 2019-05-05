@@ -1,0 +1,11 @@
+@import "../../../templates/info/info.wxss";
+page{
+	min-height: 200vh;
+}
+.add-icon{
+	position: fixed;
+	bottom:70rpx;
+	right: 28rpx;
+	width: 110rpx;
+	height: 110rpx;
+}

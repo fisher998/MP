@@ -1,0 +1,5 @@
+<view class="{{mode === 'row' ? 'ui-timeline-row' : 'ui-timeline'}}" style="width:{{ mode === 'row' ? width + 'px' : ''}};">
+  <view class="slot-wrap">
+    <slot></slot>
+  </view>
+</view>

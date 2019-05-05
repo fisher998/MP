@@ -1,0 +1,10 @@
+{
+	"navigationBarTitleText": "开通企业版",
+	"navigationBarBackgroundColor": "#fff",
+	"navigationBarTextStyle": "black",
+	"disableScroll": true,
+	"enablePullDownRefresh": false,
+	"usingComponents": {
+		"setting": "/components/setting/setting"
+	}
+}

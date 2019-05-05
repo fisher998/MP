@@ -1,0 +1,81 @@
+<import src="../../../templates/card/card.wxml" />
+<view class="partner-head">
+  <view class='partner-info'>
+    <view class='partner-info_title'>{{detail.name}}</view>
+    <view class='partner-info_introduce'>{{detail.proportion1||0}}%直接收益，{{detail.proportion2||0}}%间接收益</view>
+    <view class='f-caption c-caption' bindtap='goUrl' data-url='/pages/ucenter/partner/partner?update=1'>提高比例</view>
+    <view class='right-arrow'></view>
+  </view>
+  <view class='partner-count'>
+    <view class='flex-1' bindtap='goUrl' data-url='/pages/ucenter/income/income'>
+      <view class='flex-y-center'>
+        <view class='f-paragraph opacity-5'>总收益</view>
+      </view>
+      <view class='f-title-xl'>{{detail.all_earnings}}</view>
+      <view class='f-caption flex-y-center'>
+        <view>今日收益+{{detail.today_earnings}}</view>
+        <image class='icon-sm ml-sm' src='/images/partner/up.png'></image>
+      </view>
+    </view>
+    <view class='flex-1' bindtap='goUrl' data-url='/pages/ucenter/partner/downline'>
+      <view class='flex-y-center'>
+        <view class='f-paragraph opacity-5'>我的推客</view>
+      </view>
+      <view class='f-title-xl'>{{detail.all_offline}}</view>
+      <view class='f-caption flex-y-center'>
+        <view>今日新增+{{detail.today_offline}}</view>
+        <image class='icon-sm ml-sm' src='/images/partner/up.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='partner-ad-box'>
+  <image src='/images/partner/ad.jpg' class='partner-ad_img' bindtap='handerPopupShow'></image>
+</view>
+
+
+<view class='cell-list-title'>常用功能</view>
+<form bindsubmit="formSubmit" report-submit>
+  <view class='cell-list c-black b-1px-tb'>
+    <button class='share-btn cell b-1px-b' form-type="submit" data-url='/pages/ucenter/partner/partner?update=1'>
+      <view class='flex-1 f-title-lg'>升级推客</view>
+      <view class='f-paragraph c-caption mr-md'>{{detail.name?"已成为"+detail.name:""}}</view>
+      <view class='right-arrow'></view>
+    </button>
+    <button class='share-btn cell b-1px-b' form-type="submit" data-url='/pages/ucenter/withdraw/withdraw'>
+      <view class='flex-1 f-title-lg'>提现到微信</view>
+      <view class='f-paragraph c-caption mr-md'>最低额度{{detail.withdrawal_limit||0}}元</view>
+      <view class='right-arrow'></view>
+    </button>
+    <button class='share-btn cell b-1px-b' form-type="submit" data-url='/pages/ucenter/income/income'>
+      <view class='flex-1 f-title-lg'>收益明细</view>
+      <view class='f-paragraph c-caption mr-md'>{{detail.all_earnings?"共"+detail.all_earnings+"元":"暂无收益"}}</view>
+      <view class='right-arrow'></view>
+    </button>
+    <button class='share-btn cell b-1px-b' form-type="submit" data-url='/pages/ucenter/partner/downline'>
+      <view class='flex-1 f-title-lg'>我的推客</view>
+      <view class='f-paragraph c-caption mr-md'>{{detail.all_offline?"共"+detail.all_offline+"人":"暂无推客"}}</view>
+      <view class='right-arrow'></view>
+    </button>
+  </view>
+</form>
+
+<painter wx:if="{{template}}" customStyle='position:absolute;top:-999rpx;left:-999rpx;' palette="{{template}}" bind:imgOK="onImgOK"  />
+<popup show="{{show}}" bindhide="handerPopupHide" height="100vh">
+  <view class='popup-top'>
+    <view class='flex-1'>分享朋友圈</view>
+    <image class='icon-md' src='/images/icon/close.svg' bindtap='handerPopupHide'></image>
+  </view>
+  <image class='poster-img' src='{{imagePath}}' bindtap="previewImage"></image>
+  <view class='fixed-bottom pd-lg'>
+    <button class="" type='primary' bindtap='save'>保存图片</button>
+    <view class='mt-lg f-caption c-caption text-center'>保存图片到手机后,你可以到朋友圈分享该图片</view>
+  </view>
+
+</popup>
+
+<view class='nav-box' bindtap='goUrl' data-method='switchTab' data-url='/pages/card/index/index'>
+  <text>回到\n首页</text>
+</view>
+
+<setting show="{{settingShow}}" name="writePhotosAlbum"></setting>

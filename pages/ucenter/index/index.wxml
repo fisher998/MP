@@ -1,0 +1,101 @@
+<block>
+  <view class="u-head" bindtap='goUrl' data-url='/pages/card/add/list' data-must='{{true}}'>
+    <image src='{{userInfo.card.person_avatar_thumb||userInfo.card.person_avatar||"/images/icon/default.svg"}}' class='avatar mr-lg'></image>
+    <block wx:if="{{userInfo.card}}">
+      <view class='u-head-right ellipsis'>
+        <view class='flex-y-baseline'>
+          <view class='f-title-lg'>{{userInfo.card.name||"暂无名称"}}</view>
+          <view class='f-caption  ml-md opacity-5'>{{userInfo.card.position||"暂无职位"}}</view>
+        </view>
+
+        <view class='opacity-5 f-paragraph ellipsis'>{{userInfo.card.company_name||"暂无公司"}}</view>
+      </view>
+      <view class='opacity-5'>编辑</view>
+      <view class='right-arrow' ></view>
+    </block>
+
+    <view class='u-head-right' wx:else >
+      <view class='f-title-lg'>点我创建名片</view>
+      <view class='opacity-5 f-paragraph ellipsis w-400'>创建名片后可以享受更多功能~~</view>
+    </view>
+  </view>
+  <!-- <view style='height:128rpx;'></view> -->
+
+  <view class='u-count'>
+    <view class='u-count-item' bindtap='goUrl' data-url='/pages/card/count/count?index=0'>
+      <view class='f-38 f-bold'>{{userInfo.card.view||0}}</view>
+      <view class='opacity-5'>看过我</view>
+      <badge wx:if="{{userInfo&&!userInfo.is_read.view}}" custom-style="position:absolute;top:20rpx;left:130rpx;"></badge>
+    </view>
+    <view class='u-count-item' bindtap='goUrl' data-url='/pages/card/count/count?index=1'>
+      <view class='f-38 f-bold'>{{userInfo.card.collect||0}}</view>
+      <view class='opacity-5'>收藏我</view>
+      <badge wx:if="{{userInfo&&!userInfo.is_read.collect}}" custom-style="position:absolute;top:20rpx;left:130rpx;"></badge>
+
+    </view>
+    <view class='u-count-item' bindtap='goUrl' data-url='/pages/card/count/count?index=2'>
+      <view class='f-38 f-bold'>{{userInfo.card.like||0}}</view>
+      <view class='opacity-5'>赞过我</view>
+      <badge wx:if="{{userInfo&&!userInfo.is_read.like}}" custom-style="position:absolute;top:20rpx;left:130rpx;"></badge>
+    </view>
+    <view class='u-count-item' bindtap='goUrl' data-url='/pages/card/count/count?index=3'>
+      <view class='f-38 f-bold'>{{userInfo.card.my_view||0}}</view>
+      <view class='opacity-5'>我看过</view>
+      <badge wx:if="{{userInfo&&!userInfo.is_read.my_view}}" custom-style="position:absolute;top:20rpx;left:130rpx;"></badge>
+    </view>
+  </view>
+
+  <image class='u-ad' src='/images/uc/ad.png' bindtap='goUrl' data-url='/pages/ucenter/qiye/qiye' wx:if="{{pageConfig.qiye_switch==1}}"></image>
+
+
+  <view class='space-lg b-1px-tb'></view>
+
+  <form bindsubmit="formSubmit" report-submit>
+    <view class='cell-list c-black b-1px-b'>
+      <button class='share-btn cell' form-type="submit" bindtap='goUrl' data-url='/pages/card/code/code' data-must='{{true}}' >
+        <image class='icon-xl mr-lg' src='/images/uc/u2.png'></image>
+        <view class='flex-1 f-title-lg'>名片码</view>
+        <view class='right-arrow'></view>
+      </button>
+      <button class='share-btn cell b-1px-t' form-type="submit" bindtap='goUrl' data-url='/pages/card/poster/poster' data-must='{{true}}' >
+        <image class='icon-xl mr-lg' src='/images/uc/u3.png'></image>
+        <view class='flex-1 f-title-lg'>名片海报</view>
+        <view class='right-arrow'></view>
+      </button>
+      <button class='share-btn cell b-1px-t' form-type="submit" bindtap='goUrl' data-url='/pages/info/release/release' data-must='{{true}}' >
+        <image class='icon-xl mr-lg' src='/images/uc/u9.png'></image>
+        <view class='flex-1 f-title-lg'>我发布的</view>
+        <view class='f-paragraph c-caption mr-md'>{{userInfo.info_num>0?"已发布"+userInfo.info_num+"条":"还未发布"}}</view>
+        <view class='right-arrow'></view>
+      </button>
+      <button class='share-btn cell b-1px-t' form-type="submit" bindtap='goUrl' data-url='/pages/card/template/template' data-must='{{true}}' wx:if="{{pageConfig.pay_switch==1}}">
+        <image class='icon-xl mr-lg' src='/images/uc/u5.png'></image>
+        <view class='flex-1 f-title-lg' >名片模板</view>
+        <view class='f-paragraph c-caption mr-md'>{{userInfo.template_name}}</view>
+        <view class='right-arrow'></view>
+      </button>
+      <button class='share-btn cell b-1px-t' form-type="submit" bindtap='goUrl' data-url='/pages/ucenter/member/member' data-must='{{true}}' wx:if="{{pageConfig.pay_switch==1}}">
+        <image class='icon-xl mr-lg' src='/images/uc/u4.png'></image>
+        <view class='flex-1 f-title-lg'>会员中心</view>
+        <view class='f-paragraph c-caption mr-md'>{{userInfo.card.vip_name}}</view>
+        <view class='right-arrow'></view>
+      </button>
+
+      <button class='share-btn cell b-1px-t' form-type="submit" bindtap='goUrl' data-url='{{userInfo.partner_level>0?"/pages/ucenter/partner/home":"/pages/ucenter/partner/partner"}}' wx:if="{{pageConfig.pay_switch==1&&pageConfig.open_partner>0}}">
+        <image class='icon-xl mr-lg' src='/images/uc/u6.png'></image>
+        <view class='flex-1 f-title-lg'>推客中心</view>
+        <view class='f-paragraph c-caption mr-md'>{{userInfo.partner}}</view>
+        <view class='right-arrow'></view>
+      </button>
+      <button class='share-btn cell b-1px-t' open-type='contact' form-type="submit">
+        <image class='icon-xl mr-lg' src='/images/uc/u8.png'></image>
+        <view class='flex-1 f-title-lg'>联系客服</view>
+        <view class='right-arrow'></view>
+      </button>
+    </view>
+  </form>
+  <image class='logo' src='{{pageConfig.tech_support[0].path}}'></image>
+</block>
+
+<login show="{{showLogin}}" bindsuccess="onPullDownRefresh"></login>
+<view class='space fixed-bottom'></view>

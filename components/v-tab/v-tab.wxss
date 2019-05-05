@@ -1,0 +1,23 @@
+
+.ui-v-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height:88rpx;
+  /* border-left: 5rpx solid transparent; */
+}
+.ui-v-tab.active {
+  /* background: white; */
+  /* font-size: 34rpx; */
+  color: #28c24c;
+  /* border-left: 5rpx solid #ab0000; */
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal
+}

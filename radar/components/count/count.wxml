@@ -1,0 +1,7 @@
+<view class='person-record-more b-1px-b'>
+  <view class='person-record-more_item' wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.count>0}}">
+    <view class='person-record-more_title'>{{item.title}}</view>
+    <view class='person-record-more_chart {{index%2==1?"person-record-more_chart--even":""}}' style='width:{{item.count*500/maxCount}}rpx'></view>
+    <view class='person-record-more_number'>{{item.count}}</view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "backgroundColor": "#f7f9fa",
+  "navigationBarTitleText": "客户",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "tab": "../../../components/tab/tab",
+    "tabs": "../../../components/tabs/tabs",
+    "tag": "../../../components/tag/tag",
+    "fixed": "../../../components/fixed/fixed",
+    "timeline": "../../../components/timeline/timeline",
+    "timeline-item": "../../../components/timeline-item/timeline-item",
+    "ec-canvas": "../../../components/ec-canvas/ec-canvas",
+    "loading": "../../../components/loading/loading"
+  }
+}

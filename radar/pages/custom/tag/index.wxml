@@ -1,0 +1,18 @@
+
+<view class='create-item c-primary' bindtap='goUrl' data-url='/radar/pages/custom/tag/add?index=-1'>
+   <image src='../../../images/icon/add.png' class='icon-md'></image>
+   <view class='ml-md'>新建标签</view>
+</view>
+<view class='space-lg'></view>
+<view class='panel-item b-1px-b' wx:for="{{list}}" wx:key="{{index}}" bindtap='{{op=="add"?"":"goUrl"}}' data-url='/radar/pages/custom/tag/add?index={{index}}' >
+  <view class='flex-1'>
+    <view class='f-title c-title'>{{item.name}}</view>
+		<view class='f-caption-lg c-caption'>共{{item.clients}}个客户</view>
+  </view>
+  <radio checked="{{selectObj[item.id]}}" wx:if="{{op=='add'}}" bindtap='handerRadioChange' data-id='{{item.id}}' data-index='{{index}}'></radio>
+</view>
+
+<view style='height:120rpx;'></view>
+<view class='fixed-bottom fill-base b-1px-t' wx:if="{{op=='add'}}">
+  <button type='primary' bindtap='submit' class='flex-1'>确定</button>
+</view>

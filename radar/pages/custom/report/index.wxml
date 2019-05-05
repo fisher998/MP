@@ -1,0 +1,49 @@
+
+<segment activeIndex="{{segmentIndex}}" list="{{segmentList}}" bindchange="segmentChange"></segment>
+<view class='space-lg'></view>
+<view class='action-box'>
+  <view class=' b-1px-b ' wx:for="{{detail.events}}" wx:key="{{index}}" wx:if="{{index<6}}" style='padding: 30rpx 0;' bindtap="goUrl" data-url="/radar/pages/info/detail/detail?eventname={{item.name}}&segmentIndex={{segmentIndex}}">
+    <view class='{{index%3==2?"":"b-1px-r"}} action-box-item '>
+      <view class='f-title-xl text-bold c-title'>{{item.count}}</view>
+      <view class='f-caption-lg c-caption'>{{item.title}}</view>
+    </view>
+
+  </view>
+</view>
+
+<view class="funnel-box" wx:if="{{detail}}">
+  <view class='funnel-title'>成交率漏斗</view>
+  <block wx:for="{{detail.funnel}}" wx:key="{{index}}">
+    <view class='funnel-text{{index+1}}' >{{item.name}}</view>
+  <view class='funnel-num{{index+1}}'>{{item.value}}</view>
+  </block>
+
+  <image class='funnel-img' src='../../../images/icon/funnel.png'></image>
+</view>
+
+<view class='record-box' >
+  <view class="chart-box">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ pie }}"></ec-canvas>
+    
+  </view>
+  <view class="chart-box" >
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ bar }}"></ec-canvas>
+  </view>
+  <view class="chart-box">
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ line }}"></ec-canvas>
+  </view>
+</view>
+<!-- <view class='record-box'>
+  <view class="chart-box">
+     <image wx:if="{{pie.src}}" class='chart-img' src='{{pie.src}}'></image>
+     <view class='chart-box_center'></view>
+  </view>
+  <view class="chart-box">
+    <image wx:if="{{bar.src}}" class='chart-img' src='{{bar.src}}'></image>
+  </view>
+  <view class="chart-box">
+    <image wx:if="{{line.src}}" class='chart-img' src='{{line.src}}'></image>
+  </view>
+</view> -->
+
+<!-- <cover-view class='top'>顶部</cover-view> -->

@@ -1,0 +1,110 @@
+@import '../../../styles/common.wxss';
+.top{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: red;
+  z-index: 100;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+.record-box {
+  background: #fff;
+}
+
+.chart-box {
+  position: relative;
+	height: 100vw;
+	width: 100vw;
+} 
+.chart-box_center{
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  z-index: 10;
+  left: 35%;
+  top:35%;
+  border-radius: 50%;
+  background: #fff;
+}
+.chart-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+} 
+.action-box {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.action-box-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250rpx;
+}
+.funnel-box{
+	position: relative;
+	background: #fff;
+	width: 750rpx;
+	height: 520rpx;
+}
+.funnel-img{
+	width: 100%;
+	height: 100%;
+}
+.funnel-title{
+	position: absolute;
+	width: 100%;
+	font-size: 18px;
+	text-align: center;
+	top:20px;
+}
+.funnel-text1{
+	position: absolute;
+	font-size: 12px;
+	top:224rpx;
+	left: 80rpx;
+	color: #222;
+}
+.funnel-text2{
+	position: absolute;
+	font-size: 12px;
+	top:306rpx;
+	right: 80rpx;
+	color: #222;
+}
+.funnel-text3{
+	position: absolute;
+	font-size: 12px;
+	top:380rpx;
+	left: 80rpx;
+	color: #222;
+}
+.funnel-num1{
+	position: absolute;
+	font-size: 12px;
+	top:180rpx;
+	left: 80rpx;
+	color: #222;
+}
+.funnel-num2{
+	position: absolute;
+	font-size: 12px;
+	top:260rpx;
+	right: 80rpx;
+	color: #222;
+}
+.funnel-num3{
+	position: absolute;
+	font-size: 12px;
+	top:338rpx;
+	left: 80rpx;
+	color: #222;
+}

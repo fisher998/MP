@@ -1,0 +1,43 @@
+<import src="../../../templates/info/info.wxml" />
+<swiper-ad list="{{adList}}"></swiper-ad>
+<!-- 搜索 -->
+<search url="/pages/info/search/search"></search>
+<!-- 分类 -->
+<swiper-cate list="{{categoryList}}" url="/pages/info/filter/filter"></swiper-cate>
+<view class='space-lg'></view>
+
+<!-- tab -->
+<sticky scroll-top="{{ scrollTop }}" top="{{0}}" id="sticky-tab">
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:70rpx">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:25vw'>{{item.title}}</view>
+    </tab>
+  </tabs>
+  <view class='b-1px-b'></view>
+  <view slot="sticky">
+    <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" probe="1" data-key="categoryid" ink-bar-style="width:70rpx">
+      <tab wx:for="{{tabList}}" wx:key="{{index}}">
+        <view style='width:25vw'>{{item.title}}
+        </view>
+      </tab>
+    </tabs>
+    <view class='b-1px-b'></view>
+  </view>
+</sticky>
+<view class='cell-list'>
+  <template is="info" wx:for="{{list.data}}" wx:key="{{index}}" data="{{...item,index}}"></template>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+
+<view class='space fixed-bottom'></view>
+
+<form bindsubmit="formSubmit" report-submit>
+  <button class='share-btn' form-type='submit' bindtap='goUrl' data-url='/pages/info/add/add' data-must='{{true}}'>
+    <image class='add-icon' src='/images/info/edit.png'></image>
+  </button>
+</form>
+
+
+<setting show="{{settingShow}}"></setting>
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

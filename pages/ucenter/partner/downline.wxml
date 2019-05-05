@@ -1,0 +1,54 @@
+<import src="../../../templates/card/card.wxml" />
+<fixed top="0" left="0" right="0">
+  <view id="sticky-tab">
+    <!-- 搜索 -->
+    <search bindconfirm="handerConfirm" placeholder="输入名称"></search>
+    <tabs ink-bar="{{true}}" auto-width="{{true}}" bindchange="tabChange" index="{{tabActiveIndex}}" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:90rpx">
+      <tab wx:for="{{tabList}}" wx:key="{{index}}">
+        <view style='width:250rpx'>
+          {{item.title}}
+        </view>
+      </tab>
+    </tabs>
+    <view class='b-1px-b'></view>
+  </view>
+</fixed>
+<view style='height:{{stickyTop}}px;'></view>
+
+<view class='cell-list'>
+  <template wx:for="{{list.data}}" wx:key="{{index}}" is="downline" data="{{...item,index}}"></template>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+
+<template name="downline">
+  <view class='downline-item {{index!=0?"b-1px-t":""}}' bindtap='goUrl' data-url='/pages/card/home/home?uid={{child_id}}' data-has_card='{{has_card}}'>
+    <view class='flex-center'>
+      <view class='avatar-box avatar'>
+        <image class='avatar' src='{{person_avatar_thumb||person_avatar}}' lazy-load></image>
+      </view>
+      <view class='ml-lg flex-1 ellipsis'>
+        <view class='flex-y-center'>
+          <view class='f-title-lg  c-title'>{{name}}</view>
+          <view class='income_tag ml-sm' wx:if="{{level==1}}">直</view>
+          <view class='income_tag income_tag--jj ml-sm' wx:else>间</view>
+        </view>
+        <view class='c-caption f-caption-lg'>
+          <block wx:if="{{level==1}}">
+            {{all_offline>0?all_offline+"个下级":"TA还没有下级"}}
+          </block>
+          <block wx:else>
+            {{"上级："+p_name}}
+          </block>
+        </view>
+      </view>
+
+
+    </view>
+    <view class='downline-bottom'>
+      <view>加入时间：{{create_time}}</view>
+      <view>累积收益：{{money}}元</view>
+    </view>
+  </view>
+
+</template>

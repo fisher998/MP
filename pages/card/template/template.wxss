@@ -1,0 +1,28 @@
+
+
+.tp-box{
+  padding: 0 32rpx 200rpx;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+.tp-box_item{
+  position: relative;
+}
+.tp-box_img{
+  width: 100%;
+  margin-top: 32rpx;
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.tp-box_icon{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  left: 32rpx;
+  top:32rpx;
+}
+.member-color{
+	margin-left: 10rpx;
+}

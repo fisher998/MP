@@ -1,0 +1,35 @@
+<!-- 滑动 -->
+<block wx:if="{{type=='scroll'}}">
+  <view class='column-box'>
+    <scroll-view scroll-x class='scroll-x' bindscroll="handerScroll">
+      <view class='scroll-x-item' style='width:{{100/colNum}}vw' wx:for="{{newList}}" wx:for-index="pindex" wx:for-item="pitem" wx:key="{{pindex}}">
+        <view class='scroll-x-box' wx:for="{{pitem}}" wx:key="{{index}}" bindtap="goUrl" data-url="{{url}}?id={{item.id}}&title={{item.title}}" style='margin-top:{{index==0?"0":"20rpx"}}'>
+          <image class='scroll-x-img' src='{{item.path[0].path}}'></image>
+          <view class='scroll-x-text ellipsis'>{{item.title}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="ui-tabs-ink-bar-wrapper" wx:if="{{list.length>newRowNum*colNum}}">
+      <view class="ui-tabs-ink-bar" style='left:{{left}}rpx;background:{{indicatorActiveColor}}'></view>
+    </view>
+  </view>
+</block>
+
+
+<!-- 轮播图 -->
+<block wx:if="{{type=='swiper'}}">
+  <swiper class="swiper-category" style='height:{{144*newRowNum+20*(newRowNum-1)}}rpx;' bindchange="categoryChange">
+    <block wx:for="{{newList}}" wx:for-index="pindex" wx:for-item="pitem" wx:key="{{pindex}}">
+      <swiper-item class="swiper-category-item">
+        <view wx:for="{{pitem}}" wx:key="{{index}}" class="swiper-category-item__child " style='width:{{100/colNum}}%;margin-top:{{index<colNum?"0":"20rpx"}}' bindtap='goUrl' data-url="{{url}}?id={{item.id}}&title={{item.title}}">
+          <image class="scroll-x-img" src='{{item.path[0].path}}'></image>
+          <view class='scroll-x-text ellipsis'>{{item.title}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='dots' wx:if="{{newList.length>1}}">
+    <view class='dot' wx:for="{{newList.length}}" wx:key="{{index}}" style='background:{{index==current?indicatorActiveColor:indicatorColor}};width:{{index==current?"32rpx":"12rpx"}}'></view>
+  </view>
+</block>

@@ -1,0 +1,81 @@
+<template name="info">
+  <view  class='info-item {{index>0?"b-1px-t":""}} share-btn' bindtap='goUrl' data-method="{{method||'navigateTo'}}" data-url='/pages/info/detail/detail?id={{id}}' >
+    <view class='flex-center' catchtap='goUrl' data-url='/pages/card/home/home?uid={{uid}}'>
+      <image class='avatar' src='{{person_avatar_thumb||person_avatar}}'></image>
+      <view class='ml-lg  flex-1 ellipsis'>
+        <view class='flex-y-baseline '>
+          <view class='flex-y-center'>
+            <view class='f-title-lg {{vip_level>1?"c-hot":"c-title"}} ellipsis'>{{name}}</view>
+            <image class='icon-md ml-md' src='{{icon[0].path}}' wx:if="{{vip_level>1}}"></image>
+          </view>
+
+          <!-- <view class='c-caption f-caption ml-md ellipsis flex-1'>{{position}}</view>
+          <view class='c-caption f-caption'>{{create_time2}}</view> -->
+        </view>
+        <view class='c-caption f-caption flex-1 ellipsis'>{{create_time2}}</view>
+      </view>
+    </view>
+    <view class='info-content ellipsis-3'>
+      <text class='c-warning' wx:if="{{is_top==1}}">[置顶]</text>
+      <text class='c-hot'>[{{category.title}}]</text>
+      <text>{{content}}</text>
+    </view>
+    <view class='info-img-list' wx:if="{{imgs.length>0}}">
+      <image wx:for="{{imgs}}" wx:key="{{cindex}}" wx:for-index="cindex" class='info-img' src='{{item.path_thumb}}' catchtap='previewImage' data-index='{{index}}' data-src='{{item.path}}'></image>
+    </view>
+    <view class='info-bottom f-caption c-caption'>
+      <view class='info-address'>
+        <image class='icon-sm' src='/images/info/address.png' style='margin:0 7rpx'></image>
+        <view class='ellipsis' style='max-width:240rpx;'>{{mini_address}}</view>
+      </view>
+      <view class='ml-md'>{{distance>1?distance+'km':distance<=0? "很近":distance*1000+ 'm'}}</view>
+      <view class='ml-md mr-md'>·</view>
+      <view class='flex-1'>{{view}}浏览</view>
+			<view class='flex-y-center' catchtap='like' data-index='{{index}}'>
+			  <image src='/images/card/{{is_like?"thumb-fill":"thumb"}}.png' class='icon-md' ></image>
+      <view class='ml-sm'>{{like}}</view>
+			</view>
+      
+    </view>
+  </view>
+
+</template>
+
+<template name="info-my">
+  <view class='info-item {{index>0?"b-1px-t":""}}' bindtap='goUrl' data-method="{{method||'navigateTo'}}" data-url='/pages/info/detail/detail?id={{id}}' >
+    <view class='flex-center'>
+      <image class='avatar' src='{{person_avatar_thumb||person_avatar}}'></image>
+      <view class='ml-lg  flex-1 ellipsis'>
+        <view class='flex-y-baseline '>
+          <view class='flex-y-center'>
+            <view class='f-title-lg c-title ellipsis'>{{name}}</view>
+            <image class='icon-md ml-md' src='/images/info/vip.png' wx:if="{{vip_level==2}}"></image>
+          </view>
+
+          <!-- <view class='c-caption f-caption ml-md ellipsis flex-1'>{{position}}</view>
+          <view class='c-caption f-caption'>{{create_time2}}</view> -->
+        </view>
+        <view class='c-caption f-caption flex-1 ellipsis'>{{create_time2}}</view>
+      </view>
+    </view>
+    <view class='info-content ellipsis-3'>
+      <text class='c-warning' wx:if="{{is_top==1}}">[置顶]</text>
+      <text class='c-hot'>[{{category.title}}]</text>
+      <text>{{content}}</text>
+    </view>
+    <view class='info-img-list' wx:if="{{imgs.length>0}}">
+      <image wx:for="{{imgs}}" wx:key="{{cindex}}" wx:for-index="cindex" class='info-img' src='{{item.path_thumb}}' catchtap='previewImage' data-index='{{index}}' data-src='{{item.path}}'></image>
+    </view>
+    <view class='info-bottom f-caption c-caption'>
+      <view class='info-address'>
+        <image class='icon-sm' src='/images/info/address.png' style='margin:0 7rpx'></image>
+        <view class='ellipsis' style='max-width:240rpx;'>{{mini_address}}</view>
+      </view>
+			<view class='ml-lg'>{{view}}浏览</view>
+      <view class='ml-md mr-md'>·</view>
+      <view class='flex-1'>{{like}}点赞</view>
+      <view class='info-del' catchtap='del' data-index='{{index}}' data-id='{{id}}'>删除</view>
+    </view>
+  </view>
+
+</template>

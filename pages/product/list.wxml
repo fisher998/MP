@@ -1,0 +1,24 @@
+<view class="cell-list b-1px-tb" wx:if="{{myself==1}}">
+  <view class='cell ' bindtap='goUrl' data-url='/pages/product/add'>
+    <image class='icon-lg' src='/images/icon/add.png'></image>
+    <view class='ml-lg f-title-lg'>添加产品</view>
+  </view>
+</view>
+<view class="cell-list-title">共{{list.data.length}}款产品</view>
+<view class='good-list'>
+  <view class='good-item' wx:for="{{list.data}}" wx:key="{{index}}" bindtap='{{myself==1?"handerClickGood":"goUrl"}}' data-id='{{item.id}}' data-index='{{index}}' data-url='/pages/product/detail?id={{item.id}}&index={{index}}'>
+    <image class='good-image' src='{{item.cover[0].path}}' mode='aspectFill'></image>
+    <view class='good-name mt-md ellipsis'>{{item.title}}</view>
+    <view class='good-price text-price'>{{item.price}}</view>
+  </view>
+</view>
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+<popup show="{{show}}">
+  <view class='action-item' bindtap='goUrl' data-url='/pages/product/detail?id={{id}}'>详情</view>
+  <view class='action-item b-1px-t' bindtap='goUrl' data-url='/pages/product/add?id={{id}}'>编辑</view>
+  <view class='action-item b-1px-t' bindtap='moveToFirst'>移到第一位</view>
+  <view class='action-item b-1px-t c-error' bindtap='del'>删除</view>
+  <view class='space-md fill-body'></view>
+  <view class='action-item' bindtap='closeAction'>取消</view>
+</popup>

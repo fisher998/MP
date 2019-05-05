@@ -1,0 +1,33 @@
+<view class='space-lg'></view>
+<view class='flex-y-center fill-base pd-lg b-1px-b'>
+  <image class='icon-lg' src='/images/setup/like.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>名片收藏</view>
+     <view class='c-caption'>名片被收藏时提醒你</view>
+  </view>
+  <switch></switch>
+</view>
+<view class='flex-y-center fill-base pd-lg b-1px-b'>
+  <image class='icon-lg' src='/images/setup/thumb.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>名片点赞</view>
+     <view class='c-caption'>名片被点赞时提醒你</view>
+  </view>
+  <switch></switch>
+</view>
+<view class='flex-y-center fill-base pd-lg b-1px-b'>
+  <image class='icon-lg' src='/images/setup/view.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>名片访问</view>
+     <view class='c-caption'>名片被访问时提醒你</view>
+  </view>
+  <switch></switch>
+</view>
+<view class='flex-y-center fill-base pd-lg'>
+  <image class='icon-lg' src='/images/setup/like.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>名片转发</view>
+     <view class='c-caption'>名片被转发时提醒你</view>
+  </view>
+  <switch></switch>
+</view>

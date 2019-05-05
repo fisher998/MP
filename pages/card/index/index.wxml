@@ -1,0 +1,143 @@
+<import src="../../../plugin/wxParse/wxParse.wxml" />
+<import src="../../../templates/card-tp/card-tp.wxml" />
+
+
+<form bindsubmit="formSubmit" report-submit>
+  <block wx:if="{{!userInfo&&!loading}}">
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+    <view style='height:150rpx;'></view>
+
+    <view class='fixed-bottom pd-lg'>
+      <button type='primary' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang="zh_CN" form-type='submit'>我要做名片</button>
+    </view>
+  </block>
+  <block wx:if="{{userInfo}}">
+    <view class='radar-box' wx:if="{{pageConfig.radar.switch==1&&userInfo.radar.length>0}}" bindtap='goUrl' data-url='/radar/pages/info/index/index'>
+      <view class='radar-item'>
+        <roller height="{{160}}">
+          <roller-item height="{{160}}" wx:for="{{userInfo.radar}}" wx:key="{{index}}">
+            <view class='roller-item'>
+              <view class='flex-y-center'>
+                <image class='roller-item_img' src='{{item.person_avatar}}'></image>
+                <view class='f-title-lg ml-lg ellipsis' style='max-width:300rpx;'>{{item.nick_name}}</view>
+                <text class='f-caption c-caption ml-lg'>{{item.create_time2}}</text>
+              </view>
+              <text class='c-caption f-paragraph mt-sm'>{{item.move}}了你的{{item.module}}</text>
+            </view>
+          </roller-item>
+        </roller>
+      </view>
+      <view class='radar-tag'>寻客雷达</view>
+
+    </view>
+    <view style='height:168rpx;' wx:if="{{pageConfig.radar.switch==1&&userInfo.radar.length>0}}"></view>
+    <template is="tp{{userInfo.now_temp_id}}" data="{{userInfo,myself:true}}"></template>
+    <view class='count-list'>
+      <button class='share-btn count-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/count/count?index=0'>
+        <image src="/images/card/look.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>浏览:{{userInfo.view}}</view>
+      </button>
+      <button class='share-btn count-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/count/count?index=1'>
+        <image src="/images/card/collect.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>收藏:{{userInfo.collect}}</view>
+      </button>
+      <button class='share-btn count-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/count/count?index=2'>
+        <image src="/images/card/thumb1.png" class='icon-lg'></image>
+        <view class='f-caption c-caption mt-sm'>点赞:{{userInfo.like}}</view>
+      </button>
+    </view>
+    <view class='primary-btn_list'>
+      <button type='default' class='flex-1' form-type='submit' bindtap='goUrl' data-url='/pages/card/add/list'>编辑资料</button>
+      <button type='primary' class='flex-1 ml-lg' form-type='submit' open-type='{{userInfo.mingpian_send>0?"share":""}}' bindtap='share'>发名片</button>
+    </view>
+    <view class='more-list'>
+      <button class='share-btn more-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/poster/poster'>
+        <image src="/images/card/poster.png" class='icon-xl'></image>
+        <view class='f-caption c-caption mt-sm'>名片海报</view>
+      </button>
+      <button class='share-btn more-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/template/template' wx:if="{{pageConfig.pay_switch}}">
+        <image src="/images/card/template.png" class='icon-xl'></image>
+        <view class='f-caption c-caption mt-sm'>名片模板</view>
+      </button>
+      <button class='share-btn more-item' form-type='submit' bindtap='goUrl' data-url='/pages/ucenter/member/member' wx:if="{{pageConfig.pay_switch}}">
+        <image src="/images/card/huiyuan.png" class='icon-xl'></image>
+        <view class='f-caption c-caption mt-sm'>会员中心</view>
+      </button>
+      <button class='share-btn more-item' form-type='submit' wx:if="{{pageConfig.pay_switch&&pageConfig.open_partner>0}}" bindtap='goUrl' data-url='{{partner_level>0?"/pages/ucenter/partner/home":"/pages/ucenter/partner/partner"}}'>
+        <image src="/images/card/tuike.png" class='icon-xl'></image>
+        <view class='f-caption c-caption mt-sm'>推客中心</view>
+      </button>
+    </view>
+    <view class='cell-list-title b-1px-tb'>
+      个人介绍
+    </view>
+
+    <view class='cell-list-content'>
+      <view class='empty-box' wx:if="{{!userInfo.introduce&&userInfo.person_imgs.length<=0}}" bindtap="goUrl" data-url="/pages/card/add/add?active=1">
+        <image class='empty-img' src='/images/card/n1.png'></image>
+        <view class='c-primary'>点击编辑个人介绍</view>
+      </view>
+      <view class='mt-lg' wx:if="{{userInfo.introduce}}">
+        <text>{{userInfo.introduce}}</text>
+      </view>
+
+      <view class='card-voice mt-lg' wx:if="{{userInfo.voice_long>0}}">
+        <image src='{{userInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar-sm mr-lg'></image>
+        <view class='card-voice-item' bindtap='play'>
+          <image class='icon-sm ml-lg' src='/images/card/voice.png'></image>
+          <view class='card-voice-status'>{{play?"播放中,点击结束":userInfo.voice_long+"秒,点击试听"}}</view>
+        </view>
+      </view>
+      <image src='{{item.path}}' mode='widthFix' class='{{index==0?"mt-lg":"mt-sm"}}' wx:for="{{userInfo.person_imgs}}" wx:key="{{index}}" bindtap='previewImage' data-src='{{item.path}}' data-key='person_imgs'></image>
+      <view class='card-ad mt-lg' wx:if="{{pageConfig.link_switch==1&&userInfo.link_img.length>0}}" bindtap="goUrl" data-url="{{userInfo.link_url}}">
+        <image class='card-ad_img' src='{{userInfo.link_img[0].path}}' mode='widthFix'></image>
+        <view class='card-ad_tag'>链接</view>
+      </view>
+
+    </view>
+    <view class='cell-list-title b-1px-tb flex-y-center' bindtap='goUrl' data-url='/pages/product/list?card_id={{userInfo.id}}&myself=1'>
+      <view class='flex-1'> 主推商品</view>
+      <view class='c-primary'>查看全部</view>
+      <view class='right-arrow '></view>
+    </view>
+    <view class='good-list'>
+      <view class='empty-box mt-lg mb-lg' wx:if="{{userInfo.goods.data.length<=0}}" bindtap="goUrl" data-url="/pages/product/add">
+        <image class='empty-img' src='/images/card/n2.png'></image>
+        <view class='c-primary'>点击发布产品</view>
+      </view>
+      <view class='good-item' wx:for="{{userInfo.goods.data}}" wx:key="{{index}}" bindtap='goUrl' data-id='{{item.id}}' data-index='{{index}}' data-url='/pages/product/detail?id={{item.id}}'>
+        <image class='good-image' src='{{item.cover[0].path}}' mode='aspectFill'></image>
+        <view class='good-name mt-md ellipsis'>{{item.title}}</view>
+        <view class='good-price text-price'>{{item.price}}</view>
+      </view>
+    </view>
+
+
+    <view class='cell-list-title b-1px-tb flex-y-center'>
+      <view class='flex-1'> 公司介绍</view>
+      <view class=''>成为会员后可对外展示</view>
+    </view>
+    <view class='cell-list-content'>
+      <view class='empty-box mt-lg' wx:if="{{!userInfo.company_desc&&userInfo.company_imgs.length<=0}}" bindtap="goUrl" data-url="/pages/card/add/add?active=2">
+        <image class='empty-img' src='/images/card/n3.png'></image>
+        <view class='c-primary'>点击编辑公司介绍</view>
+      </view>
+      <view class='pt-lg' wx:if="{{userInfo.company_desc}}">
+        <text>{{userInfo.company_desc}}</text>
+      </view>
+
+      <image src='{{item.path}}' mode='widthFix' class='{{index==0?"mt-lg":"mt-sm"}}' wx:for="{{userInfo.company_imgs}}" wx:key="{{index}}" bindtap='previewImage' data-src='{{item.path}}' data-key='company_imgs' lazy-load="{{true}}"></image>
+    </view>
+
+    <image class='logo' src='{{pageConfig.tech_support[0].path}}'></image>
+
+
+    <button wx:if="{{pageConfig.radar.switch==1&&pageConfig.radar.chat_switch==1}}" form-type='submit' class='share-btn' bindtap='goUrl' data-url='/radar/pages/message/index/index'>
+      <message show="{{showMessage}}" count="{{all_unreaad}}" info="{{userInfo}}" bottom="{{70}}"></message>
+    </button>
+
+  </block>
+</form>
+<view class='space fixed-bottom'></view>

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "数据统计",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs/tabs",
+    "tab": "/components/tab/tab",
+    "sticky": "/components/sticky/sticky",
+		"loading": "/components/loading/loading",
+		"badge": "/components/badge/badge",
+		"fixed": "/components/fixed/fixed"
+  }
+}

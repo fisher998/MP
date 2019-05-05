@@ -1,0 +1,1 @@
+<view class="desc"><text>{{desc||"暂无群简介"}}</text></view>

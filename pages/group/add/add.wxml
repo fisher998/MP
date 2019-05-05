@@ -1,0 +1,34 @@
+<view class="space-lg"></view>
+
+<view class='cell-list b-1px-tb'>
+  <view class='cell b-1px-b'>
+    <view>名称</view>
+    <input class='flex-1 text-right' placeholder='填写群名称' bindinput='handerInputChange' data-key='name' value='{{form.name}}' maxlength='10' placeholder-class='c-placeholder'></input>
+  </view>
+  <view class='flex-y-center b-1px-b' bindtap='chooseImage' data-key='logo' style='height:128rpx;'>
+    <view class='flex-1'>标志</view>
+    <view class='avatar-box' wx:if="{{form.logo.length<1}}">
+		   <view>上传</view>
+			 <view>标志</view>
+		</view>
+    <image wx:else src='{{form.logo[0].path_thumb}}' class='avatar'></image>
+    <view class='right-arrow ml-md'></view>
+  </view>
+  <view class='cell' bindtap='goUrl' data-url='/pages/group/desc/desc'>
+    <view class='flex-1'>简介</view>
+    <view class='{{form.desc?"":"c-placeholder"}} ellipsis' style='max-width:200rpx;'>{{form.desc?form.desc:"去填写"}}</view>
+    <view class='right-arrow ml-md'></view>
+  </view>
+</view>
+
+<view class='cell-list-title'>选择类型</view>
+<scroll-view scroll-y style='height:600rpx;'>
+  <view class='cate-list b-1px-tb'>
+    <view class='cate-list-item {{form.category==item?"cate-list-item--select":""}} ' wx:for="{{group_category}}" wx:key="{{index}}" bindtap='handerCategoryChange' data-val='{{item}}'>{{item}}</view>
+  </view>
+</scroll-view>
+
+
+<view class='fixed-bottom pd-lg'>
+  <button type='primary' bindtap='submit'>保存</button>
+</view>

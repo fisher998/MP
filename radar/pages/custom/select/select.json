@@ -1,0 +1,13 @@
+{
+	"navigationBarTitleText": "添加成员",
+	"backgroundColor": "#f7f9fa",
+	"usingComponents": {
+		"search": "../../../components/search/search",
+		"fixed": "../../../components/fixed/fixed",
+		"loading": "../../../components/loading/loading",
+		"tab": "../../../components/tab/tab",
+		"tabs": "../../../components/tabs/tabs",
+		"segment": "../../../components/segment/segment",
+		"mask": "../../../components/mask/mask"
+	}
+}

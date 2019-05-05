@@ -1,0 +1,44 @@
+@import '../../card/add/add.wxss';
+page{
+	background: #fff;
+}
+textarea {
+	height: 240rpx;
+}
+.scroll-x{
+  white-space: nowrap;
+}
+.scroll-x-item{
+  position: relative;
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 10rpx;
+}
+.scroll-x-item__img{
+  width: 100%;
+  height: 100%;
+}
+.del-image{
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  line-height: 1;
+}
+.meal-list{
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 28rpx;
+	color: #888888;
+}
+.meal-list radio{
+	margin-right: 60rpx;
+	margin-bottom: 32rpx;
+}

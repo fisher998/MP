@@ -1,0 +1,8 @@
+<view class="{{timelineType === 'row' ? 'ui-timeline-item-row' : 'ui-timeline-item'}}">
+  <view class="ui-timeline-line" wx:if="{{showLine}}" style="background: {{lineColor}};top: {{top}}px"> </view>
+  <view class="ui-timeline-circle {{pointStyle === 'circle' ? 'circle' : ''}}" style="background: {{pointStyle === 'circle' ? '' : pointColor}};border-color: {{pointStyle === 'circle' ? pointColor : ''}};z-index: 99;"> </view>
+
+  <view wx:if="{{shadow}}" class="ui-timeline-circle-shadow" style="background: {{pointColor}};z-index: 99;"> </view>
+
+  <slot></slot>
+</view>

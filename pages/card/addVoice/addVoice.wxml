@@ -1,0 +1,25 @@
+<view class='card-voice'>
+  <image src='{{person_avatar_thumb||person_avatar||"/images/icon/default.svg"}}' class='avatar-sm ml-lg'></image>
+  <view class='card-voice-item ml-lg mr-lg' bindtap='play'>
+     <image class='icon-sm ml-lg'  src='/images/card/voice.png'></image>
+     <view class='card-voice-status' wx:if="{{duration>0}}">{{play?"播放中,点击结束":duration+"秒,点击试听"}}</view>
+		 <view class='card-voice-status' wx:else>你还没有录音,请长按下面录音</view> 
+  </view>
+  <!-- <view class='card-voice-time'>{{duration}}''</view> -->
+</view>
+
+<view class="wave ripple danger" bindlongpress='start' bindtouchstart='' bindtouchend='end' bindtouchcancel='end'>
+  <view class="circle {{start?'circle1':''}}"></view>
+  <view class="circle {{start?'circle2':''}}"></view>
+  <view class="circle {{start?'circle3':''}}"></view>
+  <view class="content" >
+    <image src='/images/card/record.png' class='record-img'></image>
+    {{start?"录音中":"长按录音"}}
+  </view>
+</view>
+
+<view class='pd-lg fixed-bottom'>
+  <button  type='primary' bindtap='submit'>确定</button>
+</view>
+
+<setting show="{{settingShow}}" name="record"></setting>

@@ -1,0 +1,16 @@
+<view class='search-box' wx:if="{{!url}}">
+  <view class='search-item' >
+    <image src='/images/icon/search.png' class='icon-sm'></image>
+    <input type='text' class="flex-1 ml-md" placeholder='{{placeholder}}' placeholder-class='placeholder' bindinput='setValue' confirm-type="search" bindconfirm="confirm" value='{{keyword}}' bindfocus='focus' focus='{{focus}}' bindblur='blur'></input>
+    <!-- <image class='icon-md' src='/images/icon/del-fill.png' wx:if="{{keyword}}" bindtap='clear'></image> -->
+  </view>
+  <!-- <view class='search-item-btn c-primary f-title ml-lg' bindtap='confirm'>搜索</view> -->
+
+</view>
+<view class='search-box' wx:if="{{url}}" bindtap='goUrl' data-url='{{url}}'>
+  <view class='search-item'  >
+    <image src='/images/icon/search.png' class='icon-sm'></image>
+    <view class='flex-1 ml-md c-caption'>搜索</view>
+    <!-- <image class='icon-md' src='/images/icon/del-fill.png' wx:if="{{keyword}}" bindtap='clear'></image> -->
+  </view>
+</view>

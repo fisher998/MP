@@ -1,0 +1,13 @@
+<view wx:if="{{loading}}" class='loading-box'>
+  <view class='weui-loading'></view>
+  <text>正在加载</text>
+</view>
+<view wx:else>
+  <view class='loading-box' wx:if="{{list.current_page>=list.last_page&&list.data.length>0}}">
+    没有更多了~~
+  </view>
+  <view wx:if="{{list.data.length<=0}}" class="nodata">
+    <image src='/images/icon/nodata.png' class='nodata-img'></image>
+    <!-- <view>暂无数据</view> -->
+  </view>
+</view>

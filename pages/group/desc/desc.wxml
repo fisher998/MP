@@ -1,0 +1,5 @@
+ <textarea placeholder='填写群简介' bindinput='handerInputChange' data-key='desc' value='{{form.desc}}' maxlength='1000' placeholder-class='c-placeholder'></textarea>
+
+ <view class='pd-lg fixed-bottom'>
+  <button type='primary' bindtap='submit'>保存</button>
+</view>

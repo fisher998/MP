@@ -1,0 +1,64 @@
+<import src="../../../templates/card/card.wxml" />
+<import src="../../../templates/info/info.wxml" />
+<!-- 搜索 -->
+<search url="{{tabActiveIndex==0?'/pages/card/search/search?is_collect=0':'/pages/info/search/search'}}"></search>
+<swiper-ad list="{{adList}}"></swiper-ad>
+
+
+
+
+<!-- tab -->
+<block wx:if="{{tabList.length>0&&info_switch==1}}">
+  <tabs ink-bar="{{true}}" auto-width="{{false}}" bindchange="tabChange" index="{{tabActiveIndex}}" index="{{tabActiveIndex}}" probe="1" ink-bar-style="width:50vw">
+    <tab wx:for="{{tabList}}" wx:key="{{index}}">
+      <view style='width:50vw'>
+        {{item.title}}
+      </view>
+    </tab>
+  </tabs>
+</block>
+
+<view class='b-1px-b'></view>
+<!-- 分类 -->
+<column wx:if="{{tabActiveIndex==0}}" list="{{cardCategoryList}}" url='/pages/card/filter/filter'></column>
+<column wx:if="{{tabActiveIndex==1}}" list="{{infoCategoryList}}" url="/pages/info/filter/filter"></column>
+<view class='space-lg'></view>
+
+<!-- tab2 -->
+<sticky scroll-top="{{ scrollTop }}" top="{{0}}" id="sticky-tab">
+  <view class='tab2-box'>
+    <view class='flex-1 f-title-lg'>{{tabList[tabActiveIndex].tabList[tabList[tabActiveIndex].tabActiveIndex].title}}</view>
+    <image class='icon-md mr-sm' src='/images/icon/toggle.png'></image>
+    <view class='c-caption' bindtap='tab2Change'>切换为{{tabList[tabActiveIndex].tabList[tabList[tabActiveIndex].tabActiveIndex+1>tabList[tabActiveIndex].tabList.length-1?0:tabList[tabActiveIndex].tabActiveIndex+1].title}}</view>
+  </view>
+  <view class='b-1px-b'></view>
+  <view slot="sticky">
+    <view class='tab2-box'>
+      <view class='flex-1 f-title-lg'>{{tabList[tabActiveIndex].tabList[tabList[tabActiveIndex].tabActiveIndex].title}}</view>
+      <image class='icon-md mr-sm' src='/images/icon/toggle.png'></image>
+      <view class='c-caption' bindtap='tab2Change'>切换为{{tabList[tabActiveIndex].tabList[tabList[tabActiveIndex].tabActiveIndex+1>tabList[tabActiveIndex].tabList.length-1?0:tabList[tabActiveIndex].tabActiveIndex+1].title}}</view>
+    </view>
+    <view class='b-1px-b'></view>
+  </view>
+</sticky>
+
+
+<form bindsubmit="formSubmit" report-submit>
+  <view class='cell-list'>
+    <template wx:for="{{list.data}}" wx:key="{{index}}" is="{{tabActiveIndex==0?'card':'info'}}" data="{{...item,index,orderType:param.order_type}}"></template>
+  </view>
+</form>
+
+<loading loading="{{loading}}" list="{{list}}"></loading>
+
+
+<view class='space fixed-bottom'></view>
+
+<setting show="{{settingShow}}" bindsuccess="onPullDownRefresh"></setting>
+
+<form bindsubmit="formSubmit" report-submit wx:if="{{tabActiveIndex==1}}">
+  <button class='share-btn' form-type='submit' bindtap='goUrl' data-url='/pages/info/add/add' data-must='{{true}}'>
+    <image class='add-icon' src='/images/info/edit.png'></image>
+  </button>
+</form>
+<login show="{{showLogin}}" bindsuccess="loginSuccess"></login>

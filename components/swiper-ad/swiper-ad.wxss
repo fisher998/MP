@@ -1,0 +1,34 @@
+.swiper-box{
+  position: relative;
+}
+.swiper-ad{
+  background: #fff;
+}
+.swiper-ad-item{
+  box-sizing:border-box;
+  width: 100%;
+  height: 100%;
+}
+.swiper-ad__img{
+  width: 100%;
+  height: 100%;
+}
+.img-box{
+  width: 100%;
+  height: 100%;
+}
+.dots{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 16rpx;
+}
+.dot{
+  height: 12rpx;
+  width: 12rpx;
+  background: #d48989;
+  border-radius: 6rpx;
+  margin: 0 6rpx;
+}
