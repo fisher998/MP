@@ -80,8 +80,16 @@ Page({
 		that.onPullDownRefresh();
 		getApp().getUserInfo(true)
 	},
-  goUrl: function (e) {
-		let { url }=util.getData(e)
-		util.goUrl(url)
-	},
+  // 跳转CDK兑换码开通
+  goUrl(e) {
+		console.log('---------------点击CDK兑换会员---------------')
+		console.log(e)
+		let {
+			url,
+		} = util.getData(e);
+		// util.goUrl(url)
+		wx.navigateTo({
+			url
+		})
+	}
 })
