@@ -36,7 +36,8 @@ export default {
     let { uniacid: i } = siteInfo;
     let userInfo = wx.getStorageSync('userInfo') || {};
     let uid = userInfo.id || "";
-    let url = `wss://${util.getHostname(siteInfo.siteroot)}/websocket`;
+    // let url = `wss://${util.getHostname(siteInfo.siteroot)}/websocket`;
+    let url = `ws://${util.getHostname(siteInfo.siteroot)}/websocket`;
 
     that.localSocket = wx.connectSocket({
       url

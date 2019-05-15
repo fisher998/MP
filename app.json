@@ -37,6 +37,7 @@
     "pages/ucenter/index/index",
     "pages/ucenter/setup/setup",
     "pages/ucenter/member/member",
+    "pages/ucenter/cdkey/cdkey",
     "pages/ucenter/withdraw/withdraw",
     "pages/ucenter/income/income",
     "pages/ucenter/partner/partner",

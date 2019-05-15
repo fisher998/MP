@@ -79,6 +79,9 @@ Page({
 		util.showSuccess('支付成功')
 		that.onPullDownRefresh();
 		getApp().getUserInfo(true)
-	}
-  
+	},
+  goUrl: function (e) {
+		let { url }=util.getData(e)
+		util.goUrl(url)
+	},
 })

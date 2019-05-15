@@ -1,0 +1,40 @@
+.mb-10 {
+  margin-bottom: 10rpx;
+}
+.pb-10 {
+  padding-bottom: 20rpx;
+}
+.input-con {
+  position: relative;
+  height:70rpx;
+}
+/* cdk输入框样式 */
+.cdk {
+  padding:20rpx 30rpx;
+  border:1px solid #dcdcdc;
+  border-radius:10rpx;
+  position:absolute;
+  width:625rpx;
+  top:0;
+  transform:translateY(-50%);
+  background:#ffffff;
+}
+  
+.confirm-con {
+  padding: 0rpx 30rpx 30rpx 30rpx;
+}
+.rules-con {
+  color:#999999;
+  font-size: 24rpx;
+  height: -webkit-fill-available;
+}
+.pd-title {
+  padding: 45rpx 32rpx 0rpx 32rpx;
+}
+.text-row {
+  padding:10rpx 0rpx;
+}
+.btn {
+  height:88rpx;
+  line-height:88rpx;
+}
