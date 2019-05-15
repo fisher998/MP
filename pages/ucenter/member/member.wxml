@@ -34,7 +34,6 @@
 <view class='pd-lg fill-base'>
   <button type='warn' hover-class="btn-hover" bindtap='submit'>{{userInfo.is_vip_success==1?"续费":"开通"}}</button>
 </view>
-
 <view class='cell-list-title'>会员特权</view>
 <view class='fill-base'>
   <view class='privilege b-1px'>

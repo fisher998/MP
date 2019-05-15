@@ -79,6 +79,17 @@ Page({
 		util.showSuccess('支付成功')
 		that.onPullDownRefresh();
 		getApp().getUserInfo(true)
+	},
+	// 跳转CDK兑换码开通
+  goUrl(e) {
+		console.log('---------------点击CDK兑换会员---------------')
+		console.log(e)
+		let {
+			url,
+		} = util.getData(e);
+		// util.goUrl(url)
+		wx.navigateTo({
+			url
+		})
 	}
-  
 })

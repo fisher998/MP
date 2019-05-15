@@ -54,7 +54,10 @@ Page({
   },
   async subscribe() {
     getApp().websocket.subscribe("getAllUnRead", this.onAllUnReadChange)
-    await getApp().websocket.login()
+    
+    // await getApp().websocket.login()
+    getApp().websocket.login()
+    
     getApp().websocket.sendMessage({
       type: "getAllUnRead"
     })

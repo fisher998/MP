@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+		account: '',
 		withdrawal_count:'',
 		money:''
   },
@@ -18,7 +19,7 @@ Page({
    */
   onLoad: function (options) {
 		util.showLoading();
-    this.firstLoad();
+		this.firstLoad();
   },
 	async firstLoad(){
 		let getUserInfo = getApp().getUserInfo()
@@ -29,6 +30,14 @@ Page({
 			withdrawal_type
 		})
 		let { card } = await getUserInfo;
+		// console.log('================= 支付 ==================')
+		/* 进入提现页面获取用户微信号 card.wechat_number 赋值给account */
+		this.setData({
+			account: card.wechat_number,
+			withdrawal_count: card.wechat_number
+		})
+		// console.log('================= 支付 ==================')
+
 		let { name, person_avatar_thumb } = card||{};
 		
 		let { balance, withdrawal_limit } = await getDetail;
@@ -54,6 +63,7 @@ Page({
 		})
 	},
 	handerAccountChange(e) {
+		console.log(e)
 		let account = util.getValue(e)
 		this.setData({
 			withdrawal_count: account

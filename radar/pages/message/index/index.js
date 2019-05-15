@@ -45,7 +45,10 @@ Page({
     
     getApp().websocket.subscribe("getChatList", this.onListChange)
     getApp().websocket.subscribe("getAllUnRead", this.onAllUnReadChange)
-    await getApp().websocket.login()
+
+    // await getApp().websocket.login()
+    getApp().websocket.login()
+
     getApp().websocket.sendMessage({
       type: "getChatList"
     })
