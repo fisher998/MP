@@ -42,10 +42,12 @@ Page({
 			wx.showToast({
 				title: '兑换成功',
 				icon: 'success',
+				mask: true,
 				duration: 2000,
 				success: function () {
 					setTimeout(() => {
-						wx.navigateTo({
+						// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+						wx.switchTab({
 							url: '/pages/ucenter/index/index',
 						})
 					}, 2000);
