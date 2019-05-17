@@ -23,13 +23,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.6",
-<<<<<<< HEAD
 	"appid": "wx81b21e6cfc1071f4",
 	"projectname": "miniprogram-master",
-=======
-	"appid": "wx6503521017edf2d4",
-	"projectname": "miniprogram-jiamai",
->>>>>>> jiamai
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
