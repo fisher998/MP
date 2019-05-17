@@ -8,6 +8,9 @@ export default {
 	//加入vip
 	join(param) {
 		return req.post("api/mingpian_vip/joinVip", param)
+	},
+	// 兑换码加入vip
+	joinByCDK(param) {
+		return req.post("api/mingpian_redeem/validation", param)
 	}
-
 }

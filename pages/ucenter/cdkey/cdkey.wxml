@@ -1,0 +1,22 @@
+<view class="pd-lg flex-column-center fill-base b-1px-b" style='background:#2d2e2f; padding-bottom: 80rpx'>
+  <image src='{{userInfo.person_avatar_thumb||userInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar-circle mb-10'></image>
+  <view class='f-title c-base mb-10'>{{userInfo.name||"暂无名称"}}</view>
+  <view class='f-caption-lg c-placeholder'>
+    <block wx:if="{{userInfo.vip_level>1}}">{{["","","白银会员","黄金会员","钻石会员"][userInfo.vip_level]}},{{userInfo.vip_end_time}}到期
+    </block>
+    <block wx:else>{{userInfo.is_vip_success==1?"会员已过期,请续费!":"会员未开通"}}
+    </block>
+  </view>
+</view>
+<view class='pd-lg fill-base input-con'>
+  <input type='text' class="flex-1 cdk" placeholder='请输入CDK' placeholder-class='placeholder' bindinput='setValue' confirm-type="search" bindconfirm="confirm" value='{{keyword}}' bindfocus='focus' focus='{{focus}}' ></input>
+</view>
+<view class="pd-lg fill-base confirm-con pb-10">
+  <button type='warn' class="btn" hover-class="btn-hover" bindtap='sendCDK'>{{"确定"}}</button>
+</view>
+<view class='fill-base pd-title'>兑换规则说明：</view>
+<view class="pd-lg fill-base rules-con">
+  <view class="text-row">1.体验月卡，季卡，年卡：兑换后立即获得相应时长的优惠商探VIP服务。</view>
+  <view class="text-row">2.兑换码兑换后立即生效，优惠商探VIP可直接使用。</view>
+  <view class="text-row">3.已经使用微信支付开通了优惠商探VIP服务的用户，此次兑换的会员时长将在微信支付VIP服务到期后生效。</view>
+</view>
