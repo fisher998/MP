@@ -10,7 +10,8 @@ Page({
    */
   data: {
 		withdrawal_count:'',
-		money:''
+		money:'',
+		account: ''
   },
 
   /**
@@ -29,6 +30,10 @@ Page({
 			withdrawal_type
 		})
 		let { card } = await getUserInfo;
+		this.setData({
+			account: card.wechat_number,
+			withdrawal_count: card.wechat_number,
+		})
 		let { name, person_avatar_thumb } = card||{};
 		
 		let { balance, withdrawal_limit } = await getDetail;
