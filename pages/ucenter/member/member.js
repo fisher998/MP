@@ -27,13 +27,14 @@ Page({
 		let { refresh}=that.data;
 		let tabList =await vipModel.getList();
 		let {card:userInfo} = await getApp().getUserInfo(refresh);
-    let { tech_support, vip_desc_imgs } = await getApp().getConfigInfo(refresh);
+    let { tech_support, vip_desc_imgs, redeem_switch } = await getApp().getConfigInfo(refresh);
 		
 		that.setData({
 			tabList,
 			userInfo,
 			tech_support,
-      vip_desc_imgs,
+			vip_desc_imgs,
+			redeem_switch,
 			refresh: false
 		})
 		util.hideAll();

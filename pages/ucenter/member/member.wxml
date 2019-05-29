@@ -35,8 +35,8 @@
   <button type='warn' hover-class="btn-hover" bindtap='submit'>{{userInfo.is_vip_success==1?"续费":"开通"}}</button>
 </view>
 <!-- 这里需要新增cdk兑换的UI -->
-<view class='cell-list-title'>其他开通方式</view>
-<view class='pd-lg fill-base'>
+<view class='cell-list-title' wx:if="{{redeem_switch=='1'}}">其他开通方式</view>
+<view class='pd-lg fill-base' wx:if="{{redeem_switch=='1'}}">
   <button type='warn' hover-class="btn-hover" bindtap='goUrl' data-url="/pages/ucenter/cdkey/cdkey">{{"兑换码开通"}}</button>
   <!-- <input type='text' class="flex-1 cdk" placeholder='请输入CDK' placeholder-class='placeholder' bindinput='setValue' confirm-type="search" bindconfirm="confirm" value='{{keyword}}' bindfocus='focus' focus='{{focus}}' ></input> -->
 </view>
