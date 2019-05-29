@@ -130,13 +130,15 @@ Page({
     let {
       name,
       uid,
+      person_avatar
     } = this.data.userInfo;
     let forword_words = this.data.pageConfig.forword_words || "你好,我是&&name&&,邀你30秒免费做名片,相互收藏";
     forword_words = forword_words.replace(/&&name&&/g, name);
 
     return {
       title: forword_words,
-      path: `/pages/card/home/home?scene=${uid}`
+      path: `/pages/card/home/home?scene=${uid}`,
+      imageUrl: person_avatar
     }
   },
   async share(){

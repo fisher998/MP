@@ -69,7 +69,7 @@
       <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.info_top}}</view>
       <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.group_num}}</view>
       <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.outsidecard_num}}</view>
-      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.is_show_company}}</view>
+      <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.is_show_company=="1"?"是":"否"}}</view>
       <view class='privilege-item  {{index<tabList.length?"b-1px-b":""}} b-1px-l'>{{item.goods_num}}</view>
     </view>
 
