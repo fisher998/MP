@@ -85,13 +85,13 @@
 
     </block>
 
-    <view class='cell-list-title b-1px-tb flex-y-center' bindtap='goUrl' data-url='/pages/product/list?card_id={{otherUserInfo.id}}' wx:if="{{otheruserInfo.goods.data.length>0}}">
+    <view class='cell-list-title b-1px-tb flex-y-center' bindtap='goUrl' data-url='/pages/product/list?card_id={{otherUserInfo.id}}' wx:if="{{otherUserInfo.goods.data.length>0}}">
       <view class='flex-1'> 主推商品</view>
       <view class='c-primary'>查看全部</view>
       <view class='right-arrow '></view>
     </view>
-    <view class='good-list' wx:if="{{otheruserInfo.goods.data.length>0}}">
-      <view class='good-item' wx:for="{{otheruserInfo.goods.data}}" wx:key="{{index}}" bindtap='goUrl' data-id='{{item.id}}' data-index='{{index}}' data-url='/pages/product/detail?id={{item.id}}'>
+    <view class='good-list' wx:if="{{otherUserInfo.goods.data.length>0}}">
+      <view class='good-item' wx:for="{{otherUserInfo.goods.data}}" wx:key="{{index}}" bindtap='goUrl' data-id='{{item.id}}' data-index='{{index}}' data-url='/pages/product/detail?id={{item.id}}'>
         <image class='good-image' src='{{item.cover[0].path}}' mode='aspectFill'></image>
         <view class='good-name mt-md ellipsis'>{{item.title}}</view>
         <view class='good-price text-price'>{{item.price}}</view>
