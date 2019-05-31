@@ -21,7 +21,7 @@ export default {
       wx.sendSocketMessage({
         data: "78346+SJDHFA.longbing",
         success() {
-          //console.log("发送暗号");
+          console.log("发送暗号");
         }
       });
       //20秒没收到回应则关闭连接
@@ -42,9 +42,12 @@ export default {
       url
     })
     that.localSocket.onMessage((res) => {
+      // console.log('----------------------')
+      // console.log(res)
+      // console.log('----------------------')
       //收到消息
       if (res.data == "78346+SJDHFA.longbing") {
-        //console.log("对接暗号成功,登录成功")
+        // console.log("对接暗号成功,登录成功")
         that.reset().start()
       } else {
         that.getSocketMsg(JSON.parse(res.data))
@@ -74,12 +77,17 @@ export default {
   },
   login() {
     let that = this;
+    // console.log('-----------websoket login-----------')
     //页面调用登录，如果已经登录则直接返回成功，如果未登录等待登录回调成功
     return new Promise((resolve, reject) => {
+      // console.log('-----------websoket Promise-----------')
       if (that.isLogin) {
+        // console.log('-----------1-----------')
         resolve()
       } else {
-        that.loginCallback = function () {
+          // console.log('-----------2-----------')
+          that.loginCallback = function () {
+          // console.log('-----------3-----------')
           resolve()
         }
       }
@@ -114,11 +122,18 @@ export default {
     } = res
 
     if (code == 401) {
+      // console.log('--- 关闭soket ---')
       wx.closeSocket();
     } else if (code == 0) {
       if (type == "login") {
+        // console('--- 登陆 ---')
         that.onLogin();
       } else {
+        // console.log('--- 发布 ---')
+        // console.log('type: ')
+        // console.log(type)
+        // console.log('data: ')
+        // console.log(data)
         that.publish(type, data);
       }
     } else if (code == -1) {
@@ -133,8 +148,9 @@ export default {
     let uid = wx.getStorageSync('userInfo').uid
     param = Object.assign({}, param, { i,uid})
     param = JSON.stringify(param)
-
-    console.log(param)
+    // console.log('----------------------------------')
+    // console.log(uid)
+    // console.log(param)
     return new Promise((resolve, reject) => {
       that.localSocket.send({
         data: param,
@@ -159,19 +175,30 @@ export default {
       this.watcherList[key] = [];
     }
     this.watcherList[key].push(fn);
-    console.log(key)
-    console.log(this.watcherList)
+    // console.log(key)
+    // console.log('------------ 订阅 -----------')
+    // console.log(this.watcherList)
   },
   // 发布
-  publish: function () {
+  publish: function (type, data) {
+    // console.log('------------ 发布publish -----------')
     let arg = arguments;
     let key = [].shift.call(arg);
+    // console.log(type)
+    // console.log(data)
+    // console.log('key:' + key)
+    // console.log('------------ 发布中publish -----------')
     let fns = this.watcherList[key];
+    // console.log(this.watcherList)
+    // console.log('------------ 发布end publish -----------')
+    // console.log(fns)
+    // console.log(key)
     if (!fns || fns.length <= 0) return false;
 
     for (var i = 0, len = fns.length; i < len; i++) {
       fns[i].apply(this, arg);
     }
+    
   },
   // 取消订阅
   unSubscribe(key) {

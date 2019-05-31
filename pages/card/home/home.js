@@ -50,7 +50,8 @@ Page({
   async subscribe() {
     
     getApp().websocket.subscribe("getUnreadOnePerson", this.onUnreadOnePerson)
-    await getApp().websocket.login()
+    // await getApp().websocket.login()
+    getApp().websocket.login()
     let {
       other_uid
     } = this.data;

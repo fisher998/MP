@@ -30,3 +30,12 @@
   </view>
   <view class='right-arrow'></view>
 </view>
+<!-- 新增自定义名片 -->
+<view class="cell pd-lg " bindtap='goUrl' data-url='/pages/product/list?myself=1&card_id={{userInfo.card.id}}'>
+  <image class='avatar' src='/images/add/4.png'></image>
+  <view class='flex-1 ml-lg'>
+     <view class='f-title'>自定义名片</view>
+     <view class='c-caption f-caption'>自定义、选择分享标题</view>
+  </view>
+  <view class='right-arrow'></view>
+</view>

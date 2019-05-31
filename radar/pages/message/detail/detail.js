@@ -61,8 +61,8 @@ Page({
     util.goUrl(url, method)
   },
   async subscribe() {
-    await getApp().websocket.login()
-    console.log("登陆了")
+    // await getApp().websocket.login()
+    getApp().websocket.login()
     getApp().websocket.subscribe("getChatInfo", this.addMoreToList)
     getApp().websocket.subscribe("sendMsg", this.addOneToList)
     getApp().websocket.subscribe("readMsg", this.onReadMsg)
@@ -210,6 +210,8 @@ Page({
     let oldlist = this.data.list;
     newlist.data.reverse()
     newlist.data = [...newlist.data, ...oldlist.data, ];
+    console.log('------------ this.list -----------')
+    console.log(this.list)
     this.setData({
       list: newlist,
       loading: false

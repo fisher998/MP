@@ -107,7 +107,7 @@ Page({
       adList: ad['card'],
       cardCategoryList: category['card'],
       infoCategoryList: category['info'],
-      info_switch
+      info_switch // 附近两组tab选项卡的 标识
     })
     util.hideAll()
     

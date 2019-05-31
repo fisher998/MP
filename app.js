@@ -104,6 +104,7 @@ App({
   async getConfigInfo(refrensh = false) {
     let that = this;
     let configInfo = that.globalData.configInfo;
+  
     //已经获取过了且不刷新则获取老信息
     if (!configInfo || refrensh) {
       configInfo = await userModel.getConfig();

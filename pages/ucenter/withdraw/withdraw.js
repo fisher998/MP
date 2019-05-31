@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+		account: '',
 		withdrawal_count:'',
 		money:'',
 		account: ''
@@ -19,7 +20,7 @@ Page({
    */
   onLoad: function (options) {
 		util.showLoading();
-    this.firstLoad();
+		this.firstLoad();
   },
 	async firstLoad(){
 		let getUserInfo = getApp().getUserInfo()
@@ -59,6 +60,7 @@ Page({
 		})
 	},
 	handerAccountChange(e) {
+		console.log(e)
 		let account = util.getValue(e)
 		this.setData({
 			withdrawal_count: account
