@@ -111,10 +111,25 @@
           <image class='del-image' src='/images/icon/delete.png'></image>
         </view>
       </view>
-
-
     </scroll-view>
   </view>
+</block>
+
+<block wx:if="{{active==3}}">
+  <view class='form-item'>名片话术</view>
+  <view class='form-item'>{{'你好，我是&&name&& ，这是我的名片，请惠存。'}}</view>
+  <view class="section section_gap">
+  <view class="section__title">label用for标识表单组件</view>
+  <radio-group class="group" bindchange="radioChange">
+    <view class="label-2" wx:for="{{radioItems}}">
+      <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+      <view class="label-2__icon">
+        <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+      </view>
+      <label class="label-2__text" for="{{item.name}}"><text>{{item.name}}</text></label>
+    </view>
+  </radio-group>
+</view>
 </block>
 
 
