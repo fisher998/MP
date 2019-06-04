@@ -1,0 +1,8 @@
+<view class='form-item b-1px-b'>名片话术</view>
+<view class="cell form-item b-1px-b" bindtap='goUrl' data-url='/pages/card/verbal/verbal'>
+  <view class=''>{{'你好，我是&&name&& ，这是我的名片，请惠存。'}}</view>
+  <view class='right-arrow'></view>
+</view>
+
+<view class='form-item b-1px-b'>名片模板</view>
+

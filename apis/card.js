@@ -67,6 +67,9 @@ export default {
 	getPhone(param) {
 		return req.post("api/mingpian_card/getPhone", param)
 	},
-	
+	//获取分享话术列表
+	getVerbalList(param) {
+		return req.post("api/mingpian_sharewords/dataList", param)
+	}
 
 }
