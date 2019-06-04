@@ -31,7 +31,7 @@ Page({
     let {
       group_id
     } = options
-    let A = cardModel.getVerbalList({})
+    let A = cardModel.getVerbalList()
     console.log('A')
     console.log(A)
     that.setData({
