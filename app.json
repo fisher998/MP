@@ -3,6 +3,8 @@
     "pages/card/index/index",
     "pages/card/add/add",
     "pages/card/add/list",
+    "pages/card/add/custom",
+    "pages/card/verbal/verbal",
     "pages/card/addMore/addMore",
     "pages/card/addVoice/addVoice",
     "pages/card/square/square",
