@@ -12,5 +12,9 @@ export default {
 	// 兑换码加入vip
 	joinByCDK(param) {
 		return req.post("api/mingpian_redeem/validation", param)
+	},
+	//获取轮播图图片列表
+	getImagesList(param) {
+		return req.post("api/mingpian_operate/getlist", param)
 	}
 }

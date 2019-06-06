@@ -45,6 +45,7 @@
     "pages/ucenter/partner/partner",
     "pages/ucenter/partner/home",
     "pages/ucenter/partner/downline",
+    "pages/ucenter/operation/operation",
     "pages/ucenter/qiye/qiye",
     "pages/common/selectCity/selectCity",
     "pages/common/cropper/cropper",
