@@ -1,8 +1,13 @@
-<view class='form-item b-1px-b'>名片话术</view>
+<view class='cell-list-title'>名片话术</view>
 <view class="cell form-item b-1px-b" bindtap='goUrl' data-url='/pages/card/verbal/verbal'>
-  <view class=''>{{'你好，我是&&name&& ，这是我的名片，请惠存。'}}</view>
+  <view class=''>{{share_words||forword_words}}</view>
   <view class='right-arrow'></view>
 </view>
 
-<view class='form-item b-1px-b'>名片模板</view>
-
+<view class='cell-list-title'>名片模板</view>
+<view class="cell" bindtap="goUrl" data-url="/pages/card/template/template">
+  <view class="mingpian-card tp-box_item">
+    <image class='tp-box_img' src='http://longbing-card.oss-cn-beijing.aliyuncs.com/image//uploads/picture/32881556617843.png' mode='widthFix'></image>
+    <!-- <image class='tp-box_icon' src='/images/icon/checked.png' wx:if="{{index==tpIndex}}"></image> -->
+  </view>
+</view>

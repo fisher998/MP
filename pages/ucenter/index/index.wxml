@@ -45,8 +45,16 @@
     </view>
   </view>
 
-  <image class='u-ad' src='/images/uc/ad.png' bindtap='goUrl' data-url='/pages/ucenter/qiye/qiye' wx:if="{{pageConfig.qiye_switch==1}}"></image>
-
+  <!-- <image class='u-ad' src='/images/uc/ad.png' bindtap='goUrl' data-url='/pages/ucenter/qiye/qiye' wx:if="{{pageConfig.qiye_switch==1}}"></image> -->
+  <!-- 个人中心banner轮播 -->
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="false">
+    <block wx:for="{{imgUrls}}" wx:for-index="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="160rpx" bindtap='goUrl' data-url='/pages/ucenter/qiye/qiye' />
+      </swiper-item>
+    </block>
+  </swiper>
 
   <view class='space-lg b-1px-tb'></view>
 

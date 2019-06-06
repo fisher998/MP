@@ -70,6 +70,13 @@ export default {
 	//获取分享话术列表
 	getVerbalList(param) {
 		return req.post("api/mingpian_sharewords/dataList", param)
+	},
+	//提交自定义话术
+	saveVerbalDetail(param) {
+		return req.post("api/mingpian_sharewords/updateShare", param)
+	},
+	//获取所选分享话术
+	getShareVerbal(param) {
+		return req.post("api/mingpian_sharewords/info", param)
 	}
-
 }

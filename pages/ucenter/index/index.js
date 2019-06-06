@@ -11,6 +11,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgUrls: [
+      '/images/uc/ad.png',
+      '/images/uc/ad.png',
+    ],
+    bindTaps: [
+      '/pages/ucenter/qiye/qiye',
+      '/pages/ucenter/operation/operation'
+    ],
+    indicatorDots: false,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+
     loading: true,
     refresh: false,
     pageConfig: defaultPageInfo,
