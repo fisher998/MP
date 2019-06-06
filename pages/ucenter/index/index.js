@@ -1,7 +1,8 @@
 import util from '../../../utils/index.js';
 const regeneratorRuntime = util.regeneratorRuntime
 import {
-  userModel
+  userModel,
+  vipModel
 } from '../../../apis/index.js';
 
 let defaultPageInfo = util.getPageConfig(wx.getStorageSync('configInfo'), ["pay_switch", "open_partner", "tech_support", "qiye_switch"])
@@ -51,6 +52,9 @@ Page({
     let refresh = this.data.refresh;
     let [userInfo, configInfo] = await Promise.all([getApp().getUserInfo(refresh), getApp().getConfigInfo(refresh)]);
     let pageConfig = util.getPageConfig(configInfo, ["pay_switch", "open_partner", "tech_support", "qiye_switch"])
+    let data = await vipModel.getImagesList();
+    console.log('vip-model')
+    console.log(data)
     util.hideAll();
 
     that.setData({

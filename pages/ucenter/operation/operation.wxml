@@ -1,3 +1,45 @@
-<view>
-活动那个页面
+<view class="pd-lg flex-column-center fill-base b-1px-b" style='background:#2d2e2f;'>
+  <image src='{{userInfo.person_avatar_thumb||userInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar-circle mb-10'></image>
+  <view class='f-title c-base mb-10'>{{userInfo.name||"暂无名称"}}</view>
+  <view class='f-caption-lg c-placeholder'>
+    <block wx:if="{{userInfo.vip_level>1}}">{{["","","白银会员","黄金会员","钻石会员"][userInfo.vip_level]}},{{userInfo.vip_end_time}}到期
+    </block>
+    <block wx:else>{{userInfo.is_vip_success==1?"会员已过期,请续费!":"会员未开通"}}
+    </block>
+  </view>
+</view>
+
+<view class='pd-lg fill-base hd-cont' style="background-image: url(../../../images/uc/hdbg.png);">
+  <view class="card-cont">
+    <image src="../../../images/uc/30day.png" alt="" style="width:130rpx;height:50rpx;margin-bottom:20rpx;"></image>
+    <view class="b-cont">
+      <view style="display:flex;align-items:center;">
+        <image src="../../../images/uc/huodong-2.png" alt="" style="display:inline-block;width:27rpx;height:33rpx;margin-right:15rpx"></image>
+        <text style="font-size:36rpx;font-stretch:normal;letter-spacing:0rpx;color:#2d2e30;">6 月6 日运营活动 - 会员试用期</text>
+      </view>
+
+      <view style="width:100%;height:4rpx;border-bottom:solid 1rpx #d2d2d2;"></view>
+      <view style="width:100%;display:flex;justify-content:space-between;align-items:center">
+        <view style="display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;">
+          <view class="text-cont">
+            <text style="font-size:36rpx;color: #333333;margin-right:10rpx;">白银会员</text>
+            <image src="../../../images/uc/baiyinhuiyuan.png" style="width:31rpx;height:25rpx;"></image>
+            <text style="text-decoration:line-through;font-size:22rpx;color:#c2c0c0;margin-left:16rpx;margin-right:10rpx;">￥20</text>
+            <text style="font-size:16rpx;color:#b09835;background-color:#efe7ce;border-radius: 14px;">运营新手0.1元 送白银会员</text>
+          </view>
+           <view style="font-size:20rpx;color:#b09835;">活动时间：2019.06.21～2019.06.26</view>
+        </view>
+        <view style="font-size:46rpx;color:#b09835;">￥0.1</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="pd-lg fill-base confirm-con pb-10">
+  <button type='warn' class="btn" hover-class="btn-hover" bindtap='sendCDK'>{{"开通"}}</button>
+</view>
+<view class='fill-base pd-title'>活动说明：</view>
+<view class="pd-lg fill-base rules-con">
+  <view class="text-row">用户累计参加运营活动不超过3次可参加</view>
+  <view class="text-row">活动时间：2019.06.20--2019.07.20</view>
+  <view class="text-row">本次活动为白银会员试用，最终解释权归本平台所有</view>
 </view>
