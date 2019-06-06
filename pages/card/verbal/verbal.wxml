@@ -1,17 +1,19 @@
-<view class="form-item">{{'你好，我是&&name&& ，这是我的名片，请惠存。'}}</view>
-
 <view class="section section_gap pd-lg hf-radio">
   <radio-group class="group" bindchange="radioChange">
-    <view class="label-2" wx:for="{{radioItems}}" wx:for-index="index">
-      <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+    <view class="label-2" wx:for="{{radioItems}}" wx:for-index="index" wx:key="{{index}}">
+      <radio id="{{item.title}}" hidden value="{{item.title}}" checked="{{item.checked}}"></radio>
       <view class="label-2__icon">
         <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
       </view>
-      <label class="label-2__text" for="{{item.name}}">
-        <text wx:if="{{index<radioItems.length-1}}">{{item.name}}</text>
-        <textarea wx:else class="hf-textarea" placeholder='请输入您的自定义分享话术' bindinput='handerInputChange' data-key='mine_verbal' value='{{item.value}}' maxlength='30' placeholder-class='c-placeholder'></textarea>
+      <label class="label-2__text" for="{{item.title}}">
+        <text wx:if="{{index!=radioItems.length-1}}">{{item.title}}</text>
+        <textarea wx:else class="hf-textarea" bindinput='handerInputChange' data-key='{{index}}' value='{{item.title}}' maxlength='30' placeholder-class='c-placeholder'></textarea>
       </label>
     </view>
 
   </radio-group>
+</view>
+
+<view class='pd-lg'>
+  <button type='primary' bindtap='submit'>保存</button>
 </view>

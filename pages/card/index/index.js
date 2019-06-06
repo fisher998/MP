@@ -37,6 +37,7 @@ Page({
     let that = this;
     let refresh = this.data.refresh;
     let [allUserInfo, configInfo] = await Promise.all([getApp().getUserInfo(refresh), getApp().getConfigInfo(refresh)]);
+    let {share_words} = await cardModel.getShareVerbal()
     util.hideAll();
     let pageConfig = util.getPageConfig(configInfo, ["pay_switch", "open_partner", "forword_words", "tech_support", "radar","link_switch"])
     let userInfo = allUserInfo.card;
@@ -46,7 +47,8 @@ Page({
       pageConfig,
       partner_level,
       loading: false,
-      refresh: false
+      refresh: false,
+      share_words
     })
    
     if (!userInfo) {
@@ -132,7 +134,7 @@ Page({
       uid,
       person_avatar
     } = this.data.userInfo;
-    let forword_words = this.data.pageConfig.forword_words || "你好,我是&&name&&,邀你30秒免费做名片,相互收藏";
+    let forword_words = this.data.share_words || this.data.pageConfig.forword_words || "你好,我是&&name&&,邀你30秒免费做名片,相互收藏";
     forword_words = forword_words.replace(/&&name&&/g, name);
 
     return {

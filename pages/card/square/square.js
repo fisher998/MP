@@ -109,6 +109,8 @@ Page({
       infoCategoryList: category['info'],
       info_switch // 附近两组tab选项卡的 标识
     })
+    console.log("==============ad['card']==============")
+    console.log(ad['card'])
     util.hideAll()
     
     this.getList();

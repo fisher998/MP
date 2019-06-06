@@ -1,0 +1,26 @@
+.mingpian-card {
+  width: 100%;
+  /* height: 380rpx; */
+  padding: 32rpx;
+  overflow: hidden;
+}
+.form-item {
+  justify-content: space-between;
+}
+.tp-box_item{
+  position: relative;
+}
+.tp-box_img{
+  width: 100%;
+  height: 100%;
+  /* margin-top: 32rpx; */
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.tp-box_icon{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  left: 32rpx;
+  top:32rpx;
+}

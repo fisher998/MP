@@ -82,6 +82,7 @@ Page({
       other_uid,
       operate_id
     }), getApp().getConfigInfo(refresh), getApp().getUserInfo(refresh)])
+    let {share_words} = await cardModel.getShareVerbal()
   
     otherUserInfo.tel = otherUserInfo.is_private_tel?otherUserInfo.tel:"互相收藏后可见";
     
@@ -93,7 +94,8 @@ Page({
       pageConfig,
       showLogin,
       uid: wx.getStorageSync('userInfo').id,
-      refresh: false
+      refresh: false,
+      share_words
     })
     util.hideAll();
 
