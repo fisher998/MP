@@ -20,5 +20,9 @@ export default {
 	//获取运营活动详情
 	getActiveInfo(param) {
 		return req.post("api/mingpian_operate/info", param)
+	},
+	//运营活动开通vip
+	joinByActive(param) {
+		return req.post("api/mingpian_operate/order", param)
 	}
 }

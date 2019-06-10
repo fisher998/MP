@@ -27,7 +27,7 @@ Page({
     let { tech_support, vip_desc_imgs } = await getApp().getConfigInfo(refresh);
 		let activeInfo = await vipModel.getActiveInfo({id: this.data.id});
 		console.log('---------------------info---------------------')
-		console.log(activeInfo)
+		console.log(userInfo)
 		/*
 			create_time: "2019-06-10 12:35:30"
 			days: "12"
@@ -63,23 +63,35 @@ Page({
 			keyword:value
 		})
 	},
-	async sendCDK() {
-		let {status} = await vipModel.joinByCDK({redeem_code: this.data.keyword})
-		if (status == 1) { 
-			wx.showToast({
-				title: '兑换成功',
-				icon: 'success',
-				mask: true,
-				duration: 2000,
-				success: function () {
-					setTimeout(() => {
-						// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-						wx.switchTab({
-							url: '/pages/ucenter/index/index',
-						})
-					}, 2000);
-				}
-			})
+	//运营活动开通会员
+	async sendActive() {
+
+		util.showLoading()
+		let { order_info} = await vipModel.joinByActive({id: this.data.activeInfo.id,username:this.data.userInfo.name,name: this.data.activeInfo.name});
+		util.hideAll();
+		if (order_info) {
+			let status = await util.pay(order_info)
+			if (!status) return;
 		}
+		util.showSuccess('支付成功')
+		that.onPullDownRefresh();
+		getApp().getUserInfo(true)
+
+		// if (status == 1) { 
+		// 	wx.showToast({
+		// 		title: '兑换成功',
+		// 		icon: 'success',
+		// 		mask: true,
+		// 		duration: 2000,
+		// 		success: function () {
+		// 			setTimeout(() => {
+		// 				// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+		// 				wx.switchTab({
+		// 					url: '/pages/ucenter/index/index',
+		// 				})
+		// 			}, 2000);
+		// 		}
+		// 	})
+		// }
 	}
 })

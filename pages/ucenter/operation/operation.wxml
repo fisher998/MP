@@ -40,12 +40,12 @@
   </view>
 </view>
 <view class="pd-lg fill-base confirm-con pb-10">
-  <button type='warn' class="btn" hover-class="btn-hover" bindtap='sendCDK'>{{"开通"}}</button>
+  <button type='warn' class="btn" hover-class="btn-hover" bindtap='sendActive'>{{"开通"}}</button>
 </view>
 <view class='fill-base pd-title'>活动说明：</view>
 <view class="pd-lg fill-base rules-con">
-  <view class="text-row">1、用户累计参加运营活动不超过3次可参加</view>
+  <!-- <view class="text-row">1、用户累计参加运营活动不超过3次可参加</view>
   <view class="text-row">2、活动时间：2019.06.20--2019.07.20</view>
-  <view class="text-row">3、本次活动为白银会员试用，最终解释权归本平台所有</view>
+  <view class="text-row">3、本次活动为白银会员试用，最终解释权归本平台所有</view> -->
   <text class="text-row" style="line-height:40rpx;">{{activeInfo.desc}}</text>
 </view>
