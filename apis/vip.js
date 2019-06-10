@@ -16,5 +16,13 @@ export default {
 	//获取轮播图图片列表
 	getImagesList(param) {
 		return req.post("api/mingpian_operate/getlist", param)
+	},
+	//获取运营活动详情
+	getActiveInfo(param) {
+		return req.post("api/mingpian_operate/info", param)
+	},
+	//运营活动开通vip
+	joinByActive(param) {
+		return req.post("api/mingpian_operate/order", param)
 	}
 }

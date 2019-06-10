@@ -40,8 +40,8 @@
   align-items: center;
 }
 .hd-cont {
-  height:400rpx;
-  background-position: -1rpx -150rpx;
+  height:350rpx;
+  background-position: left -150rpx;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
