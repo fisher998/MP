@@ -51,7 +51,7 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:for-index="idx">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="160rpx" bindtap='goUrl' data-url='{{bindTaps[idx]}}' />
+        <image src="{{item.path}}" class="slide-image" width="355" height="160rpx" bindtap='goUrl' data-url='{{bindTaps[idx]+"?id="+item.id}}' />
       </swiper-item>
     </block>
   </swiper>

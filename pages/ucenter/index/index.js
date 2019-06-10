@@ -12,10 +12,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '/images/uc/ad.png',
-      '/images/uc/ad.png',
-    ],
     bindTaps: [
       '/pages/ucenter/qiye/qiye',
       '/pages/ucenter/operation/operation'
@@ -52,16 +48,30 @@ Page({
     let refresh = this.data.refresh;
     let [userInfo, configInfo] = await Promise.all([getApp().getUserInfo(refresh), getApp().getConfigInfo(refresh)]);
     let pageConfig = util.getPageConfig(configInfo, ["pay_switch", "open_partner", "tech_support", "qiye_switch"])
-    let data = await vipModel.getImagesList();
+    let imageList = await vipModel.getImagesList();
     console.log('vip-model')
-    console.log(data)
+    console.log(imageList)
+    let imgUrls = [{
+      id: null,
+      path: '/images/uc/ad.png',
+    }];
+    imageList.forEach((ele, index) => {
+      if (ele.path && ele.path[0] && ele.path[0].path_thumb) {
+        imgUrls.push({
+          id: ele.id,
+          path: ele.path[0].path_thumb
+        })
+      }
+    })
+    console.log(imgUrls)
     util.hideAll();
 
     that.setData({
       userInfo,
       pageConfig,
       loading: false,
-      refresh: false
+      refresh: false,
+      imgUrls
     })
   },
   /**
