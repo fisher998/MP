@@ -41,6 +41,7 @@
 }
 .hd-cont {
   height:350rpx;
+  background-image: url(https://longbing-card.oss-cn-beijing.aliyuncs.com/image/uploads/picture/2019-06-11/5cff1034cf251.png);
   background-position: left -150rpx;
   background-repeat: no-repeat;
   background-size: 100% 100%;

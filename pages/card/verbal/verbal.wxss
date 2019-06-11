@@ -3,12 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 15rpx;
 }
 .label-1__text, .label-2__text {
   display: inline-block;
   vertical-align: middle;
   width: 85%;
+  padding-bottom: 15rpx;
+  padding-top: 25rpx;
 }
 
 .label-1__icon {
@@ -63,8 +65,24 @@
 .hf-textarea {
   box-sizing: border-box;
   width:100%;
-  height:120rpx;
+  height:230rpx;
   border:1px solid #d5d5d5;
   border-radius:10rpx;
-  padding: 15rpx;
+  padding: 20rpx;
+}
+.hf-black {
+  color: rgb(51, 51, 51);
+}
+.hf-gray {
+  color: rgb(102, 102, 102);
+}
+.hf-black-textarea {
+  color: rgb(51, 51, 51);
+  border: 1px solid #a1a0a0;
+}
+.hf-gray-textarea {
+  color: rgba(102, 102, 102,0.48);
+  background: #efefef;
+  outline: none;
+  border: none;
 }

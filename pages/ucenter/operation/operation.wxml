@@ -1,4 +1,4 @@
-<view class="pd-lg flex-column-center fill-base b-1px-b" style='background:#2d2e2f;'>
+<view class="pd-lg flex-column-center fill-base" style='background:#2d2e2f;'>
   <image src='{{userInfo.person_avatar_thumb||userInfo.person_avatar||"/images/icon/default.svg"}}' class='avatar-circle mb-10'></image>
   <view class='f-title c-base mb-10'>{{userInfo.name||"暂无名称"}}</view>
   <view class='f-caption-lg c-placeholder'>
@@ -9,7 +9,8 @@
   </view>
 </view>
 
-<view class='pd-lg fill-base hd-cont' style="background-image: url(../../../images/uc/hdbg.png);">
+<!-- <view class='pd-lg fill-base hd-cont' style="background-image: url(../../../images/uc/hdbg.png);"> -->
+<view class='pd-lg fill-base hd-cont'>
   <view class="card-cont">
     <!-- <image src="../../../images/uc/30day.png" alt="" style="width:130rpx;height:50rpx;margin-bottom:20rpx;"></image> -->
     <view 
@@ -40,7 +41,8 @@
   </view>
 </view>
 <view class="pd-lg fill-base confirm-con pb-10">
-  <button type='warn' class="btn" hover-class="btn-hover" bindtap='sendActive'>{{"开通"}}</button>
+  <button type='warn' wx:if="{{!isDisabled&&!activeInfo.checked}}" class="btn" hover-class="btn-hover" bindtap='sendActive'>{{"开通"}}</button>
+  <button type='warn' wx:else style="background-color:#dbad64;opacity:0.56;" disabled="{{true}}" class="btn" hover-class="btn-hover" bindtap='sendActive'>{{activeInfo.checked?"您已参加过活动":isDisabled==1?"活动未开始":"活动已结束"}}</button>
 </view>
 <view class='fill-base pd-title'>活动说明：</view>
 <view class="pd-lg fill-base rules-con">

@@ -46,7 +46,7 @@
 	background: #fff;
 }
 .fixed-btn{
-	width: 280rpx;
+	width: 285rpx;
 	margin: 0;
 }
 .fixed-btn:last-child{
