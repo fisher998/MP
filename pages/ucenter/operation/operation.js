@@ -97,7 +97,7 @@ Page({
 	},
 	//运营活动开通会员
 	async sendActive() {
-
+		let that = this;
 		util.showLoading()
 		let { order_info} = await vipModel.joinByActive({id: this.data.activeInfo.id,username:this.data.userInfo.name,name: this.data.activeInfo.name});
 		util.hideAll();
@@ -105,9 +105,15 @@ Page({
 			let status = await util.pay(order_info)
 			if (!status) return;
 		}
-		util.showSuccess('支付成功')
-		this.onPullDownRefresh();
-		getApp().getUserInfo(true)
+		wx.showToast({
+			title: '支付成功',
+			success: function() {
+				setTimeout(() => {
+					that.onPullDownRefresh();
+					getApp().getUserInfo(true)
+				}, 2000);
+			}
+    })
 	},
 	onPullDownRefresh: function () {
     wx.showNavigationBarLoading()

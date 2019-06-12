@@ -9,8 +9,8 @@
   display: inline-block;
   vertical-align: middle;
   width: 85%;
-  padding-bottom: 15rpx;
-  padding-top: 25rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
 }
 
 .label-1__icon {
