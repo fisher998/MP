@@ -5,12 +5,11 @@
       <view class="label-2__icon">
         <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
       </view>
-      <label class="label-2__text" for="{{item.title}}">
+      <label class="label-2__text {{index<radioItems.length-1?'b-1px-b':''}} {{item.checked?'hf-black':'hf-gray'}}" for="{{item.title}}">
         <text wx:if="{{index!=radioItems.length-1}}">{{item.title}}</text>
-        <textarea wx:else class="hf-textarea" bindinput='handerInputChange' data-key='{{index}}' value='{{item.title}}' maxlength='30' placeholder-class='c-placeholder'></textarea>
+        <textarea wx:else class="hf-textarea {{item.checked?'hf-black-textarea':'hf-gray-textarea'}}" bindinput='handerInputChange' data-key='{{index}}' value='{{item.title}}' maxlength='30' placeholder-class='c-placeholder'></textarea>
       </label>
     </view>
-
   </radio-group>
 </view>
 

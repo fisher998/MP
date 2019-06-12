@@ -14,7 +14,11 @@ Page({
   data: {
     bindTaps: [
       '/pages/ucenter/qiye/qiye',
-      '/pages/ucenter/operation/operation'
+      '/pages/ucenter/operation/operation',
+      '/pages/ucenter/operation/operation',
+      '/pages/ucenter/operation/operation',
+      '/pages/ucenter/operation/operation',
+      '/pages/ucenter/operation/operation',
     ],
     indicatorDots: false,
     autoplay: true,
