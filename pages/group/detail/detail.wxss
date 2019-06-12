@@ -47,7 +47,8 @@
 }
 .fixed-btn{
 	width: 285rpx;
-	margin: 0;
+  margin: 0;
+  padding: 0rpx;
 }
 .fixed-btn:last-child{
 	margin-left: 16rpx;

@@ -106,21 +106,11 @@ Page({
 			if (!status) return;
 		}
 		util.showSuccess('支付成功')
-		that.onPullDownRefresh();
-		// getApp().getUserInfo(true)
-		wx.showToast({
-			title: '兑换成功',
-			icon: 'success',
-			mask: true,
-			duration: 2000,
-			success: function () {
-				setTimeout(() => {
-					// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-					wx.switchTab({
-						url: '/pages/ucenter/index/index',
-					})
-				}, 2000);
-			}
-		})
-	}
+		this.onPullDownRefresh();
+		getApp().getUserInfo(true)
+	},
+	onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()
+    this.firstLoad();
+  },
 })
