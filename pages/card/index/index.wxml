@@ -34,6 +34,7 @@
     </view>
     <view style='height:168rpx;' wx:if="{{pageConfig.radar.switch==1&&userInfo.radar.length>0}}"></view>
     <template is="tp{{userInfo.now_temp_id}}" data="{{userInfo,myself:true}}"></template>
+    <!-- <template is="tp{{5}}" data="{{userInfo,myself:true}}"></template> -->
     <view class='count-list'>
       <button class='share-btn count-item' form-type='submit' bindtap='goUrl' data-url='/pages/card/count/count?index=0'>
         <image src="/images/card/look.png" class='icon-lg'></image>
