@@ -15,7 +15,7 @@
             <image class='image-item fl ' mode='widthFix' src='{{item.content}}' wx:if="{{item.msg_type==2}}" bindtap='previewImage' data-src='{{item.content}}'></image>
 
             <view class='text-item fl text-item_left' wx:if="{{item.msg_type==3}}" style='width:430rpx;padding:32rpx;'>
-              <view>你好，这是我的名片，请惠存!</view>
+              <view>您好，这是我的名片，请惠存!</view>
               <image class='item3-img' mode='widthFix' src='{{item.content.share_img_url}}'></image>
               <button type='primary'  class='mt-lg' disabled='{{item.content.is_collect}}' bindtap='collect' data-index='{{index}}' data-id='{{item.content.card_id}}' data-uid='{{item.uid}}'>{{item.content.is_collect?"已收下":"收下"}}</button>
             </view>
@@ -28,7 +28,7 @@
             </view>
             <image class='image-item fr ' mode="widthFix" src='{{item.content}}' wx:if="{{item.msg_type==2}}" bindtap='previewImage' data-src='{{item.content}}'></image>
             <view class='text-item fr text-item_right' wx:if="{{item.msg_type==3}}" style='width:430rpx;padding:32rpx;'>
-              <view>你好，这是我的名片，请惠存!</view>
+              <view>您好，这是我的名片，请惠存!</view>
               <image class='item3-img' mode='widthFix' src='{{item.content.share_img_url}}'></image>
               
             </view>
