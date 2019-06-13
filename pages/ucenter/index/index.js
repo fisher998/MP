@@ -20,6 +20,7 @@ Page({
       '/pages/ucenter/operation/operation',
       '/pages/ucenter/operation/operation',
     ],
+    currentIdx: 0,
     indicatorDots: false,
     autoplay: true,
     interval: 5000,
@@ -47,14 +48,13 @@ Page({
     
   },
   async firstLoad() {
-   
     let that = this;
     let refresh = this.data.refresh;
     let [userInfo, configInfo] = await Promise.all([getApp().getUserInfo(refresh), getApp().getConfigInfo(refresh)]);
     let pageConfig = util.getPageConfig(configInfo, ["pay_switch", "open_partner", "tech_support", "qiye_switch"])
     let imageList = await vipModel.getImagesList();
-    console.log('vip-model')
-    console.log(imageList)
+    // console.log('vip-model')
+    // console.log(imageList)
     let imgUrls = [{
       id: null,
       path: '/images/uc/ad.png',
@@ -67,15 +67,16 @@ Page({
         })
       }
     })
-    console.log(imgUrls)
+    // console.log(imgUrls)
     util.hideAll();
-
+    let currentIdx = 0;
     that.setData({
       userInfo,
       pageConfig,
       loading: false,
       refresh: false,
-      imgUrls
+      imgUrls,
+      currentIdx
     })
   },
   /**
